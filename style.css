@@ -1,0 +1,17 @@
+ul{
+    display: inline-flex;
+    list-style: none;
+    float: right;
+    padding: 50px; 
+}
+
+li{
+    padding-left: 107px;
+}
+
+nav img{
+    margin-top: 45px;
+}
+nav ul li img{
+    margin-top: -18px;
+}
