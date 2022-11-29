@@ -2,23 +2,32 @@
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+nav{
+    margin-top: 45px;
+}
 ul{
-    display: inline-flex;
     list-style: none;
+    display: inline-flex;
     float: right;
-    padding-left: 50px; 
-    margin: 0px;
-    margin-top: 25px;
     margin-right: 15px;
+    margin-top: 25px;
 }
 
 li{
     padding-left: 107px;
+}
+
+li img{
+    margin-top: -8px;
+}
+
+li a{
+    text-decoration: none;
+    color:black;
     font-size: 25px;
 }
 
-.logo{
-    width: 250pc;
-    height: 70px;
-    margin: 0px;
+li a:hover{
+    color: #FDA509;
 }
+
