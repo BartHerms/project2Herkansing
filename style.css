@@ -1,17 +1,24 @@
+*{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+}
 ul{
     display: inline-flex;
     list-style: none;
     float: right;
-    padding: 50px; 
+    padding-left: 50px; 
+    margin: 0px;
+    margin-top: 25px;
+    margin-right: 15px;
 }
 
 li{
     padding-left: 107px;
+    font-size: 25px;
 }
 
-nav img{
-    margin-top: 45px;
-}
-nav ul li img{
-    margin-top: -18px;
+.logo{
+    width: 250pc;
+    height: 70px;
+    margin: 0px;
 }
