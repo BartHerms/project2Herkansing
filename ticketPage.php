@@ -6,8 +6,12 @@
     </head>
     <body>
         <?php
+            include 'classes/Klant.php';
+
             define("SERVER_IP", "localhost");
             $emailadressKlant = "test.klant@klanten.com";
+            $Klant = new Klant;
+
             $db = mysqli_connect(SERVER_IP, "root", null, "project2");
             if (isset($db)){
                 echo "succes <br>";
@@ -17,9 +21,8 @@
                 echo "succes <br>";
             }
 
-            foreach ($result->fetch_all() as &$field){
-                
-            }
+            $Klant->setKlant($result);
+            var_dump($Klant);
         ?>
     </body>
 </html>
