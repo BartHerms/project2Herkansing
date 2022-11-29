@@ -1,6 +1,8 @@
 *{
+    margin: 0;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
+
 }
 /*nav*/
 nav{
@@ -45,7 +47,7 @@ li a:hover{
     width: 500px;
     height: 83px;
     border: 1px solid purple;
-    margin-top: 50px;
+    
     margin-bottom: 50px;
 }
 .fastview{
@@ -54,9 +56,14 @@ li a:hover{
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
+    margin-top:50px;
 }
 
+.row h3{
+    margin-bottom: 10px;
+}
 h1{
     text-align: center;
+    margin-top: 50px;
 }
 
