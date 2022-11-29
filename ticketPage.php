@@ -10,11 +10,15 @@
             $emailadressKlant = "test.klant@klanten.com";
             $db = mysqli_connect(SERVER_IP, "root", null, "project2");
             if (isset($db)){
-                echo "succes";
+                echo "succes <br>";
             }
-            $result = $db->query("CALL getKlant()");
+            $result = $db->query("CALL getKlant('{$emailadressKlant}')");
             if (isset($result)){
-                echo "succes";
+                echo "succes <br>";
+            }
+
+            foreach ($result->fetch_all() as &$field){
+                
             }
         ?>
     </body>
