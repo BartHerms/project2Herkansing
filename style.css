@@ -4,12 +4,14 @@
 }
 nav{
     margin-top: 45px;
+    display: flex;
+    justify-content: space-between;
 }
 ul{
     list-style: none;
     display: inline-flex;
     float: right;
-    margin-right: 15px;
+    margin-right: 35px;
     margin-top: 25px;
 }
 
@@ -31,3 +33,6 @@ li a:hover{
     color: #FDA509;
 }
 
+#logo{
+    margin-left: 35px;
+}
