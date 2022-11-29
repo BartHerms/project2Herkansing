@@ -35,3 +35,22 @@ li a:hover{
 /*end nav */
 
 /*home*/
+.entry{
+    width: 500px;
+    height: 83px;
+    border: 1px solid purple;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.fastview{
+    width: 1500px;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+h1{
+    text-align: center;
+}
+
