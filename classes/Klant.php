@@ -1,5 +1,6 @@
 <?php
-	class Klant{
+	class Klant
+	{
 		private $emailadress = 'test@mail.com';
 		private $voornaam = 'John';
 		private $achternaam = 'Smith';
@@ -12,8 +13,8 @@
 			return $emailadress;
 		}
 
-		public function setEmailadress($input){
-			$this->$emailadress = $input;
+		public function setEmailadress(string $input) {
+			$this->emailadress = $input;
 		}
 
 		public function getVoornaam(){
@@ -21,7 +22,7 @@
 		}
 
 		public function setVoornaam($input){
-			$this->$voornaam = $input;
+			$this->voornaam = $input;
 		}
 
 		public function getAchternaam(){
@@ -29,7 +30,7 @@
 		}
 
 		public function setAchternaam($input){
-			$this->$achternaam = $input;
+			$this->achternaam = $input;
 		}
 
 		public function getWoonplaats(){
@@ -37,7 +38,7 @@
 		}
 
 		public function setWoonplaats($input){
-			$this->$woonplaats = $input;
+			$this->woonplaats = $input;
 		}
 
 		public function getAdres(){
@@ -45,7 +46,7 @@
 		}
 
 		public function setAdres($input){
-			$this->$adres = $input;
+			$this->adres = $input;
 		}
 
 		public function getBedrijf(){
@@ -53,7 +54,7 @@
 		}
 
 		public function setBedrijf($input){
-			$this->$bedrijf = $input;
+			$this->bedrijf = $input;
 		}
 
 		public function getTelefoonnummer(){
@@ -61,38 +62,19 @@
 		}
 
 		public function setTelefoonnummer($input){
-			$this->$telefoonnummer = $input;
+			$this->telefoonnummer = $input;
 		}
 
 		public function setKlant($queryResult){
 			$dbData = $queryResult->fetch_row();
-			var_dump($dbData);
-			for ($counter = 0; $counter <= 6; $counter++){	
-                switch ($counter) {
-                    case 0:
-						//$this->setEmailadress($dbData[$counter]);
-						$this->$emailadress = $dbData[$counter];
-						break;
-                    case 1:
-						$this->setVoornaam($dbData[$counter]);
-						break;
-                    case 2:
-						$this->setAchternaam($dbData[$counter]);
-						break;
-                    case 3:
-						$this->setWoonplaats($dbData[$counter]);
-						break;
-                    case 4:
-						$this->setAdres($dbData[$counter]);
-						break;
-                    case 5:
-						$this->setBedrijf($dbData[$counter]);
-						break;
-                    case 6:
-						$this->setTelefoonnummer($dbData[$counter]);
-						break;
-                }
-            }
+
+            $this->setEmailadress($dbData[0]);
+			$this->setVoornaam($dbData[1]);
+			$this->setAchternaam($dbData[2]);
+			$this->setWoonplaats($dbData[3]);
+			$this->setAdres($dbData[4]);
+			$this->setBedrijf($dbData[5]);
+			$this->setTelefoonnummer($dbData[6]);
 		}
 	}
 ?>
