@@ -1,11 +1,11 @@
 <?php
 	class Klant{
-		$voornaam = 'John';
-		$achternaam = 'Smith';
-		$woonplaats = 'City';
-		$adres = 'street 1';
-		$bedrijf = 'company';
-		$telefoonnummer = '+31(0114)123456';
+		private $voornaam = 'John';
+		private $achternaam = 'Smith';
+		private $woonplaats = 'City';
+		private $adres = 'street 1';
+		private $bedrijf = 'company';
+		private $telefoonnummer = '+31(0114)123456';
 
 		public function getVoornaam(){
 			return $voornaam;
