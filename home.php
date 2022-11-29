@@ -1,3 +1,19 @@
+<?php
+include 'Klant.php';
+
+define("SERVER_IP", "localhost");
+$emailadressKlant = "test.klant@klanten.com";
+$Klant = new Klant();
+
+$db = mysqli_connect(SERVER_IP, "root","root" , "project2");
+$result = $db->query("CALL getKlant('{$emailadressKlant}')");
+$db->close();
+$Klant->setKlant($result);
+$Knaam = $Klant->getVoornaam();
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +25,7 @@
 </head>
 <body>
     <?php include_once("menu/header.html"); ?>
-    <h1> Goedemorgen (Naam uit db)</h1>
+    <h1> Goedemorgen <?php print $Knaam;?></h1>
 
     <div class="fastview">
         <div class="row">
