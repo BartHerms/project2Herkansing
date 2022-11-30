@@ -1,24 +1,23 @@
 <?php
-	class Klant
-	{
+	class Klant{
 		private $emailadress = 'test@mail.com';
 		private $voornaam = 'John';
 		private $achternaam = 'Smith';
 		private $woonplaats = 'City';
 		private $adres = 'street 1';
-		private $bedrijf = 'company';
-		private $telefoonnummer = '+31(0114)123456';
+		private $bedrijf;
+		private $telefoonnummer;
 
 		public function getEmailadress(){
-			return $emailadress;
+			return $this->emailadress;
 		}
 
-		public function setEmailadress(string $input) {
+		public function setEmailadress($input) {
 			$this->emailadress = $input;
 		}
 
 		public function getVoornaam(){
-			return $voornaam;
+			return $this->voornaam;
 		}
 
 		public function setVoornaam($input){
@@ -26,7 +25,7 @@
 		}
 
 		public function getAchternaam(){
-			return $achternaam;
+			return $this->achternaam;
 		}
 
 		public function setAchternaam($input){
@@ -34,7 +33,7 @@
 		}
 
 		public function getWoonplaats(){
-			return $woonplaats;
+			return $this->woonplaats;
 		}
 
 		public function setWoonplaats($input){
@@ -42,7 +41,7 @@
 		}
 
 		public function getAdres(){
-			return $adres;
+			return $this->adres;
 		}
 
 		public function setAdres($input){
@@ -50,7 +49,7 @@
 		}
 
 		public function getBedrijf(){
-			return $bedrijf;
+			return $this->bedrijf;
 		}
 
 		public function setBedrijf($input){
@@ -58,7 +57,7 @@
 		}
 
 		public function getTelefoonnummer(){
-			return $telefoonnummer;
+			return $this->telefoonnummer;
 		}
 
 		public function setTelefoonnummer($input){
