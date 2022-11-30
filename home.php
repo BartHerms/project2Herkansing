@@ -1,14 +1,9 @@
 <?php
 include 'Klant.php';
+include 'functions.php';
 
-define("SERVER_IP", "localhost");
-$emailadressKlant = "test.klant@klanten.com";
 $Klant = new Klant();
-
-$db = mysqli_connect(SERVER_IP, "root","root" , "project2");
-$result = $db->query("CALL getKlant('{$emailadressKlant}')");
-$db->close();
-$Klant->setKlant($result);
+getKlantProcedure($Klant);
 $Knaam = $Klant->getVoornaam();
 
 

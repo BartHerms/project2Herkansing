@@ -10,7 +10,7 @@
 		private $telefoonnummer = '+31(0114)123456';
 
 		public function getEmailadress(){
-			return $emailadress;
+			return $this->emailadress;
 		}
 
 		public function setEmailadress(string $input) {
@@ -26,7 +26,7 @@
 		}
 
 		public function getAchternaam(){
-			return $achternaam;
+			return $this->achternaam;
 		}
 
 		public function setAchternaam($input){
@@ -34,7 +34,7 @@
 		}
 
 		public function getWoonplaats(){
-			return $woonplaats;
+			return $this->woonplaats;
 		}
 
 		public function setWoonplaats($input){
@@ -42,7 +42,7 @@
 		}
 
 		public function getAdres(){
-			return $adres;
+			return $this->adres;
 		}
 
 		public function setAdres($input){
@@ -50,7 +50,7 @@
 		}
 
 		public function getBedrijf(){
-			return $bedrijf;
+			return $this->bedrijf;
 		}
 
 		public function setBedrijf($input){
@@ -58,7 +58,7 @@
 		}
 
 		public function getTelefoonnummer(){
-			return $telefoonnummer;
+			return $this->telefoonnummer;
 		}
 
 		public function setTelefoonnummer($input){
