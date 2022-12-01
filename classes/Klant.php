@@ -75,5 +75,14 @@
 			$this->setBedrijf($dbData[5]);
 			$this->setTelefoonnummer($dbData[6]);
 		}
+
+		//a function that executes the getKlant stored procedure.
+        //it fills a Klant instance with info form the database
+        function getKlantProcedure($Klant){
+            $db = mysqli_connect(SERVER_IP, "root", null, "project2");
+            $result = $db->query("CALL getKlant('{$Klant->getEmailadress()}')");
+            $db->close();
+            $Klant->setKlant($result);
+         }
 	}
 ?>

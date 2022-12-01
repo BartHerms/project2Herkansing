@@ -36,5 +36,14 @@
 		public function setBeschikbaar($input){
 			$this->beschikbaar = $input;
 		}
+
+		public function setDienst($queryResult){
+			$dbData = $queryResult->fetch_row();
+
+			$this->setId($dbData[0]);
+			$this->setNaam($dbData[0]);
+			$this->setOmschrijving($dbData[0]);
+			$this->setBeschikbaar($dbData[0]);
+		}
 	}
 ?>

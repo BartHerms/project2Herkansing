@@ -7,31 +7,31 @@
     <body>
         <?php
             include 'classes/Klant.php';
+            include 'classes/Dienst.php';
 
             define("SERVER_IP", "localhost"); 
             $Klant = new Klant();
             $Klant->setEmailadress("test.klant@klanten.com");
-
-            //a function that executes the getKlant stored procedure.
-            //it fills a Klant instance with info form the database
-            function getKlantProcedure($Klant){
-                $db = mysqli_connect(SERVER_IP, "root", null, "project2");
-                $result = $db->query("CALL getKlant('{$Klant->getEmailadress()}')");
-                $db->close();
-                $Klant->setKlant($result);
-            }
-
+            
             //a function that executes teh getDienstenOfKlantProcedur
             //it fills an array of Dienst instances with Diensten that the Klant has.
             function getDienstOfKlantProcedure($Klant){
+			    $dienstenArray[] = array();
                 $db = mysqli_connect(SERVER_IP, "root", null, "project2");
-                $result = $db->query("CALL getDienstOfKlantProcedure('{$Klant->getEmailadress()}')");
+                $result = $db->query("CALL getDienstenOfKlant('{$Klant->getEmailadress()}')");
                 $db->close();
-            }
-            
-            getKlantProcedure($Klant);
-            var_dump($Klant);
+                $rowCount = $result->num_rows;
 
+			    for ($counter = 1; $counter <= $rowCount; $counter++){
+				    $Dienst = new Dienst();
+				    $Dienst->setDienst($result);
+				    array_push($dienstenArray, $Dienst);
+			    }
+			    var_dump($dienstenArray);
+            }
+
+            $Klant->getKlantProcedure($Klant);
+            getDienstOfKlantProcedure($Klant);
         ?>
 
         <form>
@@ -39,5 +39,6 @@
                 
             </select>
         </form>
+
     </body>
 </html>
