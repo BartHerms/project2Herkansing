@@ -66,6 +66,7 @@
 
 		public function setKlant($queryResult){
 			$dbData = $queryResult->fetch_row();
+			$dbData = array_pad($dbData, 7, NULL);
 
             $this->setEmailadress($dbData[0]);
 			$this->setVoornaam($dbData[1]);

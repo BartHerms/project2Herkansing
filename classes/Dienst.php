@@ -39,11 +39,12 @@
 
 		public function setDienst($queryResult){
 			$dbData = $queryResult->fetch_row();
+			$dbData = array_pad($dbData, 4, NULL);
 
 			$this->setId($dbData[0]);
-			$this->setNaam($dbData[0]);
-			$this->setOmschrijving($dbData[0]);
-			$this->setBeschikbaar($dbData[0]);
+			$this->setNaam($dbData[1]);
+			$this->setOmschrijving($dbData[2]);
+			$this->setBeschikbaar($dbData[3]);
 		}
 	}
 ?>
