@@ -19,4 +19,20 @@ function getMedewerkerProcedure($Medewerker){
     $Medewerker->setMedewerker($result);
 }
 
+function getRecentTicketsFromDb(){
+    $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
+        $result = $db->query("CALL getTickets()");
+        $db->close();
+        $rowCount = $result->num_rows;
+
+        for ($counter = 1; $counter <= $rowCount; $counter++){
+            $Ticket = new Ticket();
+            $Ticket->setTicket($result);
+            echo "<a href='' class='entry'>{$Ticket->getOnderwerp()} <br> {$Ticket->getStatus()}</a>";
+           
+        }
+}
+
+
+
 ?>

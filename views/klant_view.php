@@ -10,8 +10,9 @@ include_once("menu/header.html");
 <div class="fastview">
         <div class="row">
         <h3>Laatste tickets</h3>
-            <div class="entry">
-                <p> onderwerp ticket </p>
+        <?php getRecentTicketsFromDb(); ?>
+            <!--<div class="entry">
+                <p>  </p>
             </div>
             <div class="entry">
                 <p> onderwerp ticket </p>
@@ -21,7 +22,7 @@ include_once("menu/header.html");
             </div>
             <div class="entry">
                 <p> onderwerp ticket </p>
-            </div>
+            </div>-->
         </div>    
         <div class="row">
             <h3>Mijn diensten</h3>

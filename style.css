@@ -45,9 +45,18 @@ li a:hover{
 /*home*/
 .entry{
     width: 500px;
-    height: 83px;
+    height: 50px;
     border: 1px solid black;
     margin-bottom: 50px;
+    display: flex;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+
+.entry:hover{
+    color:#FDA509;
 }
 .fastview{
     width: 1500px;

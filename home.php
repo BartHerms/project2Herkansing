@@ -1,6 +1,7 @@
 <?php
 include 'classes/Klant.php';
 include 'classes/medewerker.php';
+include 'classes/ticket.php';
 include 'functions.php';
 
 
@@ -17,7 +18,7 @@ include 'functions.php';
 <body>
  
     <?php
-     $isKlant = 0;
+     $isKlant = 1;
         if($isKlant){
             include_once("views/klant_view.php");
         } else if (!$isKlant){
