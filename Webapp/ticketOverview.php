@@ -7,19 +7,18 @@
     <body>
         <?php
             include 'classes/Ticket.php';
+            include 'function.php';
 
             define("SERVER_IP", "localhost"); 
-            
-            $db = mysqli_connect(SERVER_IP, "root", null, "project2");
-            $result = $db->query("CALL getTickets()");
-            $db->close();
-            $rowCount = $result->num_rows;
 
-            for ($counter = 1; $counter <= $rowCount; $counter++){
-                $Ticket = new Ticket();
-                $Ticket->setTicket($result);
-                echo "<div>'{$Ticket->getOnderwerp()}'</div>";
-            }
         ?>
+        <main>
+        <div><h1>Tickets</h1></div>
+        <div id="ticketList">
+            <?php
+                getTicketsFromDb();
+            ?>
+        </div>
+        </main>
     </body>
 </html>
