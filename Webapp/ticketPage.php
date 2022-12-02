@@ -16,8 +16,8 @@
             $optionArray = array();
 
             $Klant->getKlantProcedure($Klant);
-            $optionArray = getDienstOfKlantProcedure($Klant);
-            processForm($Klant);
+            $optionArray = $Klant->getDienstOfKlantProcedure();
+            
         ?>
 
         <form action="ticketFormProcess.php" method="POST">

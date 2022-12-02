@@ -14,7 +14,7 @@
             $Klant = new Klant();
             $Klant->setEmailadress("test.klant@klanten.com");
 
-	        processForm($Klant);
+	        $Klant->processForm();
         ?>
 
         <h1>Thanks for ticket mjen</h1>
