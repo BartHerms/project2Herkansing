@@ -33,7 +33,7 @@
             return $this->$administrator;
         }
 
-        public function serAdmin($input){
+        public function setAdmin($input){
              $this->$administrator = $input;
         }
 
