@@ -67,3 +67,21 @@ h1{
     margin-top: 50px;
 }
 
+.boxitem{
+    height: 268px;
+    width: 346px;
+    background-color:#FDA509;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.boxitem p{
+    color: white;
+    text-align: center;
+    margin-top: 35%;
+    font-size: 25px;
+}
+
+.margin_employee{
+    margin-top: 80px;
+}

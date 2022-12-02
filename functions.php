@@ -1,8 +1,6 @@
 <?php
 
 
- 
-
 function getKlantProcedure($Klant){
     define("SERVER_IP", "localhost");
     $emailadressKlant = "test.klant@klanten.com";

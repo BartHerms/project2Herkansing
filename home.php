@@ -21,39 +21,18 @@ $Knaam = $Klant->getVoornaam();
 <body>
     <?php include_once("menu/header.html"); ?>
     <h1> Goedemorgen <?php print $Knaam;?></h1>
-
-    <div class="fastview">
-        <div class="row">
-        <h3>Laatste tickets</h3>
-            <div class="entry">
-                <p> onderwerp ticket </p>
-            </div>
-            <div class="entry">
-                <p> onderwerp ticket </p>
-            </div>
-            <div class="entry">
-                <p> onderwerp ticket </p>
-            </div>
-            <div class="entry">
-                <p> onderwerp ticket </p>
-            </div>
-        </div>    
-        <div class="row">
-            <h3>Mijn diensten</h3>
-            <div class="entry">
-                <p> onderwerp ticket </p>
-            </div>
-            <div class="entry">
-                <p> onderwerp ticket </p>
-            </div>
-            <div class="entry">
-                <p> onderwerp ticket </p>
-            </div>
-            <div class="entry">
-                <p> onderwerp ticket </p>
-            </div>
-        </div>    
-    </div>
+    <?php
+     $isGeenMederwerker;
+        if($isGeenMederwerker){
+            include_once("klant_view.php");
+        } else if (!$isGeenMederwerker){
+            include_once("emplyee_view.php");
+        } else{
+            Print("404 pagina niet gevonden");
+        }
+        
+     ?>
+   
 
 </body>
 </html>
