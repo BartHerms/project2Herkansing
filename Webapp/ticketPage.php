@@ -17,7 +17,6 @@
 
             $Klant->getKlantProcedure($Klant);
             $optionArray = $Klant->getDienstOfKlantProcedure();
-            
         ?>
 
         <form action="ticketFormProcess.php" method="POST">

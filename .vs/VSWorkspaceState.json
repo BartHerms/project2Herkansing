@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\classes",
-    "\\sql"
+    "\\Webapp",
+    "\\Webapp\\classes"
   ],
-  "SelectedNode": "\\ticketPage.php",
+  "SelectedNode": "\\Webapp\\classes\\Klant.php",
   "PreviewInSolutionExplorer": false
 }

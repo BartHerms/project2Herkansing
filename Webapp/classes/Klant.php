@@ -1,10 +1,10 @@
 <?php
 	class Klant{
-		private $emailadress = 'test@mail.com';
-		private $voornaam = 'John';
-		private $achternaam = 'Smith';
-		private $woonplaats = 'City';
-		private $adres = 'street 1';
+		private $emailadress;
+		private $voornaam;
+		private $achternaam;
+		private $woonplaats;
+		private $adres;
 		private $bedrijf;
 		private $telefoonnummer;
 
