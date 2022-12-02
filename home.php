@@ -1,6 +1,6 @@
 <?php
-include 'Klant.php';
-include 'medewerker.php';
+include 'classes/Klant.php';
+include 'classes/medewerker.php';
 include 'functions.php';
 
 
@@ -17,11 +17,11 @@ include 'functions.php';
 <body>
  
     <?php
-     !$isKlant;
+     $isKlant = 0;
         if($isKlant){
-            include_once("klant_view.php");
+            include_once("views/klant_view.php");
         } else if (!$isKlant){
-            include_once("emplyee_view.php");
+            include_once("views/emplyee_view.php");
         } else{
             Print("404 pagina niet gevonden");
         }
