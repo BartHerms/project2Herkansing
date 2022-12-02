@@ -46,13 +46,11 @@ li a:hover{
 .entry{
     width: 500px;
     height: 83px;
-    border: 1px solid purple;
-    
+    border: 1px solid black;
     margin-bottom: 50px;
 }
 .fastview{
     width: 1500px;
-    border: 1px solid blue;
     display: flex;
     justify-content: space-around;
     margin: 0 auto;

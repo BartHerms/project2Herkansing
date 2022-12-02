@@ -1,6 +1,8 @@
 <?php
 include 'Klant.php';
+include 'medewerker.php';
 include 'functions.php';
+
 
 ?>
 <!DOCTYPE html>
