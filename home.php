@@ -17,10 +17,10 @@ include 'functions.php';
 <body>
  
     <?php
-     $isGeenMederwerker = FALSE;
-        if($isGeenMederwerker){
+     !$isKlant;
+        if($isKlant){
             include_once("klant_view.php");
-        } else if (!$isGeenMederwerker){
+        } else if (!$isKlant){
             include_once("emplyee_view.php");
         } else{
             Print("404 pagina niet gevonden");
