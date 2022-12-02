@@ -2,12 +2,6 @@
 include 'Klant.php';
 include 'functions.php';
 
-$Klant = new Klant();
-getKlantProcedure($Klant);
-$Knaam = $Klant->getVoornaam();
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +13,9 @@ $Knaam = $Klant->getVoornaam();
     <title>Document</title>
 </head>
 <body>
-    <?php include_once("menu/header.html"); ?>
-    <h1> Goedemorgen <?php print $Knaam;?></h1>
+ 
     <?php
-     $isGeenMederwerker;
+     $isGeenMederwerker = FALSE;
         if($isGeenMederwerker){
             include_once("klant_view.php");
         } else if (!$isGeenMederwerker){
