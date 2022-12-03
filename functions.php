@@ -33,6 +33,23 @@ function getRecentTicketsFromDb(){
         }
 }
 
+function getDienstenProcedure(){
+    //define("SERVER_IP", "localhost");
+    $emailadressKlant = "test.klant@klanten.com";
+    $db = mysqli_connect("localhost", "root", "root", "project2");
+    $result = $db->query("CALL getDienstenOfKlant('{$emailadressKlant}')");
+    $db->close();
+    $rowCount = $result->num_rows;
+
+
+    for ($counter = 1; $counter <= $rowCount; $counter++){
+        $Dienst = new Dienst();
+        $Dienst->setDienst($result);
+        echo "<a href='' class='entry'>{$Dienst->getNaam()} <br> {$Dienst->getId()}</a>";
+       
+    }
+
+}
 
 
 ?>

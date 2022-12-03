@@ -56,7 +56,9 @@ li a:hover{
 
 
 .entry:hover{
-    color:#FDA509;
+    color:white;
+    background-color: #FDA509;
+    border: 1px solid #FDA509;
 }
 .fastview{
     width: 1500px;

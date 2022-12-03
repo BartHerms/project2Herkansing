@@ -2,6 +2,7 @@
 include 'classes/Klant.php';
 include 'classes/medewerker.php';
 include 'classes/ticket.php';
+include 'classes/dienst.php';
 include 'functions.php';
 
 
@@ -19,9 +20,9 @@ include 'functions.php';
  
     <?php
      $isKlant = 1;
-        if($isKlant){
+        if($isKlant){ 
             include_once("views/klant_view.php");
-        } else if (!$isKlant){
+        } else if (!isKlant){
             include_once("views/emplyee_view.php");
         } else{
             Print("404 pagina niet gevonden");
