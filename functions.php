@@ -1,6 +1,6 @@
 <?php
 
-
+//get the customer data
 function getKlantProcedure($Klant){
     define("SERVER_IP", "localhost");
     $emailadressKlant = "test.klant@klanten.com";
@@ -10,6 +10,7 @@ function getKlantProcedure($Klant){
     $Klant->setKlant($result);
 }
 
+//get employee data
 function getMedewerkerProcedure($Medewerker){
     define("SERVER_IP", "localhost");
     $emailadressMedewerker = "henk.henkerd@serviceit.nl";
@@ -19,6 +20,7 @@ function getMedewerkerProcedure($Medewerker){
     $Medewerker->setMedewerker($result);
 }
 
+//get the tickets based on customer email
 function getRecentTicketsFromDb(){
     $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
         $result = $db->query("CALL getTickets()");
@@ -33,6 +35,7 @@ function getRecentTicketsFromDb(){
         }
 }
 
+//get the services requested by customers
 function getDienstenProcedure(){
     //define("SERVER_IP", "localhost");
     $emailadressKlant = "test.klant@klanten.com";
