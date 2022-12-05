@@ -1,5 +1,6 @@
 <?php
-    class Dienst{
+    class Dienst
+	{
         private $id;
 		private $naam;
 		private $omschrijving;

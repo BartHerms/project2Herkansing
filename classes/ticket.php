@@ -1,5 +1,6 @@
 <?php
-	class Ticket{
+	class Ticket
+	{
 		private $id;
 		private $idOvereenkomst;
 		private $emailMedewerker;

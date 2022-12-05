@@ -1,6 +1,7 @@
 <?php
+$emailadressKlant = "test.klant@klanten.com"; //change hard codes email to email from cookie when login is ready
 $Klant = new Klant();
-getKlantProcedure($Klant);
+$Klant->getKlantProcedure($Klant, $emailadressKlant);
 $Knaam = $Klant->getVoornaam();
 
 
@@ -15,6 +16,6 @@ include_once("menu/header.html");
         </div>    
         <div class="row">
             <h3>Mijn diensten</h3>
-            <?php getDienstenProcedure(); ?>
+            <?php getDienstenProcedure($emailadressKlant); ?>
         </div>    
     </div>

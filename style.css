@@ -1,6 +1,6 @@
 *{
     margin: 0;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-light", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
 
 }
@@ -87,8 +87,8 @@ h1{
 .boxitem p{
     color: white;
     text-align: center;
-    margin-top: 35%;
-    font-size: 25px;
+    margin-top: 30%;
+    font-size: 45px;
 }
 
 .margin_employee{

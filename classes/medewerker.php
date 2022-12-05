@@ -1,5 +1,7 @@
 <?php
-    class Medewerker{
+
+    class Medewerker
+	{
         private $emailadres;
         private $voornaam;
         private $achternaam;
@@ -34,7 +36,7 @@
         }
 
         public function setAdmin($input){
-             $this->$administrator = $input;
+             $this->administrator = $input;
         }
 
         public function setMedewerker($queryResult){
@@ -44,7 +46,17 @@
 			$this->setVoornaam($dbData[1]);
 			$this->setAchternaam($dbData[2]);
             $this->setadmin($dbData[3]);
-        }    
+        } 
+		
+		//get employee data
+		public function getMedewerkerProcedure($Medewerker, $emailadressMedewerker){
+			define("SERVER_IP", "localhost");
+			$db = mysqli_connect(SERVER_IP, "root","root" , "project2");
+			$result = $db->query("CALL getMedewerker('{$emailadressMedewerker}')");
+			$db->close();
+			$Medewerker->setMedewerker($result);
+		}
+
     }
 
 ?>

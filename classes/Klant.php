@@ -76,5 +76,14 @@
 			$this->setBedrijf($dbData[5]);
 			$this->setTelefoonnummer($dbData[6]);
 		}
+
+		//get the customer data
+		public function getKlantProcedure($Klant, $emailadressKlant){
+			define("SERVER_IP", "localhost");
+			$db = mysqli_connect(SERVER_IP, "root","root" , "project2");
+			$result = $db->query("CALL getKlant('{$emailadressKlant}')");
+			$db->close();
+			$Klant->setKlant($result);
+		}
 	}
 ?>
