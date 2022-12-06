@@ -76,5 +76,13 @@
 			$this->setLogFile($dbData[5]);
 			$this->setOnderwerp($dbData[6]);
 		}
+
+		public function getSingleTicket(){
+			$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+		    $result = $db->query("CALL getSingleTicket({$this->getId()})");
+		    $db->close();
+
+			$this->setTicket($result);
+		}
 	}
 ?>
