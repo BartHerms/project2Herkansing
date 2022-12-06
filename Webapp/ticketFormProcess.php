@@ -1,14 +1,19 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title></title>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link href="style.css" type="text/css" rel="stylesheet">
+       <title>placeholder</title>
     </head>
     <body>
         <?php
 	        include 'classes/Klant.php';
             include 'classes/Dienst.php';
             include 'function.php';
+            
+            include_once 'menu/header.html';
 
             define("SERVER_IP", "localhost"); 
             $Klant = new Klant();
@@ -17,6 +22,8 @@
 	        $Klant->processForm();
         ?>
 
-        <h1>Thanks for ticket mjen</h1>
+        <main class='thanksMessage'>
+            <h1>Bedankt voor uw ticket</h1>
+        </main>
     </body>
 </html>
