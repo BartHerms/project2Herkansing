@@ -18,6 +18,7 @@ if($statement = mysqli_prepare($connection, $sql)) {
 
 mysqli_stmt_bind_result($statement, $adress, $postcode, $telephonenumber, $email);
 mysqli_stmt_store_result($statement);
+mysqli_stmt_fetch($statement);
 
 ?>
 <!DOCTYPE html>
@@ -49,7 +50,7 @@ mysqli_stmt_store_result($statement);
                     <input type="text" name="postcode" value="<?php echo $postcode; ?>">
 
                     <label for="name">Telefoon</label>
-                    <input type="int" name="telephone" value="<?php echo $telephone; ?>">
+                    <input type="int" name="telephone" value="<?php echo $telephonenumber; ?>">
 
                     <label for="email">Email</label>
                     <input type="email" name="email" value="<?php echo $email; ?>">
