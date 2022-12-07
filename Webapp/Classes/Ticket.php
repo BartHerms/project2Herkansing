@@ -92,17 +92,20 @@
 		}
 
 		public function processForm(){
-			var_dump($_POST);
-			echo '<br>';
 			if (isset($_POST['submitTicket'])){
-				$ticketText = filter_input(INPUT_POST, 'ticketText', FILTER_SANITIZE_STRING);
-				var_dump($ticketText);
-				echo '<br>';
+				$ticketText = filter_input(INPUT_POST, 'ticketText', FILTER_SANITIZE_STRING);;
 				if (!empty($ticketText)){
+					$ticketText = "{$ticketText} \n ================================================================ \n";
 					$this->pushTicket($ticketText);
-					var_dump($this);
-					echo '<br>';
 				}
+			}
+		}
+
+		public function addMedewerkerToTicket($emailMedewerker){
+			if (isset($_POST['assignMedewerker'])){
+				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+                $result = $db->query("CALL setMedewerkerToTicket('{$emailMedewerker}', '{$this->getId()}')");
+                $db->close();
 			}
 		}
 	}
