@@ -14,9 +14,12 @@
     flex-direction: row;
 }
 
+/*profilephoto block*/
 .profilephoto {
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
+    align-items: flex-start;
 }
 
 .profilephoto img {
@@ -28,15 +31,38 @@
     color: #FDA509;
 }
 
+/*profileinformation block*/
 .profileinformation {
     display: flex;
     flex-direction: column;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
     margin-top: 10px;
 }
 
+input[type=text], input[type=email], input[type=int] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 8px 0;
+    border: 1px solid #ccc;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #FDA509;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #df8f05;
+  }
 

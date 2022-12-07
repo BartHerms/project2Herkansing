@@ -1,24 +1,7 @@
 <?php
-$connection = mysqli_connect("localhost","root","","project2");
-
-if(!$connection){
-    DIE("Kan geen verbinding maken met database omdat: " . mysqli_error($connectie));
-}
-
-$sql = "SELECT adres, postcode, telefoonnummer, emailadress FROM klant";
-
-if($statement = mysqli_prepare($connection, $sql)) {
-    if(mysqli_stmt_execute($statement)) {
-       echo "Query succesvol uitgevoerd";
-    } else {
-        echo "Error tijdens uitvoeren van query";
-        die (mysqli_error($connection));
-    }
-}
-
-mysqli_stmt_bind_result($statement, $adress, $postcode, $telephonenumber, $email);
-mysqli_stmt_store_result($statement);
-mysqli_stmt_fetch($statement);
+include_once("functions/dbconnect.php");
+include_once("functions/getprofileinfo.php");
+include_once("functions/editprofileinfo.php");
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +24,7 @@ mysqli_stmt_fetch($statement);
         </div>
         <div class="item">
             <div class="profileinformation">
-                <h2>Jane Doe</h2>
+                <h2><?php echo $surname." ".$lastname; ?></h2>
                 <form action="" method="post">
                     <label for="adres">Adres</label>
                     <input type="text" name="adres" value="<?php echo $adress; ?>">
