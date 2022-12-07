@@ -1,5 +1,5 @@
 DELIMITER &&  
-CREATE PROCEDURE getTickets(IN selectedTicketId BIGINT)
+CREATE PROCEDURE getSingleTicket(IN selectedTicketId BIGINT)
 BEGIN
 SELECT ticket.id, ticket.idOvereenkomst, ticket.emailMedewerker, ticket.status, ticket.datum, ticket.logfile, dienst.naam
 FROM ticket LEFT JOIN overeenkomst

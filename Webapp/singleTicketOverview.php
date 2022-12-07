@@ -14,7 +14,6 @@
             $Ticket = new Ticket();
             $Ticket->setId(3);
             $Ticket->getSingleTicket();
-            var_dump($Ticket);
         ?>
         <main>
             <div>
@@ -26,11 +25,14 @@
             </div>
             <div>
                 <div>
-                /* insert onderwerp hier */
+                    <?php
+                        echo "<p>{$Ticket->getOnderwerp()}</p>";
+                    ?>
                 </div>
-                <textarea>
-                /* insert vraag hier */
-                </textarea>
+                <form action="ticketUpdateFormProcess.php" method="POST">
+                    <textarea name="ticketText" required><?php echo $Ticket->getLogfile(); ?></textarea>
+                    <input class='button' type="submit" name="submitTicket" value="Aanmaken">
+                </form>
             </div>
         </main>
     </body>
