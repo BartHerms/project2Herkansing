@@ -31,5 +31,18 @@ function getDienstenProcedure($emailadressKlant){
 
 }
 
+function getCustomerList(){
+    $db = mysqli_connect("localhost", "root", "root", "project2");
+    $result = $db->query("CALL getKlantNaam()");
+    $db->close();
+    $rowCount = $result->num_rows;
+
+    for ($counter = 1; $counter <= $rowCount; $counter++){
+        $Klant = new Klant();
+        $Klant->setKlant($result);
+        echo "<a href='' class='entry'>{$Klant->getVoornaam()} {$Klant->getAchternaam()} </a>";
+       
+    }
+}
 
 ?>

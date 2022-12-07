@@ -1,0 +1,6 @@
+DELIMITER &&
+CREATE PROCEDURE getKlantInfo()
+BEGIN
+SELECT *
+FROM klant; 
+END &&
