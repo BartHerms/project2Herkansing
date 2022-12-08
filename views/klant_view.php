@@ -7,7 +7,7 @@ $Knaam = $Klant->getVoornaam();
 
 include_once("menu/header.html");
 ?>
-<h1> Goedemorgen <?php print $Knaam;?></h1>
+<h1> Goedemorgen <?php echo $Knaam;?></h1>
 
 <div class="fastview">
         <div class="row">

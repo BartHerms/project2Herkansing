@@ -4,6 +4,10 @@
   Helvetica, Arial, "Lucida Grande", sans-serif;
 
 }
+
+.screen{
+    width: 10;
+}
 /*nav*/
 nav{
     margin-top: 45px;
@@ -14,7 +18,7 @@ ul{
     list-style: none;
     display: inline-flex;
     float: right;
-    margin-right: 35px;
+    margin-right: 130px;
     margin-top: 25px;
 }
 
@@ -37,7 +41,7 @@ li a:hover{
 }
 
 #logo{
-    margin-left: 35px;
+    margin-left: 153px;
 }
 
 /*end nav */
