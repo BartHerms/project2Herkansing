@@ -1,4 +1,4 @@
-<?php include_once './utils/dbconnect.php' ?>
+<?php include 'LoginKlant.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,39 +15,58 @@
 
 
 <?php
-
-if(isset($_REQUEST['submit']))
+if(isset($_POST['submitlogin']))
 {
-$userEmail = $_REQUEST['email'];
-$userPassword = $_REQUEST['password'];
+    $userEmail = $_POST['email'];
+    $userPassword = $_POST['password'];
 
-
-$res = "SELECT password FROM klant WHERE emailadress = ?";
-         $statement = mysqli_prepare($conn, $res);
-         mysqli_stmt_bind_param($statement, "s", $userEmail);
-         mysqli_stmt_execute($statement);
-         mysqli_stmt_bind_result($statement, $password);
-         mysqli_stmt_store_result($statement);
-         echo (mysqli_stmt_error($statement));
-// $result =  mysqli_stmt_fetch($statement);
-
-
-if (mysqli_stmt_num_rows($statement) == 1) {
-    while (mysqli_stmt_fetch($statement)) {
-        if (password_verify($userPassword, $password)) {
-            $_SESSION['useradress'] = $userEmail;
-           $_SESSION['userpassword'] = $userPassword;
-            header("mainPageTest.php");
-            echo "succes";
-        }
-        else {
-            header("location:Login.php?error=1");
-             echo "fail";
-                
-            }
-        }
+    $db = mysqli_connect("localhost", "root", "", "project2");
+    $result = $db->query("call getLoginValue('{$userEmail}')");
+    $db-> close();
+    $LoginKlant = new LoginKlant();
+    $LoginKlant-> setLoginKlant($result);
+    if ($LoginKlant-> getPassword() == $userPassword)
+    {
+        header("location:mainPageTest.php");
+    }
+    else
+    {
+        header("location:Login.php?error=1");
     }
 }
+
+//  var_dump($_POST);
+// if(isset($_POST['submitlogin']))
+// {
+// $userEmail = $_POST['email'];
+// $userPassword = $_POST['password'];
+
+// $res = "SELECT password FROM klant WHERE emailadress = test.klant@klanten.com";
+//          $statement = mysqli_prepare($conn, $res);
+//          mysqli_stmt_bind_param($statement, "s", $userEmail);
+//          mysqli_stmt_execute($statement);
+//          mysqli_stmt_bind_result($statement, $password);
+//          mysqli_stmt_store_result($statement);
+//          echo (mysqli_stmt_error($statement));
+// // $result =  mysqli_stmt_fetch($statement);
+
+
+// if (mysqli_stmt_num_rows($statement) == 1) {
+//     while (mysqli_stmt_fetch($statement)) {
+//         if (password_verify($userPassword, $password)) {
+//             $_SESSION['useradress'] = $userEmail;
+//            $_SESSION['userpassword'] = $userPassword;
+//             header("mainPageTest.php");
+//             echo "succes";
+//         }
+//         else {
+//             header("location:Login.php?error=1");
+//              echo "fail";
+                
+//             }
+//         }
+//     }
+// }
 // if(isset($result))
 // // password_verify(string $userPassword, string $result): bool
 //  {

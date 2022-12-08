@@ -1,5 +1,5 @@
-<?php include_once './utils/dbconnect.php' ?>
-<?php include_once 'loginhelper.php' ?>
+<?php include './utils/dbconnect.php' ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
     <link rel="stylesheet" type=text/css href="style.css">
+</head>
+    
 <body>
   <h1>Login</h1>
 
@@ -18,7 +19,7 @@
   <input type="text" id="email" name="email" required><br>
   <label for="password">wachtwoord</label><br>
   <input type="password" id="password" name="password" required><br><br>
-  <input type="submit" value="login" name="submit">
+  <input type="submit" value="login" name="submitlogin">
   <!-- <a href="Register.php">Register</a> -->
 </form>
 </body>
@@ -26,11 +27,11 @@
 </html>
 
 <?php
+var_dump($_POST);
+// $sql = "SELECT emailadress, password FROM klant";
+// $result = mysqli_query($conn, $sql);
 
-$sql = "SELECT emailadress, password FROM klant";
-$result = mysqli_query($conn, $sql);
-
-mysqli_close($conn);
+// mysqli_close($conn);
 
 if (isset($_REQUEST["error"]))
 $msg = "Invalid username or Password";
