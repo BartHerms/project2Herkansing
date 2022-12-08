@@ -185,3 +185,13 @@ main {
     text-decoration: none;
     color: black;
 }
+
+.icons {
+    border: none;
+    background-color: white;
+}
+
+.icons img {
+    width: 45px;
+    height: 45px;
+}

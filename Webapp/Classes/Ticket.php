@@ -108,5 +108,24 @@
                 $db->close();
 			}
 		}
+
+		public function updateStatus(){
+			if (isset($_POST['setStatusGreen'])){
+				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+                $result = $db->query("CALL setTicketStatus('1', '{$this->getID()}')");
+                $db->close();
+			}
+			elseif (isset($_POST['setStatusOrange'])){
+				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+                $result = $db->query("CALL setTicketStatus('2', '{$this->getID()}')");
+                $db->close();
+			}
+			elseif (isset($_POST['setStatusRed'])){
+				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+                $result = $db->query("CALL setTicketStatus('3', '{$this->getID()}')");
+                $db->close();
+			}
+
+		}
 	}
 ?>

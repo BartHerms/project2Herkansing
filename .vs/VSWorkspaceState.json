@@ -3,9 +3,10 @@
     "",
     "\\Webapp",
     "\\Webapp\\classes",
+    "\\Webapp\\icons",
     "\\Webapp\\menu",
     "\\Webapp\\sql"
   ],
-  "SelectedNode": "\\Webapp\\function.php",
+  "SelectedNode": "\\Webapp\\singleTicketOverview.php",
   "PreviewInSolutionExplorer": false
 }

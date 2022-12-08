@@ -21,6 +21,7 @@
             $Ticket = new Ticket();
             $Ticket->setId($_GET['TicketId']);
             $Ticket->addMedewerkerToTicket($emailMedewerker);
+            $Ticket->updateStatus();
             $Ticket->getSingleTicket();
             
         ?>
@@ -40,6 +41,19 @@
                                     
                                 ?></p>
                 <p>Beoordelen:</p>
+                <div>
+                    <form action=' <?php echo "singleTicketOverview.php?TicketId={$Ticket->getId()}"; ?>' method='POST'>  
+                        <button type="submit" name="setStatusGreen" class="icons">
+                            <img src="icons/icon-action-check_circle_24px.svg" />
+                        </button>
+                        <button type="submit" name="setStatusOrange" class="icons">
+                            <img src="icons/icon-alert-error_24px.svg" />
+                        </button>
+                        <button type="submit" name="setStatusRed" class="icons">
+                            <img src="icons/icon-navigation-close_24px.svg" />
+                        </button>
+                    </form>
+                </div>
             </div>
             <div class='rightDiv'>
                 <div class='onderwerpDiv formBox'>
