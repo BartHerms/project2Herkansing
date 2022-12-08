@@ -44,7 +44,7 @@ li a:hover{
 
 .container {
     display: flex;
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
 .item {
@@ -64,6 +64,8 @@ li a:hover{
 .profilephoto img {
     border: solid 1px white;
     border-radius: 10px;
+    width: 200px;
+    height: 200px;
 }
 
 .profilephoto a {

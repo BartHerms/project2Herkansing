@@ -14,13 +14,13 @@ include_once("functions/editprofileinfo.php");
     <title>Profiel</title>
 </head>
 <body>
-    <?php include_once("menu/header_empl.html"); ?>
+    <?php include_once("menu/header.html"); ?>
     <div class="container">
         <div class="item">
             <h1>Profiel</h1>
             <div class="profilephoto">
-                <img src="images/profilepicture.jpg" alt="test" width="200" height="200">
-                <a href="">Profielfoto wijzigen</a>
+                <img src="images/profilepicture.jpg" alt="test">
+                <a href="changeprofilepicture.php">Profielfoto wijzigen</a>
             </div>
         </div>
         <div class="item">
