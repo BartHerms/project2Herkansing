@@ -14,6 +14,7 @@ include_once("functions/editprofileinfo.php");
     <title>Profiel</title>
 </head>
 <body>
+    <?php include_once("menu/header_empl.html"); ?>
     <div class="container">
         <div class="item">
             <h1>Profiel</h1>
