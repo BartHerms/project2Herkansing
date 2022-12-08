@@ -1,6 +1,6 @@
 DELIMITER &&
 CREATE PROCEDURE getKlantInfo()
 BEGIN
-SELECT *
+SELECT emailadress, voornaam, achternaam, woonplaats, adres, bedrijf, telefoonnummer
 FROM klant; 
 END &&
