@@ -19,7 +19,7 @@
             $emailMedewerker = "peter.peterson@serviceit.nl";
 
             $Ticket = new Ticket();
-            $Ticket->setId(1);
+            $Ticket->setId($_GET['TicketId']);
             $Ticket->addMedewerkerToTicket($emailMedewerker);
             $Ticket->getSingleTicket();
             
