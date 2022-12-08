@@ -8,8 +8,8 @@
 </head>
 <body>
     <form action="loginhelper.php" method="post">
-    <input type="text" name="email">
-    <input type="password" name="password">
+    <input type="text" name="email" required>
+    <input type="password" name="password" required>
     <input type="submit" name="submitlogin">
     </form>
 </body>

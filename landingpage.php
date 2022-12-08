@@ -14,7 +14,7 @@ if (isset($_COOKIE["rememberLoggedIn"])) {
     <body>
         <div class="background centervertical">
             <img src="Logo" alt="Logo" class="logo">
-            <button class="button btnRight" type="button" onclick="location.href = './login.php';">Sign in</button>
+            <button class="button btnRight" type="button" onclick="location.href = './loginPagina.php';">Log in</button>
             </div>
         </div>
     </body>
