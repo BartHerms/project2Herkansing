@@ -40,7 +40,8 @@ function getCustomerList(){
     for ($counter = 1; $counter <= $rowCount; $counter++){
         $Klant = new Klant();
         $Klant->setKlant($result);
-        echo "<a href='' class='entry'><p>{$Klant->getVoornaam()} {$Klant->getAchternaam()}</p> </a>";
+        $Kemail = $Klant->getEmailadress();
+        echo "<a href='ind_klant.php?email=$Kemail' class='entry'><p>{$Klant->getVoornaam()} {$Klant->getAchternaam()}</p> </a>";
        
     }
 }
