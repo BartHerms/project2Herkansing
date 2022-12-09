@@ -57,7 +57,10 @@ li a:hover{
     color: black;
     text-align: center;
 }
-
+.entry p{
+    margin: 0 auto;
+    margin-top: 15px;
+}
 
 .entry:hover{
     color:white;

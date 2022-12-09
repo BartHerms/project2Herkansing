@@ -10,7 +10,7 @@ function getRecentTicketsFromDb(){
         for ($counter = 1; $counter <= $rowCount; $counter++){
             $Ticket = new Ticket();
             $Ticket->setTicket($result);
-            echo "<a href='' class='entry'>{$Ticket->getOnderwerp()} <br> {$Ticket->getStatus()}</a>";  
+            echo "<a href='' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
         }
 }
 
@@ -25,7 +25,7 @@ function getDienstenProcedure($emailadressKlant){
     for ($counter = 1; $counter <= $rowCount; $counter++){
         $Dienst = new Dienst();
         $Dienst->setDienst($result);
-        echo "<a href='' class='entry'>{$Dienst->getNaam()} <br> {$Dienst->getId()}</a>";
+        echo "<a href='' class='entry'><p>{$Dienst->getNaam()}</p></a>";
        
     }
 
