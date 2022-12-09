@@ -7,6 +7,6 @@
     "\\Webapp\\menu",
     "\\Webapp\\sql"
   ],
-  "SelectedNode": "\\Webapp\\singleTicketOverview.php",
+  "SelectedNode": "\\Webapp\\classes\\Ticket.php",
   "PreviewInSolutionExplorer": false
 }

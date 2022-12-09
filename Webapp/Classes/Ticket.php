@@ -1,12 +1,19 @@
 <?php
-	class Ticket{
+
+include 'classes/Medewerker.php';	
+
+class Ticket{
 		private $id;
 		private $idOvereenkomst;
-		private $emailMedewerker;
+		private $Medewerker;
 		private $status;
 		private $datum;
 		private $logfile;
 		private $onderwerp;
+
+		public function __construct(){
+			$this->Medewerker = new Medewerker();
+		}
 
 		public function getId(){
 			return $this->id;
@@ -24,12 +31,12 @@
 			$this->idOvereenkomst = $input;
 		}
 
-		public function getEmailMedewerker(){
-			return $this->emailMedewerker;
+		public function getMedewerker(){
+			return $this->Medewerker;
 		}
 
-		public function setEmailMedewerker($input){
-			$this->emailMedewerker = $input;
+		public function setMedewerker(){
+			$this->Medewerker->getMedewerkerProcedure();
 		}
 
 		public function getStatus(){
@@ -64,13 +71,20 @@
 			$this->onderwerp = $input;
 		}
 
+		public function error($check){
+			if(!$check){
+				header("Location: error.php"); 
+				die();
+			}
+		}
+
 		public function setTicket($queryResult){
 			$dbData = $queryResult->fetch_row();
 			$dbData = array_pad($dbData, 6, NULL);
 
 			$this->setId($dbData[0]);
 			$this->setIdOvereenkomst($dbData[1]);
-			$this->setEmailMedewerker($dbData[2]);
+			$this->Medewerker->setEmailadress($dbData[2]);
 			$this->setStatus($dbData[3]);
 			$this->setDatum($dbData[4]);
 			$this->setLogFile($dbData[5]);
@@ -79,7 +93,9 @@
 
 		public function getSingleTicket(){
 			$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+			$this->error($db);
 		    $result = $db->query("CALL getSingleTicket({$this->getId()})");
+			$this->error($result);
 		    $db->close();
 
 			$this->setTicket($result);
@@ -87,7 +103,9 @@
 
 		function pushTicket($ticketText){
 					$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+					$this->error($db);
 					$result = $db->query("CALL ticketUpdate('{$ticketText}', '{$this->getId()}')");
+					$this->error($result);
 					$db->close();
 		}
 
@@ -104,7 +122,9 @@
 		public function addMedewerkerToTicket($emailMedewerker){
 			if (isset($_POST['assignMedewerker'])){
 				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$this->error($db);
                 $result = $db->query("CALL setMedewerkerToTicket('{$emailMedewerker}', '{$this->getId()}')");
+				$this->error($result);
                 $db->close();
 			}
 		}
@@ -112,17 +132,23 @@
 		public function updateStatus(){
 			if (isset($_POST['setStatusGreen'])){
 				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$this->error($db);
                 $result = $db->query("CALL setTicketStatus('1', '{$this->getID()}')");
+				$this->error($result);
                 $db->close();
 			}
 			elseif (isset($_POST['setStatusOrange'])){
 				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$this->error($db);
                 $result = $db->query("CALL setTicketStatus('2', '{$this->getID()}')");
+				$this->error($result);
                 $db->close();
 			}
 			elseif (isset($_POST['setStatusRed'])){
 				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$this->error($db);
                 $result = $db->query("CALL setTicketStatus('3', '{$this->getID()}')");
+				$this->error($result);
                 $db->close();
 			}
 

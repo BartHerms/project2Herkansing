@@ -9,6 +9,7 @@
     </head>
     <body>
         <?php
+                
             include 'classes/Ticket.php';
             include 'function.php';
 
@@ -23,6 +24,7 @@
             $Ticket->addMedewerkerToTicket($emailMedewerker);
             $Ticket->updateStatus();
             $Ticket->getSingleTicket();
+            $Ticket->setMedewerker();
             
         ?>
         <main>
@@ -30,16 +32,17 @@
                 <h1>Tickets</h1>
                 <p>Nummer: <?php echo $Ticket->getId()?></p>
                 <p>Status: <?php echo $Ticket->getStatus()?></p>
-                <p>Behandelaar: <?php 
-                                    $medewerker = $Ticket->getEmailMedewerker();
-                                    if($medewerker != NULL){
-                                        echo $medewerker;
-                                    }
-                                    else{
-                                        echo "<form action='singleTicketOverview.php' method='POST'><input type='submit' name='assignMedewerker' value='Behandelen'></form>";
-                                    }
+                <p>Behandelaar: </p>
+                <p><?php 
+                    $medewerker = $Ticket->getMedewerker();
+                    if($medewerker != NULL){
+                        echo "{$medewerker->getVoornaam()} {$medewerker->getAchternaam()}";
+                    }
+                    else{
+                        echo "<form action='singleTicketOverview.php' method='POST'><input type='submit' name='assignMedewerker' value='Behandelen'></form>";
+                    }
                                     
-                                ?></p>
+                ?></p>
                 <p>Beoordelen:</p>
                 <div>
                     <form action=' <?php echo "singleTicketOverview.php?TicketId={$Ticket->getId()}"; ?>' method='POST'>  
