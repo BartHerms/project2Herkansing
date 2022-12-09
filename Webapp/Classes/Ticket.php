@@ -102,11 +102,11 @@ class Ticket{
 		}
 
 		function pushTicket($ticketText){
-					$db = mysqli_connect(SERVER_IP, "root", null, "project2");
-					$this->error($db);
-					$result = $db->query("CALL ticketUpdate('{$ticketText}', '{$this->getId()}')");
-					$this->error($result);
-					$db->close();
+			$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+			$this->error($db);
+			$result = $db->query("CALL ticketUpdate('{$ticketText}', '{$this->getId()}')");
+			$this->error($result);
+			$db->close();
 		}
 
 		public function processForm(){

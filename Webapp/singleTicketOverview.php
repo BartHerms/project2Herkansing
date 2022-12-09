@@ -31,32 +31,28 @@
             <div class='leftDiv'>
                 <h1>Tickets</h1>
                 <p>Nummer: <?php echo $Ticket->getId()?></p>
-                <p>Status: <?php echo $Ticket->getStatus()?></p>
-                <p>Behandelaar: </p>
-                <p><?php 
-                    $medewerker = $Ticket->getMedewerker();
-                    if($medewerker != NULL){
-                        echo "{$medewerker->getVoornaam()} {$medewerker->getAchternaam()}";
-                    }
-                    else{
-                        echo "<form action='singleTicketOverview.php' method='POST'><input type='submit' name='assignMedewerker' value='Behandelen'></form>";
-                    }
-                                    
-                ?></p>
-                <p>Beoordelen:</p>
-                <div>
+                <p>Status: <br>
+                    <?php 
+                        showStatusIcon($Ticket->getStatus());
+                    ?> 
+                </p>
+                <p>Behandelaar: <br>
+                    <?php 
+                        showMedewerkerNaam($Ticket->getMedewerker());              
+                    ?>
+                </p>
+                <p id='bottomP'>Beoordelen: </p>
                     <form action=' <?php echo "singleTicketOverview.php?TicketId={$Ticket->getId()}"; ?>' method='POST'>  
                         <button type="submit" name="setStatusGreen" class="icons">
-                            <img src="icons/icon-action-check_circle_24px.svg" />
+                            <img src="icons/icon-action-check_circle_24px.svg" alt='green check'/>
                         </button>
                         <button type="submit" name="setStatusOrange" class="icons">
-                            <img src="icons/icon-alert-error_24px.svg" />
+                            <img src="icons/icon-alert-error_24px.svg" alt='orange exclemation point'/>
                         </button>
                         <button type="submit" name="setStatusRed" class="icons">
-                            <img src="icons/icon-navigation-close_24px.svg" />
+                            <img src="icons/icon-navigation-close_24px.svg" alt='red cross'/>
                         </button>
                     </form>
-                </div>
             </div>
             <div class='rightDiv'>
                 <div class='onderwerpDiv formBox'>
