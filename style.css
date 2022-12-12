@@ -101,3 +101,109 @@ h1{
 .margin_employee{
     margin-top: 80px;
 }
+
+/*end home*/
+/*ticketpage*/
+main {
+    width: 1525px;
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto 0px auto;
+}
+
+.leftDiv {
+    width: 275px;
+}
+
+.leftDiv h1 {
+    font-size: 45px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.leftDiv p {
+    font-size: 25px;
+    margin: 0px 0px 25px 0px;
+}
+
+.rightDiv {
+    width: 1250px;
+}
+
+.rightDiv * {
+    font-size: 30px;
+}
+
+.rightDiv select {
+    height: 75px;
+    width: 1250px;
+}
+
+.rightDiv textarea {
+    height: 575px;
+    width: 1250px;
+}
+
+.formBox {    
+    margin: 0px auto 15px auto;
+    padding: 15px 15px 15px 15px;
+}
+
+.button {
+    width: 480px;
+    height: 40px;
+    background-color: #FDA509;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    border-radius: 25px;
+    margin: 0 auto;
+}
+
+.thanksMessage {
+    display: flex;
+    justify-content: center;
+}
+
+/*singleTicketOverview*/
+
+.onderwerpDiv {
+    border-style: solid;
+    border-width: 1px;
+    height: 93px;
+    display: flex;
+    align-items: center;
+}
+
+.ticketList {
+    width: 1250px;
+    height: 93px;
+    display: flex;
+    align-items: center;
+    margin: 0px auto 15px auto;
+    padding: 15px 15px 15px 15px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.rightDiv a {
+    text-decoration: none;
+    color: black;
+}
+
+.icons {
+    border: none;
+    background-color: white;
+}
+
+.icons img {
+    width: 45px;
+    height: 45px;
+}
+
+#bottomP {
+    font-size: 25px;
+    margin: 0px 0px 0px 0px;
+}
