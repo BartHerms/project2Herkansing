@@ -1,4 +1,19 @@
-﻿﻿<!DOCTYPE HTML>
+﻿<?php
+    include 'classes/Ticket.php';
+    include 'function.php';
+
+    define("SERVER_IP", "localhost"); 
+
+    $emailMedewerker = "peter.peterson@serviceit.nl";
+
+    $Ticket = new Ticket();
+    $Ticket->setId($_GET['TicketId']);
+    $Ticket->addMedewerkerToTicket($emailMedewerker);
+    $Ticket->updateStatus();
+    $Ticket->getSingleTicket();
+    $Ticket->setMedewerker();
+?>﻿
+<!DOCTYPE HTML>
 <html>
     <head>
        <meta charset="UTF-8">
@@ -9,23 +24,7 @@
     </head>
     <body>
         <?php
-                
-            include 'classes/Ticket.php';
-            include 'function.php';
-
-            include_once 'menu/header.html';
-
-            define("SERVER_IP", "localhost"); 
-
-            $emailMedewerker = "peter.peterson@serviceit.nl";
-
-            $Ticket = new Ticket();
-            $Ticket->setId($_GET['TicketId']);
-            $Ticket->addMedewerkerToTicket($emailMedewerker);
-            $Ticket->updateStatus();
-            $Ticket->getSingleTicket();
-            $Ticket->setMedewerker();
-            
+            include_once 'menu/header.html';   
         ?>
         <main>
             <div class='leftDiv'>

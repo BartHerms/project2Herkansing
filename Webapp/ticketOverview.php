@@ -1,4 +1,10 @@
-﻿﻿<!DOCTYPE HTML>
+﻿<?php
+    include 'classes/Ticket.php';
+    include 'function.php';
+
+    define("SERVER_IP", "localhost");
+?>﻿
+<!DOCTYPE HTML>
 <html>
     <head>
        <meta charset="UTF-8">
@@ -9,13 +15,7 @@
     </head>
     <body>
         <?php
-            include 'classes/Ticket.php';
-            include 'function.php';
-
             include_once 'menu/header.html';
-
-            define("SERVER_IP", "localhost"); 
-
         ?>
         <main>
             <div class='leftDiv'>
