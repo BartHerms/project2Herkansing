@@ -14,6 +14,8 @@ function getRecentTicketsFromDb(){
         }
 }
 
+
+// !!!!!DIT MOET EIGENLIJK IS KLANT.PHP!!!!!
 //get the services requested by customers
 function getDienstenProcedure($emailadressKlant){
     $db = mysqli_connect("localhost", "root", "root", "project2");
@@ -28,8 +30,17 @@ function getDienstenProcedure($emailadressKlant){
         echo "<a href='' class='entry'><p>{$Dienst->getNaam()}</p></a>";
        
     }
-
 }
 
-
+function makeOptionList($array){
+    if (!empty($array)){
+        foreach ($array as $DienstOfKlant){
+            $value = $DienstOfKlant->getNaam();
+            echo "<option value='{$value}'>{$value}</option>";
+        }
+    }
+    else{
+        echo "<option value='null'>U heeft alle diensten all</option>";
+    }
+}
 ?>

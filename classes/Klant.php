@@ -77,13 +77,39 @@
 			$this->setTelefoonnummer($dbData[6]);
 		}
 
+		public function error($check){
+			if(!$check){
+				header("Location: error.php"); 
+				die();
+			}
+		}
+
 		//get the customer data
 		public function getKlantProcedure($Klant, $emailadressKlant){
 			define("SERVER_IP", "localhost");
-			$db = mysqli_connect(SERVER_IP, "root","root" , "project2");
+			$db = mysqli_connect(SERVER_IP, "root", NULL, "project2");
+			$this->error($db);
 			$result = $db->query("CALL getKlant('{$emailadressKlant}')");
+			$this->error($result);
 			$db->close();
 			$Klant->setKlant($result);
+		}
+
+		//get the Diensten that the Klant doesn't have yet'
+		function getDienstenNotOfKlantProcedure(){
+			$dienstenArray = array();
+			$db = mysqli_connect(SERVER_IP, "root", NULL, "project2");
+			$this->error($db);
+			$result = $db->query("CALL getDienstenNotOfKlant('{$this->getEmailadress()}')");
+			$this->error($result);
+			$db->close();
+			$rowCount = $result->num_rows;
+			for ($counter = 1; $counter <= $rowCount; $counter++){
+				$DienstOfKlant = new Dienst();
+				$DienstOfKlant->setDienst($result);
+				array_push($dienstenArray, $DienstOfKlant);
+			}
+			return $dienstenArray;
 		}
 	}
 ?>
