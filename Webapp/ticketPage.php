@@ -1,4 +1,17 @@
-﻿<!DOCTYPE HTML>
+﻿<?php
+    include 'classes/Klant.php';
+    include 'classes/Dienst.php';
+    include 'function.php';
+    
+    define("SERVER_IP", "localhost"); 
+    $Klant = new Klant();
+    $Klant->setEmailadress("test.klant@klanten.com");
+    $optionArray = array();
+
+    $Klant->getKlantProcedure($Klant);
+    $optionArray = $Klant->getDienstOfKlantProcedure();
+?>
+<!DOCTYPE HTML>
 <html>
     <head>
        <meta charset="UTF-8">
@@ -9,19 +22,7 @@
     </head>
     <body>
         <?php
-            include 'classes/Klant.php';
-            include 'classes/Dienst.php';
-            include 'function.php';
-
             include_once 'menu/header.html';
-
-            define("SERVER_IP", "localhost"); 
-            $Klant = new Klant();
-            $Klant->setEmailadress("test.klant@klanten.com");
-            $optionArray = array();
-
-            $Klant->getKlantProcedure($Klant);
-            $optionArray = $Klant->getDienstOfKlantProcedure();
         ?>
         <main>
         <div class='leftDiv'>

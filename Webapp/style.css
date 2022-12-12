@@ -7,7 +7,7 @@
 /*nav*/
 nav{
     width: 1675px;
-    margin: 45px auto 0px auto;
+    margin: 0px auto 0px auto;
     display: flex;
     justify-content: space-between;
 }
@@ -118,12 +118,12 @@ main {
 }
 
 .rightDiv select {
-    height: 75px;
+    height: 93px;
     width: 1250px;
 }
 
 .rightDiv textarea {
-    height: 375px;
+    height: 575px;
     width: 1220px;
 }
 

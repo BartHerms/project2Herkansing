@@ -7,6 +7,7 @@
 		private $adres;
 		private $bedrijf;
 		private $telefoonnummer;
+		private $postcode;
 
 		public function getEmailadress(){
 			return $this->emailadress;
@@ -64,6 +65,14 @@
 			$this->telefoonnummer = $input;
 		}
 
+		public function getPostcode(){
+			return $this->postcode;
+		}
+
+		public function setPostcode($input){
+			$this->postcode = $input;
+		}
+
 		public function setKlant($queryResult){
 			$dbData = $queryResult->fetch_row();
 			$dbData = array_pad($dbData, 7, NULL);
@@ -75,6 +84,7 @@
 			$this->setAdres($dbData[4]);
 			$this->setBedrijf($dbData[5]);
 			$this->setTelefoonnummer($dbData[6]);
+			$this->setPostcode($dbData[7]);
 		}
 
 		//a function that executes the getKlant stored procedure.

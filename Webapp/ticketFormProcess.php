@@ -1,3 +1,14 @@
+<?php
+    include 'classes/Klant.php';
+    include 'classes/Dienst.php';
+    include 'function.php';
+            
+    define("SERVER_IP", "localhost"); 
+    $Klant = new Klant();
+    $Klant->setEmailadress("test.klant@klanten.com");
+
+	$Klant->processForm();
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -9,19 +20,8 @@
     </head>
     <body>
         <?php
-	        include 'classes/Klant.php';
-            include 'classes/Dienst.php';
-            include 'function.php';
-            
-            include_once 'menu/header.html';
-
-            define("SERVER_IP", "localhost"); 
-            $Klant = new Klant();
-            $Klant->setEmailadress("test.klant@klanten.com");
-
-	        $Klant->processForm();
+	        include_once 'menu/header.html';
         ?>
-
         <main class='thanksMessage'>
             <h1>Bedankt voor uw ticket</h1>
         </main>
