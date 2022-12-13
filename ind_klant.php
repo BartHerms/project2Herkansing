@@ -15,7 +15,7 @@ $Klant->getKlantProcedure($Klant, $emailadressKlant);
     <title>Document</title>
 </head>
 <body>
-<?php include_once("menu/header.html"); ?>
+<?php include_once("menu/header_empl.html"); ?>
     <div class="container">
         <div class="item">
             <h1>Profiel</h1>
@@ -27,7 +27,7 @@ $Klant->getKlantProcedure($Klant, $emailadressKlant);
         <div class="item">
             <div class="profileinformation">
                 <h2><?php echo $Klant->getVoornaam(); $Klant->getAchternaam();?></h2>
-                <form action="" method="post">
+                <form action="formactions.php" method="post">
                     <label for="adres">Adres</label>
                     <input type="text" name="adres" value="<?php echo $Klant->getAdres(); ?>">
 
@@ -40,7 +40,8 @@ $Klant->getKlantProcedure($Klant, $emailadressKlant);
                     <label for="email">Email</label>
                     <input type="email" name="email" value="<?php echo $Klant->getEmailadress(); ?>">
 
-                    <input type="submit" name="submit" value="Profiel wijzigen">
+                    <input type="submit" name="edit" value="Profiel wijzigen">
+                    <input type="submit" name="remove" value="Profiel verwijderen">
                 </form>
             </div>
         </div>

@@ -115,6 +115,7 @@ aside p{
 .container {
     display: flex;
     margin-top: 150px;
+   justify-content: center;
 }
 
 .item {
