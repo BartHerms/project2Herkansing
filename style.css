@@ -11,6 +11,7 @@
 /*nav*/
 nav{
     margin-top: 45px;
+
     display: flex;
     justify-content: space-between;
 }
@@ -32,8 +33,8 @@ li img{
 
 li a{
     text-decoration: none;
-    color:black;
     font-size: 25px;
+
 }
 
 li a:hover{
@@ -41,7 +42,9 @@ li a:hover{
 }
 
 #logo{
+
     margin-left: 153px;
+
 }
 
 /*end nav */
@@ -57,10 +60,12 @@ li a:hover{
     color: black;
     text-align: center;
 }
+
 .entry p{
     margin: 0 auto;
     margin-top: 15px;
 }
+
 
 .entry:hover{
     color:white;
@@ -113,6 +118,9 @@ main {
 
 .leftDiv {
     width: 275px;
+
+    font-size: 45px;
+
 }
 
 .leftDiv h1 {
@@ -124,6 +132,7 @@ main {
 .leftDiv p {
     font-size: 25px;
     margin: 0px 0px 25px 0px;
+
 }
 
 .rightDiv {
@@ -135,13 +144,14 @@ main {
 }
 
 .rightDiv select {
-    height: 75px;
+    height: 93px;
     width: 1250px;
 }
 
 .rightDiv textarea {
     height: 575px;
     width: 1250px;
+
 }
 
 .formBox {    
@@ -165,6 +175,7 @@ main {
 .thanksMessage {
     display: flex;
     justify-content: center;
+
 }
 
 /*singleTicketOverview*/
@@ -206,4 +217,5 @@ main {
 #bottomP {
     font-size: 25px;
     margin: 0px 0px 0px 0px;
+
 }
