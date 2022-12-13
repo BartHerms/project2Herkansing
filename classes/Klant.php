@@ -1,4 +1,5 @@
 <?php
+
 	class Klant{
 		private $emailadress;
 		private $voornaam;
@@ -9,11 +10,14 @@
 		private $telefoonnummer;
 		private $postcode;
 
+
 		public function getEmailadress(){
 			return $this->emailadress;
 		}
 
+
 		public function setEmailadress($input) {
+
 			$this->emailadress = $input;
 		}
 
@@ -65,6 +69,7 @@
 			$this->telefoonnummer = $input;
 		}
 
+
 		public function getPostcode(){
 			return $this->postcode;
 		}
@@ -77,6 +82,7 @@
 			$dbData = $queryResult->fetch_row();
 			$dbData = array_pad($dbData, 7, NULL);
 
+
             $this->setEmailadress($dbData[0]);
 			$this->setVoornaam($dbData[1]);
 			$this->setAchternaam($dbData[2]);
@@ -84,6 +90,7 @@
 			$this->setAdres($dbData[4]);
 			$this->setBedrijf($dbData[5]);
 			$this->setTelefoonnummer($dbData[6]);
+
 			$this->setPostcode($dbData[7]);
 		}
 
@@ -135,6 +142,7 @@
 					$this->pushTicket($selectedDienst, $ticketText);
 				}
 			}
+
 		}
 	}
 ?>
