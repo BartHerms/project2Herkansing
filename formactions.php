@@ -5,9 +5,6 @@ $woonplaatsKlant = $_POST['woonplaats'];
 $postcodeKlant = $_POST['postcode'];
 $telefoonnummerKlant = $_POST['telefoon'];
 
-include 'classes/Klant.php';
-$Klant = new Klant();
-$Klant->getKlantProcedure($Klant, $emailadressKlant);
 
 if(isset($_POST['edit'])){
     define("SERVER_IP", "localhost");
