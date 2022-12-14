@@ -10,8 +10,8 @@ if(isset($_POST['edit'])){
     define("SERVER_IP", "localhost");
     $db = mysqli_connect(SERVER_IP, "root","root" , "project2");
     $result = $db->query("CALL updateKlant('{$emailadressKlant}', '{$woonplaatsKlant}', '{$adresKlant}', '{$telefoonnummerKlant}', '{$postcodeKlant}')");
-    header("Location: ind_klant.php?email='{$emailadressKlant}'");
-    //header('Location: klanten.php');
+    header("Location: ind_klant.php?email={$emailadressKlant}");
+
 
 }
 
