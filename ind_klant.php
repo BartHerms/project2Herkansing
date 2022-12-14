@@ -21,7 +21,8 @@ $Klant->getKlantProcedure($Klant, $emailadressKlant);
             <h1>Profiel</h1>
             <div class="profilephoto">
                 <img src="images/profilepicture.jpg" alt="test">
-                <a href="changeprofilepicture.php">Profielfoto wijzigen</a>
+                <a href="#">Tickets bekijken</a>
+                <a href="#">Diensten bekijken</a>
             </div>
         </div>
         <div class="item">

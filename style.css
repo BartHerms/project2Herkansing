@@ -141,6 +141,8 @@ aside p{
 
 .profilephoto a {
     color: #FDA509;
+    margin-top: 10px;
+    text-decoration: none;
 }
 
 /*profileinformation block*/
