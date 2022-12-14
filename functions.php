@@ -33,7 +33,7 @@ function getDienstenProcedure($emailadressKlant){
 
 function getCustomerList(){
     $db = mysqli_connect("localhost", "root", "root", "project2");
-    $result = $db->query("CALL getKlantNaam()");
+    $result = $db->query("CALL getKlantinfo()");
     $db->close();
     $rowCount = $result->num_rows;
 

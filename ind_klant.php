@@ -32,10 +32,13 @@ $Klant->getKlantProcedure($Klant, $emailadressKlant);
                     <input type="text" name="adres" value="<?php echo $Klant->getAdres(); ?>">
 
                     <label for="postcode">Postcode</label>
-                    <input type="text" name="postcode" value="7654TR">
+                    <input type="text" name="postcode" value="<?php echo $Klant->getPostcode();?>">
+
+                    <label for="Woonplaats">Woonplaats</label>
+                    <input type="text" name="woonplaats" value="<?php echo $Klant->getWoonplaats();?>">
 
                     <label for="name">Telefoon</label>
-                    <input type="int" name="telephone" value="<?php echo $Klant->getTelefoonnummer(); ?>">
+                    <input type="int" name="telefoon" value="<?php echo $Klant->getTelefoonnummer(); ?>">
 
                     <label for="email">Email</label>
                     <input type="email" name="email" value="<?php echo $Klant->getEmailadress(); ?>">

@@ -1,13 +1,15 @@
 <?php
 	class Klant
 	{
-		private $emailadress = 'test@mail.com';
-		private $voornaam = 'John';
-		private $achternaam = 'Smith';
-		private $woonplaats = 'City';
-		private $adres = 'street 1';
-		private $bedrijf = 'company';
-		private $telefoonnummer = '+31(0114)123456';
+		private $emailadress;
+		private $voornaam;
+		private $achternaam;
+		private $woonplaats;
+		private $adres;
+		private $bedrijf;
+		private $telefoonnummer;
+		private $postcode;
+		
 
 		public function getEmailadress(){
 			return $this->emailadress;
@@ -65,9 +67,17 @@
 			$this->telefoonnummer = $input;
 		}
 
+		public function getPostcode(){
+			return $this->postcode;
+		}
+
+		public function setPostcode($input){
+			$this->postcode = $input;
+		}
+
 		public function setKlant($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 7, 0);
+			$dbData = array_pad($dbData, 8, 0);
             $this->setEmailadress($dbData[0]);
 			$this->setVoornaam($dbData[1]);
 			$this->setAchternaam($dbData[2]);
@@ -75,6 +85,7 @@
 			$this->setAdres($dbData[4]);
 			$this->setBedrijf($dbData[5]);
 			$this->setTelefoonnummer($dbData[6]);
+			$this->setPostcode($dbData[7]);
 		}
 
 		//get the customer data
