@@ -65,5 +65,18 @@ function showMedewerkerNaam($medewerker){
     }
 }
 
+function getCustomerList(){
+    $db = mysqli_connect("localhost", "root", "root", "project2");
+    $result = $db->query("CALL getKlantNaam()");
+    $db->close();
+    $rowCount = $result->num_rows;
 
+    for ($counter = 1; $counter <= $rowCount; $counter++){
+        $Klant = new Klant();
+        $Klant->setKlant($result);
+        $Kemail = $Klant->getEmailadress();
+        echo "<a href='ind_klant.php?email=$Kemail' class='entry'><p>{$Klant->getVoornaam()} {$Klant->getAchternaam()}</p> </a>";
+       
+    }
+}
 ?>

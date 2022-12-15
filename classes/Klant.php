@@ -80,9 +80,7 @@
 
 		public function setKlant($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 7, NULL);
-
-
+			$dbData = array_pad($dbData, 8, 0);
             $this->setEmailadress($dbData[0]);
 			$this->setVoornaam($dbData[1]);
 			$this->setAchternaam($dbData[2]);

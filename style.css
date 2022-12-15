@@ -42,9 +42,7 @@ li a:hover{
 }
 
 #logo{
-
     margin-left: 153px;
-
 }
 
 /*end nav */
@@ -65,7 +63,6 @@ li a:hover{
     margin: 0 auto;
     margin-top: 15px;
 }
-
 
 .entry:hover{
     color:white;
@@ -118,7 +115,6 @@ main {
 
 .leftDiv {
     width: 275px;
-
     font-size: 45px;
 
 }
@@ -219,3 +215,83 @@ main {
     margin: 0px 0px 0px 0px;
 
 }
+
+/*customer overview*/
+
+aside p{
+    font-size: 45px;
+    margin-left: 153px;
+    margin-top: 102px;
+}
+
+.crow{
+    float: right;
+    margin-right: 300px;
+}
+
+/*profile*/
+.container {
+    display: flex;
+    margin-top: 150px;
+}
+
+.item {
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+}
+
+/*profilephoto block*/
+.profilephoto {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: flex-start;
+}
+
+.profilephoto img {
+    border: solid 1px white;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.profilephoto a {
+    color: #FDA509;
+}
+
+/*profileinformation block*/
+.profileinformation {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input[type=text], input[type=email], input[type=int] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 8px 0;
+    border: 1px solid #ccc;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;  
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #FDA509;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #df8f05;
+  }
+
