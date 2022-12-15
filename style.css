@@ -4,14 +4,12 @@
   Helvetica, Arial, "Lucida Grande", sans-serif;
 
 }
-
-.screen{
-    width: 10;
-}
 /*nav*/
 nav{
-    margin-top: 45px;
 
+    width: 1675px;
+    margin: 0px auto 0px auto;
+    margin-top: 45px;
     display: flex;
     justify-content: space-between;
 }
@@ -19,7 +17,7 @@ ul{
     list-style: none;
     display: inline-flex;
     float: right;
-    margin-right: 130px;
+    margin-right: 35px;
     margin-top: 25px;
 }
 
@@ -33,8 +31,8 @@ li img{
 
 li a{
     text-decoration: none;
+    color:black;
     font-size: 25px;
-
 }
 
 li a:hover{
@@ -42,7 +40,7 @@ li a:hover{
 }
 
 #logo{
-    margin-left: 153px;
+    margin-left: 35px;
 }
 
 /*end nav */
@@ -59,10 +57,12 @@ li a:hover{
     text-align: center;
 }
 
+
 .entry p{
     margin: 0 auto;
     margin-top: 15px;
 }
+
 
 .entry:hover{
     color:white;
@@ -105,6 +105,7 @@ h1{
 }
 
 /*end home*/
+
 /*ticketpage*/
 main {
     width: 1525px;
@@ -116,7 +117,6 @@ main {
 .leftDiv {
     width: 275px;
     font-size: 45px;
-
 }
 
 .leftDiv h1 {
@@ -128,7 +128,6 @@ main {
 .leftDiv p {
     font-size: 25px;
     margin: 0px 0px 25px 0px;
-
 }
 
 .rightDiv {
@@ -140,14 +139,14 @@ main {
 }
 
 .rightDiv select {
-    height: 93px;
+
+    height: 75px;
     width: 1250px;
 }
 
 .rightDiv textarea {
     height: 575px;
     width: 1250px;
-
 }
 
 .formBox {    
@@ -171,7 +170,6 @@ main {
 .thanksMessage {
     display: flex;
     justify-content: center;
-
 }
 
 /*singleTicketOverview*/
@@ -213,7 +211,6 @@ main {
 #bottomP {
     font-size: 25px;
     margin: 0px 0px 0px 0px;
-
 }
 
 /*customer overview*/
@@ -297,4 +294,5 @@ input[type=submit] {
   input[type=submit]:hover {
     background-color: #df8f05;
   }
+
 
