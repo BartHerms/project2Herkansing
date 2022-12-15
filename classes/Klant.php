@@ -1,6 +1,5 @@
 <?php
-	class Klant
-	{
+	class Klant{
 		private $emailadress;
 		private $voornaam;
 		private $achternaam;
@@ -9,13 +8,14 @@
 		private $bedrijf;
 		private $telefoonnummer;
 		private $postcode;
-		
 
 		public function getEmailadress(){
 			return $this->emailadress;
 		}
 
-		public function setEmailadress(string $input) {
+
+		public function setEmailadress($input) {
+
 			$this->emailadress = $input;
 		}
 
@@ -88,13 +88,55 @@
 			$this->setPostcode($dbData[7]);
 		}
 
-		//get the customer data
-		public function getKlantProcedure($Klant, $emailadressKlant){
-			define("SERVER_IP", "localhost");
-			$db = mysqli_connect(SERVER_IP, "root","root" , "project2");
-			$result = $db->query("CALL getKlant('{$emailadressKlant}')");
+		//a function that executes the getKlant stored procedure.
+        //it fills a Klant instance with info form the database
+        function getKlantProcedure($Klant){
+            $db = mysqli_connect(SERVER_IP, "root", null, "project2");
+            $result = $db->query("CALL getKlant('{$Klant->getEmailadress()}')");
+            $db->close();
+            $Klant->setKlant($result);
+         }
+
+		 //a function that executes teh getDienstenOfKlantProcedur
+		//it fills an array of Dienst instances with Diensten that the Klant has.
+		function getDienstOfKlantProcedure(){
+			$dienstenArray = array();
+			$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+			$result = $db->query("CALL getDienstenOfKlant('{$this->getEmailadress()}')");
 			$db->close();
-			$Klant->setKlant($result);
+			$rowCount = $result->num_rows;
+			for ($counter = 1; $counter <= $rowCount; $counter++){
+				$DienstOfKlant = new Dienst();
+				$DienstOfKlant->setDienst($result);
+				array_push($dienstenArray, $DienstOfKlant);
+			}
+			return $dienstenArray;
+		}
+
+		//puts tickets in the database
+		function pushTicket($selectedDienst, $ticketText){
+			$dienstOfKlantArray = array();
+			$dienstOfKlantArray = $this->getDienstOfKlantProcedure();
+			foreach ($dienstOfKlantArray as $DienstOfKlant){
+				if ($selectedDienst == $DienstOfKlant->getNaam()){
+					$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+					$result = $db->query("CALL ticketSubmit({$DienstOfKlant->getId()}, '{$ticketText}')");
+					$db->close();
+				}
+			}
+		}
+
+		//checks validity of form data and runs pushTicket
+		function processForm(){
+			if (isset($_POST['submitTicket'])){
+				$selectedDienst = filter_input(INPUT_POST, 'selectedDienst', FILTER_SANITIZE_STRING);
+				$ticketText = filter_input(INPUT_POST, 'ticketText', FILTER_SANITIZE_STRING);
+
+				if (!empty($selectedDienst) && !empty($ticketText)){
+					$this->pushTicket($selectedDienst, $ticketText);
+				}
+			}
+
 		}
 	}
 ?>
