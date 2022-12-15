@@ -233,6 +233,7 @@ aside p{
 .container {
     display: flex;
     margin-top: 150px;
+   justify-content: center;
 }
 
 .item {
@@ -258,6 +259,8 @@ aside p{
 
 .profilephoto a {
     color: #FDA509;
+    margin-top: 10px;
+    text-decoration: none;
 }
 
 /*profileinformation block*/

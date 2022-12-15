@@ -1,5 +1,4 @@
 <?php
-
 	class Klant{
 		private $emailadress;
 		private $voornaam;
@@ -9,7 +8,6 @@
 		private $bedrijf;
 		private $telefoonnummer;
 		private $postcode;
-
 
 		public function getEmailadress(){
 			return $this->emailadress;
@@ -69,7 +67,6 @@
 			$this->telefoonnummer = $input;
 		}
 
-
 		public function getPostcode(){
 			return $this->postcode;
 		}
@@ -88,7 +85,6 @@
 			$this->setAdres($dbData[4]);
 			$this->setBedrijf($dbData[5]);
 			$this->setTelefoonnummer($dbData[6]);
-
 			$this->setPostcode($dbData[7]);
 		}
 
