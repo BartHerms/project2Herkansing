@@ -25,8 +25,8 @@
         ?>
         <main>
         <div class='leftDiv' >
-            <p>Ticket</p>
-            <p>aanmaken</p>
+            <h1>Dienst</h1>
+            <h1>Aanvraag</h1>
         </div>
             <div class='rightDiv'>
                 <form action="serviceRequestFormProcess.php" method="POST">
@@ -36,7 +36,7 @@
                         ?>
                     </select>
                     <textarea class='formBox' name="requestComment" placeholder="Stel hier uw vraag..." required></textarea>
-                    <input class='button' type="submit" name="submitRequest" value="Aanmaken">
+                    <input class='button' type="submit" name="submitRequest" value="Aanvragen">
                 </form>
             </div>
         </main>

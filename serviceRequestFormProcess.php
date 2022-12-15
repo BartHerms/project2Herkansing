@@ -1,12 +1,12 @@
 ﻿<?php
     include 'classes/Overeenkomst.php';
-    include 'function.php';
+    include 'functions.php';
 
     define("SERVER_IP", "localhost"); 
 
     $Overeenkomst = new Overeenkomst();
-
-    function 
+    $Overeenkomst->getKlant()->setEmailadress('test.klant@klanten.com');
+    $Overeenkomst->processForm();
 ?>﻿
 <!DOCTYPE HTML>
 <html>

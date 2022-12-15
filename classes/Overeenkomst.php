@@ -1,10 +1,11 @@
 <?php
 
-include 'classes/Dienst.php';	
+include 'classes/Dienst.php';
+include 'classes/Klant.php';
 
 class Overeenkomst{
 	private $id;
-	private $emailKlant;
+	private $Klant;
 	private $Dienst;
 	private $klantOpmerking;
 	private $datum;
@@ -13,6 +14,7 @@ class Overeenkomst{
 
 	public function __construct(){
 		$this->Dienst = new Dienst();
+		$this->Klant = new Klant();
 	}
 
 	public function getId(){
@@ -23,12 +25,12 @@ class Overeenkomst{
 		$this->id = $input;
 	}
 
-	public function getEmailKlant(){
-		return $this->emailKlant;
+	public function getKlant(){
+		return $this->Klant;
 	}
 
-	public function setEmailKlant($input){
-		$this->emailKlant = $input;
+	public function setKlant($input){
+		$this->Klant = $input;
 	}
 
 	public function getDienst(){
@@ -79,29 +81,36 @@ class Overeenkomst{
 		$dbData = array_pad($dbData, 7, NULL);
 
 		$this->setId($dbData[0]);
-		$this->setEmailKlant($dbData[1]);
-		$this->Dienst->setId($dbData[2]);
+		$this->getKlant->setEmailadress($dbData[1]);
+		$this->getDienst->setId($dbData[2]);
 		$this->setKlantOpmerking($dbData[3]);
 		$this->setDatum($dbData[4]);
 		$this->setStatus($dbData[5]);
 		$this->setContract($dbData[6]);	
 	}
 
-	// !!!! MOET NOG DIENST MEEGEVEN EN HET GEHEEL UPLOADEN!!!!!!
-	function pushRequest($requestComment){
-		$db = mysqli_connect(SERVER_IP, "root", null, "project2");
-		$this->error($db);
-		$result = $db->query("CALL makeNewOvereenkomst('{$this->getEmailKlant()}', '{$this->Dienst->getId()}', '{$requestComment}')");
-		$this->error($result);
-		$db->close();
+	//takes the input from the form and pushes it towards the database
+	function pushRequest($requestComment, $selectedDienst){
+		$dienstenArray = Array();
+		$dienstenArray = $this->getKlant()->getDienstenNotOfKlantProcedure();
+		foreach ($dienstenArray as $TempDienst){
+			if ($selectedDienst == $TempDienst->getNaam()){
+				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$this->error($db);
+				$result = $db->query("CALL makeNewOvereenkomst('{$this->getKlant()->getEmailadress()}', '{$TempDienst->getId()}', '{$requestComment}')");
+				$this->error($result);
+				$db->close();
+			}
+		}
 	}
 
+	//takes the input form the form and validates it
 	public function processForm(){
 		if (isset($_POST['submitRequest'])){
 			$selectedDienst = filter_input(INPUT_POST, 'selectedDienst', FILTER_SANITIZE_STRING);
 			$requestComment = filter_input(INPUT_POST, 'requestComment', FILTER_SANITIZE_STRING);
-			if (!empty($requestComment)){
-				$this->pushRequest($requestComment);
+			if (!empty($requestComment) && !empty($selectedDienst)){
+				$this->pushRequest($requestComment, $selectedDienst);
 			}
 		}
 	}
