@@ -1,6 +1,7 @@
 <?php
-	class Dienst{
-		private $id;
+    class Dienst
+	{
+        private $id;
 		private $naam;
 		private $omschrijving;
 		private $beschikbaar;
@@ -46,5 +47,7 @@
 			$this->setOmschrijving($dbData[2]);
 			$this->setBeschikbaar($dbData[3]);
 		}
-	}
+    }
+
+
 ?>
