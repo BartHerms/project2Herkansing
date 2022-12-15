@@ -1,6 +1,6 @@
 <?php
-	class Klant
-	{
+
+	class Klant{
 		private $emailadress;
 		private $voornaam;
 		private $achternaam;
@@ -8,12 +8,16 @@
 		private $adres;
 		private $bedrijf;
 		private $telefoonnummer;
+		private $postcode;
+
 
 		public function getEmailadress(){
 			return $this->emailadress;
 		}
 
-		public function setEmailadress(string $input) {
+
+		public function setEmailadress($input) {
+
 			$this->emailadress = $input;
 		}
 
@@ -65,9 +69,17 @@
 			$this->telefoonnummer = $input;
 		}
 
+		public function getPostcode(){
+			return $this->postcode;
+		}
+
+		public function setPostcode($input){
+			$this->postcode = $input;
+		}
+
 		public function setKlant($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 6, NULL);
+			$dbData = array_pad($dbData, 8, 0);
             $this->setEmailadress($dbData[0]);
 			$this->setVoornaam($dbData[1]);
 			$this->setAchternaam($dbData[2]);
@@ -75,24 +87,58 @@
 			$this->setAdres($dbData[4]);
 			$this->setBedrijf($dbData[5]);
 			$this->setTelefoonnummer($dbData[6]);
+			$this->setPostcode($dbData[7]);
 		}
 
-		public function error($check){
-			if(!$check){
-				header("Location: error.php"); 
-				die();
+		//a function that executes the getKlant stored procedure.
+        //it fills a Klant instance with info form the database
+        function getKlantProcedure($Klant){
+            $db = mysqli_connect(SERVER_IP, "root", null, "project2");
+            $result = $db->query("CALL getKlant('{$Klant->getEmailadress()}')");
+            $db->close();
+            $Klant->setKlant($result);
+         }
+
+		 //a function that executes teh getDienstenOfKlantProcedur
+		//it fills an array of Dienst instances with Diensten that the Klant has.
+		function getDienstOfKlantProcedure(){
+			$dienstenArray = array();
+			$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+			$result = $db->query("CALL getDienstenOfKlant('{$this->getEmailadress()}')");
+			$db->close();
+			$rowCount = $result->num_rows;
+			for ($counter = 1; $counter <= $rowCount; $counter++){
+				$DienstOfKlant = new Dienst();
+				$DienstOfKlant->setDienst($result);
+				array_push($dienstenArray, $DienstOfKlant);
+			}
+			return $dienstenArray;
+		}
+
+		//puts tickets in the database
+		function pushTicket($selectedDienst, $ticketText){
+			$dienstOfKlantArray = array();
+			$dienstOfKlantArray = $this->getDienstOfKlantProcedure();
+			foreach ($dienstOfKlantArray as $DienstOfKlant){
+				if ($selectedDienst == $DienstOfKlant->getNaam()){
+					$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+					$result = $db->query("CALL ticketSubmit({$DienstOfKlant->getId()}, '{$ticketText}')");
+					$db->close();
+				}
 			}
 		}
 
-		//get the customer data
-		public function getKlantProcedure($Klant, $emailadressKlant){
-			define("SERVER_IP", "localhost");
-			$db = mysqli_connect(SERVER_IP, "root", NULL, "project2");
-			$this->error($db);
-			$result = $db->query("CALL getKlant('{$emailadressKlant}')");
-			$this->error($result);
-			$db->close();
-			$Klant->setKlant($result);
+		//checks validity of form data and runs pushTicket
+		function processForm(){
+			if (isset($_POST['submitTicket'])){
+				$selectedDienst = filter_input(INPUT_POST, 'selectedDienst', FILTER_SANITIZE_STRING);
+				$ticketText = filter_input(INPUT_POST, 'ticketText', FILTER_SANITIZE_STRING);
+
+				if (!empty($selectedDienst) && !empty($ticketText)){
+					$this->pushTicket($selectedDienst, $ticketText);
+				}
+			}
+
 		}
 
 		//get the Diensten that the Klant doesn't have yet'
@@ -111,5 +157,23 @@
 			}
 			return $dienstenArray;
 		}
+    
+
+
+		public function error($check){
+			if(!$check){
+				header("Location: error.php"); 
+				die();
+			}
+		}
+
+		//get the customer data
+		public function getKlantProcedure($Klant, $emailadressKlant){
+			define("SERVER_IP", "localhost");
+			$db = mysqli_connect(SERVER_IP, "root", NULL, "project2");
+			$this->error($db);
+			$result = $db->query("CALL getKlant('{$emailadressKlant}')");
+			$this->error($result);
+    }
 	}
 ?>
