@@ -1,7 +1,8 @@
-<?php
-if (isset($_COOKIE["rememberLoggedIn"])) {
-    header("Location: ./main.php");
-} else {
+<?php session_start();
+if (!isset($_SESSION["email"]))
+
+    // header("location:loginPagina.php");
+    // echo $_SESSION["login"];
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -21,4 +22,4 @@ if (isset($_COOKIE["rememberLoggedIn"])) {
 
     </html>
 
-<?php } ?>
+<?php  ?>

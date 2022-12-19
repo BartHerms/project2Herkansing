@@ -22,9 +22,9 @@
 </html>
 
 <?php
-// session_start();
-// unset($_SESSION["userEmail"]);
-// //   unset($_SESSION["password"]);
-// session_destroy();
-// header("location:index.php")
+session_start();
+unset($_SESSION["email"]);
+//   unset($_SESSION["password"]);
+session_destroy();
+header("location:loginPagina.php")
 ?>
