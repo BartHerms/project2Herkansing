@@ -1,6 +1,6 @@
 ﻿<?php
-    include 'classes/Overeenkomst.php';
-    include 'functions.php';
+    include '../classes/Overeenkomst.php';
+    include '../functions.php';
 
     define("SERVER_IP", "localhost"); 
 

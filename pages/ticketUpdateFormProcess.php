@@ -6,8 +6,8 @@
     </head>
     <body>
         <?php
-            include 'classes/Ticket.php';
-            include 'function.php';
+            include '../classes/Ticket.php';
+            include '../function.php';
 
             define("SERVER_IP", "localhost"); 
 

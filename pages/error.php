@@ -9,7 +9,7 @@
     </head>
     <body>
         <?php
-            include_once '../menu/header.html';
+            include_once 'menu/header.html';
         ?>
         <main>
             <h1>Oops, er is iets fout gegaan. Probeer opnieuw of neem contact op met: 'contact@mail.com'</h1>

@@ -1,6 +1,7 @@
 <?php
-$emailadressKlant = $_GET['email'];
 include '../classes/Klant.php';
+
+$emailadressKlant = $_GET['email'];
 $Klant = new Klant();
 $Klant->getKlantProcedure($Klant, $emailadressKlant);
 

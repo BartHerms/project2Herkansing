@@ -1,9 +1,9 @@
 <?php
-include 'classes/Klant.php';
-include 'classes/Medewerker.php';
-include 'classes/ticket.php';
-include 'classes/dienst.php';
-include 'functions.php';
+include '../classes/Klant.php';
+include '../classes/Medewerker.php';
+include '../classes/ticket.php';
+include '../classes/dienst.php';
+include '../functions.php';
 
 
 ?>

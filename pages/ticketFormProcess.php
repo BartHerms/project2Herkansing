@@ -1,7 +1,7 @@
 <?php
-    include 'classes/Klant.php';
-    include 'classes/Dienst.php';
-    include 'function.php';
+    include '../classes/Klant.php';
+    include '../classes/Dienst.php';
+    include '../function.php';
             
     define("SERVER_IP", "localhost"); 
     $Klant = new Klant();

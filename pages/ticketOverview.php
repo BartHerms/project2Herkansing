@@ -15,7 +15,7 @@
     </head>
     <body>
         <?php
-            include_once '../menu/header.html';
+            include_once 'menu/header.html';
         ?>
         <main>
             <div class='leftDiv'>
