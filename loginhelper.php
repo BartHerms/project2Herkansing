@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include 'LoginKlant.php' ?>
 
 <!DOCTYPE html>
@@ -20,6 +21,9 @@ if(isset($_POST['submitlogin']))
     $userEmail = $_POST['email'];
     $userPassword = $_POST['password'];
 
+    $_SESSION['email'] = $userEmail;
+    $_SESSION['loggedIn'] = true;
+    
     $db = mysqli_connect("localhost", "root", "", "project2");
     $result = $db->query("call getLoginValue('{$userEmail}')");
     $db-> close();

@@ -1,3 +1,11 @@
+<?php
+session_start();
+unset($_SESSION["email"]);
+//   unset($_SESSION["password"]);
+session_destroy();
+header("location:loginPagina.php")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,10 +29,3 @@
 
 </html>
 
-<?php
-session_start();
-unset($_SESSION["email"]);
-//   unset($_SESSION["password"]);
-session_destroy();
-header("location:loginPagina.php")
-?>

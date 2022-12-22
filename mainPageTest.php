@@ -1,7 +1,7 @@
 <?php session_start (); 
-if(!isset($_SESSION["userEmail"])) 
+if(!isset($_SESSION["email"])) 
 
-var_dump($_SESSION["userEmail"]);
+var_dump($_SESSION["email"]);
 
 
 		
@@ -13,9 +13,8 @@ var_dump($_SESSION["userEmail"]);
 			
 			if(isset($_SESSION['loggedIn'])){
 				
-				echo "<p>You are logged in</p>";
+				echo "<p>Je bent ingelogd</p>";
 				echo "<a href='index.php?page=logout'>click here to log out</a>";
-				echo $_SESSION['image'];
 			}
 			else{
 				
