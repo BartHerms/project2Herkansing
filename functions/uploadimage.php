@@ -3,7 +3,7 @@ if(isset($_POST["submit"])){
     if(!empty($_FILES["upload"])){
         $filename = $_FILES["upload"]["name"];
         $filetype = $_FILES["upload"]["type"];
-        $target_direction = "uploads/";
+        $target_direction = "images/";
         $target_file = $target_direction . basename($filename);
         $file = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         $checkfilenamelength = strlen(basename($filename));

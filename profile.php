@@ -19,7 +19,7 @@ include_once("functions/editprofileinfo.php");
         <div class="item">
             <h1>Profiel</h1>
             <div class="profilephoto">
-                <img src="images/profilepicture.jpg" alt="test">
+                <img src="<?php echo $profilepicture; ?>" alt="test">
                 <a href="changeprofilepicture.php">Profielfoto wijzigen</a>
             </div>
         </div>
