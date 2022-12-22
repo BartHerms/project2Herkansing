@@ -1,10 +1,4 @@
-<?php
-session_start();
-unset($_SESSION["email"]);
-//   unset($_SESSION["password"]);
-session_destroy();
-header("location:loginPagina.php")
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +16,16 @@ header("location:loginPagina.php")
     <!-- include_once 'header' -->
     Je bent nu uitgelogd, terug naar het loginscherm?
     <ul>
-        <li><a href="login.php">ticketsysteem login</a></li>
+        <li><a href="loginPagina.php">ticketsysteem login</a></li>
     </ul>
     <!-- include_once 'footer" -->
 </body>
 
 </html>
-
+<?php
+session_start();
+unset($_SESSION["email"]);
+//   unset($_SESSION["password"]);
+session_destroy();
+// header("location:loginPagina.php")
+?>

@@ -14,7 +14,7 @@ var_dump($_SESSION["email"]);
 			if(isset($_SESSION['loggedIn'])){
 				
 				echo "<p>Je bent ingelogd</p>";
-				echo "<a href='index.php?page=logout'>click here to log out</a>";
+				echo "<a href='logout.php'>click here to log out</a>";
 			}
 			else{
 				
