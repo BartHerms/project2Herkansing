@@ -21,9 +21,9 @@ include 'functions.php';
     <?php
      $isKlant = 0;
         if($isKlant){ 
-            include_once("views/klant_view.php");
+            include_once("klant_view.php");
         } else if (!$isKlant){
-            include_once("views/emplyee_view.php");
+            include_once("emplyee_view.php");
         } else{
             Print("404 pagina niet gevonden");
         }
