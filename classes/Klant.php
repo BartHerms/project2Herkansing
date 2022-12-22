@@ -89,12 +89,13 @@
 			$this->setTelefoonnummer($dbData[6]);
 			$this->setPostcode($dbData[7]);
 		}
-
+		
 		//a function that executes the getKlant stored procedure.
         //it fills a Klant instance with info form the database
-        function getKlantProcedure($Klant){
-            $db = mysqli_connect(SERVER_IP, "root", null, "project2");
-            $result = $db->query("CALL getKlant('{$Klant->getEmailadress()}')");
+        function getKlantProcedure($Klant, $emailadressKlant){
+			define("SERVER_IP", "localhost");
+            $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
+            $result = $db->query("CALL getKlant('{$emailadressKlant}')");
             $db->close();
             $Klant->setKlant($result);
          }
@@ -103,7 +104,8 @@
 		//it fills an array of Dienst instances with Diensten that the Klant has.
 		function getDienstOfKlantProcedure(){
 			$dienstenArray = array();
-			$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+			define("SERVER_IP", "localhost");
+			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 			$result = $db->query("CALL getDienstenOfKlant('{$this->getEmailadress()}')");
 			$db->close();
 			$rowCount = $result->num_rows;
@@ -121,7 +123,7 @@
 			$dienstOfKlantArray = $this->getDienstOfKlantProcedure();
 			foreach ($dienstOfKlantArray as $DienstOfKlant){
 				if ($selectedDienst == $DienstOfKlant->getNaam()){
-					$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+					$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 					$result = $db->query("CALL ticketSubmit({$DienstOfKlant->getId()}, '{$ticketText}')");
 					$db->close();
 				}
@@ -144,7 +146,7 @@
 		//get the Diensten that the Klant doesn't have yet'
 		function getDienstenNotOfKlantProcedure(){
 			$dienstenArray = array();
-			$db = mysqli_connect(SERVER_IP, "root", NULL, "project2");
+			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 			$this->error($db);
 			$result = $db->query("CALL getDienstenNotOfKlant('{$this->getEmailadress()}')");
 			$this->error($result);
@@ -167,13 +169,5 @@
 			}
 		}
 
-		//get the customer data
-		public function getKlantProcedure($Klant, $emailadressKlant){
-			define("SERVER_IP", "localhost");
-			$db = mysqli_connect(SERVER_IP, "root", NULL, "project2");
-			$this->error($db);
-			$result = $db->query("CALL getKlant('{$emailadressKlant}')");
-			$this->error($result);
-    }
 	}
 ?>

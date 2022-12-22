@@ -42,9 +42,10 @@ function makeOptionList($array){
     }
     else{
         echo "<option value='null'>U heeft alle diensten all</option>";
-
+    }
+}
 function getTicketsFromDb(){
-    $db = mysqli_connect(SERVER_IP, "root", null, "project2");
+    $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
     $result = $db->query("CALL getTickets()");
     $db->close();
     $rowCount = $result->num_rows;
@@ -92,4 +93,5 @@ function getCustomerList(){
 
     }
 }
+    
 ?>

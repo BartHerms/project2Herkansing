@@ -8,10 +8,10 @@
         private $administrator;
 
         public function getEmailadress(){
-			return $this->emailadress;
+			return $this->emailadres;
 		}
 
-		public function setEmailadress(string $input) {
+		public function setEmailadress($input) {
 			$this->emailadress = $input;
 		}
 
@@ -31,7 +31,7 @@
 			$this->achternaam = $input;
 		}
 
-        public function getAdmin($input){
+        public function getAdmin(){
             return $this->$administrator;
         }
 
@@ -41,7 +41,7 @@
 
         public function setMedewerker($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 3, NULL);
+			$dbData = array_pad($dbData, 4, NULL);
             $this->setEmailadress($dbData[0]);
 			$this->setVoornaam($dbData[1]);
 			$this->setAchternaam($dbData[2]);
@@ -51,7 +51,7 @@
 		//get employee data
 		public function getMedewerkerProcedure($Medewerker, $emailadressMedewerker){
 			define("SERVER_IP", "localhost");
-			$db = mysqli_connect(SERVER_IP, "root","root" , "project2");
+			$db = mysqli_connect(SERVER_IP, "root","root","project2");
 			$result = $db->query("CALL getMedewerker('{$emailadressMedewerker}')");
 			$db->close();
 			$Medewerker->setMedewerker($result);

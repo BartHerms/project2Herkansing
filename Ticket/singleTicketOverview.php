@@ -1,17 +1,18 @@
 ﻿<?php
-    include 'classes/Ticket.php';
-    include 'function.php';
+    include '../classes/Ticket.php';
+    include '../functions.php';
 
     define("SERVER_IP", "localhost"); 
 
-    $emailMedewerker = "peter.peterson@serviceit.nl";
+    $emailadressMedewerker = "peter.peterson@serviceit.nl";
 
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
-    $Ticket->addMedewerkerToTicket($emailMedewerker);
+    $Ticket->addMedewerkerToTicket($emailadressMedewerker);
     $Ticket->updateStatus();
     $Ticket->getSingleTicket();
-    $Ticket->setMedewerker();
+    $Ticket->__construct();
+    $Ticket->setMedewerker($Ticket->Medewerker, $emailadressMedewerker);
 ?>﻿
 <!DOCTYPE HTML>
 <html>
@@ -19,12 +20,12 @@
        <meta charset="UTF-8">
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link href="style.css" type="text/css" rel="stylesheet">
+       <link href="../style.css" type="text/css" rel="stylesheet">
        <title>placeholder</title>
     </head>
     <body>
         <?php
-            include_once 'menu/header.html';   
+            include_once '../menu/header.html';   
         ?>
         <main>
             <div class='leftDiv'>
@@ -43,13 +44,13 @@
                 <p id='bottomP'>Beoordelen: </p>
                     <form action=' <?php echo "singleTicketOverview.php?TicketId={$Ticket->getId()}"; ?>' method='POST'>  
                         <button type="submit" name="setStatusGreen" class="icons">
-                            <img src="icons/icon-action-check_circle_24px.svg" alt='green check'/>
+                            <img src="../icons/icon-action-check_circle_24px.svg" alt='green check'/>
                         </button>
                         <button type="submit" name="setStatusOrange" class="icons">
-                            <img src="icons/icon-alert-error_24px.svg" alt='orange exclemation point'/>
+                            <img src="../icons/icon-alert-error_24px.svg" alt='orange exclemation point'/>
                         </button>
                         <button type="submit" name="setStatusRed" class="icons">
-                            <img src="icons/icon-navigation-close_24px.svg" alt='red cross'/>
+                            <img src="../icons/icon-navigation-close_24px.svg" alt='red cross'/>
                         </button>
                     </form>
             </div>

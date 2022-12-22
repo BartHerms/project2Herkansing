@@ -149,6 +149,8 @@ main {
     width: 1250px;
 }
 
+
+
 .formBox {    
     margin: 0px auto 15px auto;
     padding: 15px 15px 15px 15px;
@@ -191,6 +193,11 @@ main {
     padding: 15px 15px 15px 15px;
     border-style: solid;
     border-width: 1px;
+}
+
+.ticketList:hover{
+    background-color: #FDA509;
+    color: white;
 }
 
 .rightDiv a {

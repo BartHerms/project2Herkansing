@@ -1,5 +1,5 @@
 <?php
-$emailadressKlant = "test.klant@klanten.com"; //change hard codes email to email from cookie when login is ready
+$emailadressKlant = "kareldegrote@gamer.pizza"; //change hard codes email to email from cookie when login is ready
 $Klant = new Klant();
 $Klant->getKlantProcedure($Klant, $emailadressKlant);
 $Knaam = $Klant->getVoornaam();

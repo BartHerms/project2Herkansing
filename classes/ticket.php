@@ -1,18 +1,18 @@
 <?php
 
-include 'classes/Medewerker.php';	
+require_once '../classes/Medewerker.php';	
 
 class Ticket{
 		private $id;
 		private $idOvereenkomst;
-		private $Medewerker;
+		public $MedewerkerKlant;
 		private $status;
 		private $datum;
 		private $logfile;
 		private $onderwerp;
 
 		public function __construct(){
-			$this->Medewerker = new Medewerker();
+			$this->MedewerkerKlant = new Medewerker();
 		}
 
 		public function getId(){
@@ -32,13 +32,12 @@ class Ticket{
 		}
 
 		public function getMedewerker(){
-			return $this->Medewerker;
+			return $this->MedewerkerKlant;
 		}
 
-		public function setMedewerker(){
-			$this->Medewerker->getMedewerkerProcedure();
+		public function setMedewerker($MedewerkerKlant, $emailadressMedewerker){
+			$this->MedewerkerKlant->getMedewerkerProcedure($MedewerkerKlant, $emailadressMedewerker);
 		}
-
 		public function getStatus(){
 			return $this->status;
 		}
@@ -84,7 +83,7 @@ class Ticket{
 
 			$this->setId($dbData[0]);
 			$this->setIdOvereenkomst($dbData[1]);
-			$this->Medewerker->setEmailadress($dbData[2]);
+			$this->MedewerkerKlant->setEmailadress($dbData[2]);
 			$this->setStatus($dbData[3]);
 			$this->setDatum($dbData[4]);
 			$this->setLogFile($dbData[5]);
@@ -92,9 +91,9 @@ class Ticket{
 		}
 
 		public function getSingleTicket(){
-			$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 			$this->error($db);
-		    $result = $db->query("CALL getSingleTicket({$this->getId()})");
+		    $result = $db->query("CALL getSingleTicket('{$this->getId()}')");
 			$this->error($result);
 		    $db->close();
 
@@ -102,7 +101,7 @@ class Ticket{
 		}
 
 		function pushTicket($ticketText){
-			$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 			$this->error($db);
 			$result = $db->query("CALL ticketUpdate('{$ticketText}', '{$this->getId()}')");
 			$this->error($result);
@@ -121,7 +120,7 @@ class Ticket{
 
 		public function addMedewerkerToTicket($emailMedewerker){
 			if (isset($_POST['assignMedewerker'])){
-				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 				$this->error($db);
                 $result = $db->query("CALL setMedewerkerToTicket('{$emailMedewerker}', '{$this->getId()}')");
 				$this->error($result);
@@ -131,27 +130,31 @@ class Ticket{
 
 		public function updateStatus(){
 			if (isset($_POST['setStatusGreen'])){
-				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 				$this->error($db);
                 $result = $db->query("CALL setTicketStatus('1', '{$this->getID()}')");
 				$this->error($result);
                 $db->close();
 			}
 			elseif (isset($_POST['setStatusOrange'])){
-				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 				$this->error($db);
                 $result = $db->query("CALL setTicketStatus('2', '{$this->getID()}')");
 				$this->error($result);
                 $db->close();
 			}
 			elseif (isset($_POST['setStatusRed'])){
-				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 				$this->error($db);
                 $result = $db->query("CALL setTicketStatus('3', '{$this->getID()}')");
 				$this->error($result);
                 $db->close();
 			}
 
+		}
+
+		public function getNaamMedewerker(){
+			$this->MederwerkerKlant->getVoornaam();
 		}
 	}
 ?>
