@@ -1,11 +1,48 @@
+
+
 *{
     margin: 0;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-light", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
 
 }
+
+/*login*/
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 /*nav*/
 nav{
+
+    width: 1675px;
+    margin: 0px auto 0px auto;
     margin-top: 45px;
     display: flex;
     justify-content: space-between;
@@ -55,6 +92,12 @@ li a:hover{
 }
 
 
+.entry p{
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+
 .entry:hover{
     color:white;
     background-color: #FDA509;
@@ -87,10 +130,209 @@ h1{
 .boxitem p{
     color: white;
     text-align: center;
-    margin-top: 35%;
-    font-size: 25px;
+    margin-top: 30%;
+    font-size: 45px;
 }
 
 .margin_employee{
     margin-top: 80px;
 }
+
+/*end home*/
+
+/*ticketpage*/
+main {
+    width: 1525px;
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto 0px auto;
+}
+
+.leftDiv {
+    width: 275px;
+    font-size: 45px;
+}
+
+.leftDiv h1 {
+    font-size: 45px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.leftDiv p {
+    font-size: 25px;
+    margin: 0px 0px 25px 0px;
+}
+
+.rightDiv {
+    width: 1250px;
+}
+
+.rightDiv * {
+    font-size: 30px;
+}
+
+.rightDiv select {
+
+    height: 75px;
+    width: 1250px;
+}
+
+.rightDiv textarea {
+    height: 575px;
+    width: 1250px;
+}
+
+
+
+.formBox {    
+    margin: 0px auto 15px auto;
+    padding: 15px 15px 15px 15px;
+}
+
+.button {
+    width: 480px;
+    height: 40px;
+    background-color: #FDA509;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    border-radius: 25px;
+    margin: 0 auto;
+}
+
+.thanksMessage {
+    display: flex;
+    justify-content: center;
+}
+
+/*singleTicketOverview*/
+
+.onderwerpDiv {
+    border-style: solid;
+    border-width: 1px;
+    height: 93px;
+    display: flex;
+    align-items: center;
+}
+
+.ticketList {
+    width: 1250px;
+    height: 93px;
+    display: flex;
+    align-items: center;
+    margin: 0px auto 15px auto;
+    padding: 15px 15px 15px 15px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.ticketList:hover{
+    background-color: #FDA509;
+    color: white;
+}
+
+.rightDiv a {
+    text-decoration: none;
+    color: black;
+}
+
+.icons {
+    border: none;
+    background-color: white;
+}
+
+.icons img {
+    width: 45px;
+    height: 45px;
+}
+
+#bottomP {
+    font-size: 25px;
+    margin: 0px 0px 0px 0px;
+}
+
+/*customer overview*/
+
+aside p{
+    font-size: 45px;
+    margin-left: 153px;
+    margin-top: 102px;
+}
+
+.crow{
+    float: right;
+    margin-right: 300px;
+}
+
+/*profile*/
+.container {
+    display: flex;
+    margin-top: 150px;
+   justify-content: center;
+}
+
+.item {
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+}
+
+/*profilephoto block*/
+.profilephoto {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: flex-start;
+}
+
+.profilephoto img {
+    border: solid 1px white;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.profilephoto a {
+    color: #FDA509;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+/*profileinformation block*/
+.profileinformation {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input[type=text], input[type=email], input[type=int] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 8px 0;
+    border: 1px solid #ccc;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;  
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #FDA509;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #df8f05;
+  }
+
