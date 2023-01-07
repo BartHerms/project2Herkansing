@@ -49,12 +49,12 @@
         } 
 		
 		//get employee data
-		public function getMedewerkerProcedure($Medewerker, $emailadressMedewerker){
+		public function getMedewerkerProcedure($emailadressMedewerker){
 			define("SERVER_IP", "localhost");
 			$db = mysqli_connect(SERVER_IP, "root","root","project2");
 			$result = $db->query("CALL getMedewerker('{$emailadressMedewerker}')");
 			$db->close();
-			$Medewerker->setMedewerker($result);
+			$this->setMedewerker($result);
 		}
 
     }

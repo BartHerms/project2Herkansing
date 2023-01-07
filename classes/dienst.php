@@ -40,7 +40,7 @@
 
 		public function setDienst($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 4, NULL);
+			$dbData = array_pad($dbData, 4, 0);
 
 			$this->setId($dbData[0]);
 			$this->setNaam($dbData[1]);

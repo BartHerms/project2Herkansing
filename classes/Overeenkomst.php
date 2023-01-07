@@ -78,7 +78,7 @@ class Overeenkomst{
 
 	public function setOvereenkomst($queryResult){
 		$dbData = $queryResult->fetch_row();
-		$dbData = array_pad($dbData, 7, NULL);
+		$dbData = array_pad($dbData, 7, 0);
 
 		$this->setId($dbData[0]);
 		$this->getKlant->setEmailadress($dbData[1]);

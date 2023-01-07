@@ -36,7 +36,7 @@ class Ticket{
 		}
 
 		public function setMedewerker($MedewerkerKlant, $emailadressMedewerker){
-			$this->MedewerkerKlant->getMedewerkerProcedure($MedewerkerKlant, $emailadressMedewerker);
+			$this->MedewerkerKlant->getMedewerkerProcedure($emailadressMedewerker);
 		}
 		public function getStatus(){
 			return $this->status;
@@ -70,6 +70,7 @@ class Ticket{
 			$this->onderwerp = $input;
 		}
 
+		//redirects to error page when something goes wrong
 		public function error($check){
 			if(!$check){
 				header("Location: error.php"); 
@@ -79,17 +80,18 @@ class Ticket{
 
 		public function setTicket($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 6, NULL);
+			$dbData = array_pad($dbData, 7, 0);
 
 			$this->setId($dbData[0]);
 			$this->setIdOvereenkomst($dbData[1]);
-			$this->MedewerkerKlant->setEmailadress($dbData[2]);
+			$this->getMedewerker()->setEmailadress($dbData[2]);
 			$this->setStatus($dbData[3]);
 			$this->setDatum($dbData[4]);
 			$this->setLogFile($dbData[5]);
 			$this->setOnderwerp($dbData[6]);
 		}
 
+		//this function returns a single ticket from the database and sets it self accordingly
 		public function getSingleTicket(){
 			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 			$this->error($db);
@@ -100,6 +102,7 @@ class Ticket{
 			$this->setTicket($result);
 		}
 
+		//updates this ticket with addition ticket Text
 		function pushTicket($ticketText){
 			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 			$this->error($db);
@@ -108,6 +111,7 @@ class Ticket{
 			$db->close();
 		}
 
+		//gets and verifies data from form and calls pushTicket
 		public function processForm(){
 			if (isset($_POST['submitTicket'])){
 				$ticketText = filter_input(INPUT_POST, 'ticketText', FILTER_SANITIZE_STRING);;
@@ -118,6 +122,7 @@ class Ticket{
 			}
 		}
 
+		//get a medewerker and add it too the ticket
 		public function addMedewerkerToTicket($emailMedewerker){
 			if (isset($_POST['assignMedewerker'])){
 				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
@@ -128,6 +133,7 @@ class Ticket{
 			}
 		}
 
+		//changes the status of the ticket according to the data from a form
 		public function updateStatus(){
 			if (isset($_POST['setStatusGreen'])){
 				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
@@ -150,9 +156,9 @@ class Ticket{
 				$this->error($result);
                 $db->close();
 			}
-
 		}
 
+		//returns the name of the Medewerker assigned to the ticket
 		public function getNaamMedewerker(){
 			$this->MederwerkerKlant->getVoornaam();
 		}
