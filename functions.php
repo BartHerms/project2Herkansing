@@ -53,7 +53,7 @@ function getTicketsFromDb(){
     for ($counter = 1; $counter <= $rowCount; $counter++){
         $Ticket = new Ticket();
         $Ticket->setTicket($result);
-        echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' ><div class='ticketList'><p>{$Ticket->getOnderwerp()}, TicketID: {$Ticket->getId()}</p></div></a>";
+        echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' ><div class='ticketList'><p>{$Ticket->getOnderwerp()}, TicketID: {$Ticket->getId()}</p>{$Ticket->checkGeopendOp()}</div></a>";
     }
 }
 

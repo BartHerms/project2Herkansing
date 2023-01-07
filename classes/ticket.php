@@ -10,6 +10,7 @@ class Ticket{
 		private $datum;
 		private $logfile;
 		private $onderwerp;
+		private $geopendOp;
 
 		public function __construct(){
 			$this->MedewerkerKlant = new Medewerker();
@@ -70,6 +71,14 @@ class Ticket{
 			$this->onderwerp = $input;
 		}
 
+		public function getGeopendOp(){
+			return $this->geopendOp;
+		}
+
+		public function setGeopendOp($input){
+			$this->geopendOp = $input;
+		}
+
 		//redirects to error page when something goes wrong
 		public function error($check){
 			if(!$check){
@@ -80,7 +89,7 @@ class Ticket{
 
 		public function setTicket($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 7, 0);
+			$dbData = array_pad($dbData, 8, 0);
 
 			$this->setId($dbData[0]);
 			$this->setIdOvereenkomst($dbData[1]);
@@ -89,6 +98,7 @@ class Ticket{
 			$this->setDatum($dbData[4]);
 			$this->setLogFile($dbData[5]);
 			$this->setOnderwerp($dbData[6]);
+			$this->setGeopendOp($dbData[7]);
 		}
 
 		//this function returns a single ticket from the database and sets it self accordingly
@@ -138,21 +148,21 @@ class Ticket{
 			if (isset($_POST['setStatusGreen'])){
 				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 				$this->error($db);
-                $result = $db->query("CALL setTicketStatus('1', '{$this->getID()}')");
+                $result = $db->query("CALL setTicketStatus('1', '{$this->getId()}')");
 				$this->error($result);
                 $db->close();
 			}
 			elseif (isset($_POST['setStatusOrange'])){
 				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 				$this->error($db);
-                $result = $db->query("CALL setTicketStatus('2', '{$this->getID()}')");
+                $result = $db->query("CALL setTicketStatus('2', '{$this->getId()}')");
 				$this->error($result);
                 $db->close();
 			}
 			elseif (isset($_POST['setStatusRed'])){
 				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 				$this->error($db);
-                $result = $db->query("CALL setTicketStatus('3', '{$this->getID()}')");
+                $result = $db->query("CALL setTicketStatus('3', '{$this->getId()}')");
 				$this->error($result);
                 $db->close();
 			}
@@ -161,6 +171,29 @@ class Ticket{
 		//returns the name of the Medewerker assigned to the ticket
 		public function getNaamMedewerker(){
 			$this->MederwerkerKlant->getVoornaam();
+		}
+
+		//updates a ticket geopendOp to today
+		public function setTicketGeopendOp(){
+			if(!checkGeopendOp()){
+				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
+				$this->error($db);
+				$result = $db->query("CALL setTicketGeopendOp('{$this->getId()}')");
+				$this->error($result);
+				$db->close();
+			}
+		}
+
+		//checks if the geopendOp variable is already set, if so it display said variable
+		public function checkGeopendOp(){
+			$tempGeopendOp = $this->getGeopendOp();
+			if($tempGeopendOp != NULL){
+				echo "<p>{$tempGeopendOp}</p>";
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 	}
 ?>

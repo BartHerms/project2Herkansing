@@ -13,6 +13,7 @@
     $Ticket->getSingleTicket();
     $Ticket->__construct();
     $Ticket->setMedewerker($Ticket->Medewerker, $emailadressMedewerker);
+    $Ticket->setTicketGeopendOp();
 ?>﻿
 <!DOCTYPE HTML>
 <html>
