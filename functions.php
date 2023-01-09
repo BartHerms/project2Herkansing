@@ -14,25 +14,6 @@ function getRecentTicketsFromDb(){
         }
 }
 
-
-// !!!!!DIT MOET EIGENLIJK IS KLANT.PHP!!!!!
-//get the services requested by customers
-function getDienstenProcedure($emailadressKlant){
-    $db = mysqli_connect("localhost", "root", "root", "project2");
-    $result = $db->query("CALL getDienstenOfKlant('{$emailadressKlant}')");
-    $db->close();
-    $rowCount = $result->num_rows;
-
-
-    for ($counter = 1; $counter <= $rowCount; $counter++){
-        $Dienst = new Dienst();
-        $Dienst->setDienst($result);
-        echo "<a href='' class='entry'><p>{$Dienst->getNaam()}</p></a>";
-       
-    }
-}
-
-
 function makeOptionList($array){
     if (!empty($array)){
         foreach ($array as $DienstOfKlant){
@@ -66,15 +47,6 @@ function showStatusIcon($status){
         case 3: echo "<img src='icons/icon-navigation-close_24px.svg' alt='red cross'/>";
                 break;
         default: echo "<p>Ongelezen</p>";
-    }
-}
-
-function showMedewerkerNaam($medewerker){
-    if($medewerker != NULL){
-        echo "{$medewerker->getVoornaam()} {$medewerker->getAchternaam()}";
-    }
-    else{
-        echo "<form action='singleTicketOverview.php' method='POST'><input type='submit' name='assignMedewerker' value='Behandelen'></form>";
     }
 }
 

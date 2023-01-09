@@ -8,7 +8,7 @@
     $Klant->setEmailadress("test.klant@klanten.com");
     $optionArray = array();
 
-    $Klant->getKlantProcedure($Klant);
+    $Klant->getKlantProcedure();
     $optionArray = $Klant->getDienstOfKlantProcedure();
 ?>
 <!DOCTYPE HTML>

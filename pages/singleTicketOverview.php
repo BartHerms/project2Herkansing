@@ -1,19 +1,26 @@
 ﻿<?php
     include '../classes/Ticket.php';
+    include '../classes/medewerker.php';
     include '../functions.php';
 
     define("SERVER_IP", "localhost"); 
 
-    $emailadressMedewerker = "peter.peterson@serviceit.nl";
+    $Medewerker = new medewerker();
+    $Medewerker->setEmailadress("peter.peterson@serviceit.nl");
+
+    if (isset($_POST['assignSelf'])){
+		$Ticket->addMedewerkerToTicket($Medewerker->getEmailadress());
+        $Ticket->setMedewerker($Medewerker->getEmailadress());
+	}
 
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
-    $Ticket->addMedewerkerToTicket($emailadressMedewerker);
     $Ticket->updateStatus();
     $Ticket->getSingleTicket();
     $Ticket->__construct();
-    $Ticket->setMedewerker($Ticket->Medewerker, $emailadressMedewerker);
     $Ticket->setTicketGeopendOp();
+
+    
 ?>﻿
 <!DOCTYPE HTML>
 <html>
@@ -39,7 +46,7 @@
                 </p>
                 <p>Behandelaar: <br>
                     <?php 
-                        showMedewerkerNaam($Ticket->getMedewerker());              
+                        $Medewerker->medewerkerAssignment($Ticket->getMedewerker());            
                     ?>
                 </p>
                 <p id='bottomP'>Beoordelen: </p>

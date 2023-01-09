@@ -36,7 +36,7 @@ class Ticket{
 			return $this->MedewerkerKlant;
 		}
 
-		public function setMedewerker($MedewerkerKlant, $emailadressMedewerker){
+		public function setMedewerker($emailadressMedewerker){
 			$this->MedewerkerKlant->getMedewerkerProcedure($emailadressMedewerker);
 		}
 		public function getStatus(){

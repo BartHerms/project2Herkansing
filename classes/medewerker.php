@@ -57,6 +57,22 @@
 			$this->setMedewerker($result);
 		}
 
+		function showMedewerkerNaam($medewerker){
+			if($medewerker != NULL){
+				echo "{$medewerker->getVoornaam()} {$medewerker->getAchternaam()}";
+			}
+			else{
+				echo "<form action='singleTicketOverview.php' method='POST'><input type='submit' name='assignSelf' value='Behandelen'></form>";
+			}
+		}
+
+		function medewerkerAssignment($ticketMedewerker){
+			if($this->getAdmin == (int)1){
+				//dropdown invoegen
+			}else{
+				showMedewerkerNaam($ticketMedewerker)
+			}
+		}
     }
 
 ?>
