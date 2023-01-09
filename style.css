@@ -7,6 +7,7 @@
 
 }
 
+
 /*login*/
 input[type=submit] {
     width: 100%;
@@ -38,6 +39,7 @@ input[type=submit] {
     border-radius: 4px;
     box-sizing: border-box;
   }
+
 /*nav*/
 nav{
 
@@ -335,4 +337,6 @@ input[type=submit] {
   input[type=submit]:hover {
     background-color: #df8f05;
   }
+
+
 

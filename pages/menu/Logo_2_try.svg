@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="206" height="70" viewBox="0 0 206 70">
+  <g id="Logo" transform="translate(0 9)">
+    <text id="Service" transform="translate(0 45)" fill="orange" font-size="50" font-family="Impact"><tspan x="0" y="0">Service</tspan></text>
+    <text id="IT" transform="translate(156 48)" font-size="60" font-family="HelveticaNeue, Helvetica Neue"><tspan x="0" y="0">IT</tspan></text>
+  </g>
+</svg>
