@@ -10,7 +10,7 @@ function getRecentTicketsFromDb(){
         for ($counter = 1; $counter <= $rowCount; $counter++){
             $Ticket = new Ticket();
             $Ticket->setTicket($result);
-            echo "<a href='' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
+            echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
         }
 }
 
@@ -23,12 +23,15 @@ function getDienstenProcedure($emailadressKlant){
     $db->close();
     $rowCount = $result->num_rows;
 
-
-    for ($counter = 1; $counter <= $rowCount; $counter++){
-        $Dienst = new Dienst();
-        $Dienst->setDienst($result);
-        echo "<a href='' class='entry'><p>{$Dienst->getNaam()}</p></a>";
-       
+    if($rowCount > 0){
+        for ($counter = 1; $counter <= $rowCount; $counter++){
+            $Dienst = new Dienst();
+            $Dienst->setDienst($result);
+            echo "<a href='' class='entry'><p>{$Dienst->getNaam()}</p></a>";
+        
+        }
+    } else{
+        echo"Je hebt nog geen diensten";
     }
 }
 

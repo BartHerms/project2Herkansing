@@ -19,7 +19,8 @@ class LoginKlant{
 
     public function setLoginKlant($result){
         $dbData = $result->fetch_row();
-        $this->setPassword($dbData[0]);
+        $this->setEmailAdress($dbData[0]);
+        $this->setPassword($dbData[1]);
     }
 }
 
