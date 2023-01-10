@@ -98,7 +98,7 @@
             $this->setKlant($result);
          }
 
-		 //a function that executes teh getDienstenOfKlantProcedur
+		 //a function that executes the getDienstenOfKlantProcedur
 		//it fills an array of Dienst instances with Diensten that the Klant has.
 		function getDienstOfKlantProcedure(){
 			$dienstenArray = array();

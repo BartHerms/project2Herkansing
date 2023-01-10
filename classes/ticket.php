@@ -5,7 +5,7 @@ require_once '../classes/Medewerker.php';
 class Ticket{
 		private $id;
 		private $idOvereenkomst;
-		public $MedewerkerKlant;
+		private $MedewerkerKlant;
 		private $status;
 		private $datum;
 		private $logfile;
@@ -108,7 +108,6 @@ class Ticket{
 		    $result = $db->query("CALL getSingleTicket('{$this->getId()}')");
 			$this->error($result);
 		    $db->close();
-
 			$this->setTicket($result);
 		}
 
@@ -173,17 +172,6 @@ class Ticket{
 			$this->MederwerkerKlant->getVoornaam();
 		}
 
-		//updates a ticket geopendOp to today
-		public function setTicketGeopendOp(){
-			if(!checkGeopendOp()){
-				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
-				$this->error($db);
-				$result = $db->query("CALL setTicketGeopendOp('{$this->getId()}')");
-				$this->error($result);
-				$db->close();
-			}
-		}
-
 		//checks if the geopendOp variable is already set, if so it display said variable
 		public function checkGeopendOp(){
 			$tempGeopendOp = $this->getGeopendOp();
@@ -193,6 +181,17 @@ class Ticket{
 			}
 			else{
 				return false;
+			}
+		}
+
+		//updates a ticket geopendOp to today
+		public function setTicketGeopendOp(){
+			if(!$this->checkGeopendOp()){
+				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
+				$this->error($db);
+				$result = $db->query("CALL setTicketGeopendOp('{$this->getId()}')");
+				$this->error($result);
+				$db->close();
 			}
 		}
 	}
