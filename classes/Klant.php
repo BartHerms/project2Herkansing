@@ -16,7 +16,6 @@
 			return $this->emailadress;
 		}
 
-
 		public function setEmailadress($input) {
 
 			$this->emailadress = $input;
