@@ -175,12 +175,8 @@ class Ticket{
 		//checks if the geopendOp variable is already set, if so it display said variable
 		public function checkGeopendOp(){
 			$tempGeopendOp = $this->getGeopendOp();
-			if($tempGeopendOp != NULL){
-				echo "<p>{$tempGeopendOp}</p>";
-				return true;
-			}
-			else{
-				return false;
+			if(!empty($tempGeopendOp)){
+				echo "{$tempGeopendOp}";
 			}
 		}
 

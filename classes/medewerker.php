@@ -40,7 +40,7 @@
 
         public function setMedewerker($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 4, NULL);
+			$dbData = array_pad($dbData, 4, 0);
 
             $this->setEmailadress($dbData[0]);
 			$this->setVoornaam($dbData[1]);
@@ -50,7 +50,7 @@
 		
 		//get employee data
 		public function getMedewerkerProcedure($emailadresMedewerker){
-			$db = mysqli_connect(SERVER_IP, "root","root","project2");
+			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 			$result = $db->query("CALL getMedewerker('{$emailadresMedewerker}')");
 			$db->close();
 			$this->setMedewerker($result);
@@ -61,7 +61,7 @@
 				echo "{$this->getVoornaam()} {$this->getAchternaam()}";
 			}
 			else{
-				echo "<form action='singleTicketAction.php' method='POST'><input type='submit' name='assignSelf' value='Behandelen'></form>";
+				echo "<form action='singleTicketAction.php?TicketId={$_GET['TicketId']}' method='POST'><input type='submit' name='assignSelf' value='Behandelen'></form>";
 			}
 		}
 
@@ -78,7 +78,10 @@
 			if($this->getAdmin() == (int)1){
 				echo "{$ticketMedewerker->getVoornaam()} {$ticketMedewerker->getAchternaam()}";
 				//Hier nog select invoegen!!!!
+				echo "<p>Medewerker toewijzen:</p>";
+				echo "<form action='singleTicketAction.php?TicketId={$_GET['TicketId']}' method='POST'><select class='employeeAssign' name='selectedMedewerker'>";
 				$this->makeMedewerkerOptionList($array);
+				echo "<input type='submit' name='assignMedewerker' value='Toewijzen'></select></form>";
 			}else{
 				$ticketMedewerker->showMedewerkerNaam();
 			}

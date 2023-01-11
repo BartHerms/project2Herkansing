@@ -27,16 +27,21 @@ function makeOptionList($array){
     }
 }
 
-function getTicketsFromDb(){
+function getTicketsFromDb($Medewerker){
     $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
-    $result = $db->query("CALL getTickets()");
+    if($Medewerker->getAdmin() == (int)1){
+        $result = $db->query("CALL getTickets()");
+    }else{
+        $result = $db->query("CALL getTicketsofMedewerker('{$Medewerker->getEmailadress()}')");
+    }
+    
     $db->close();
     $rowCount = $result->num_rows;
 
     for ($counter = 1; $counter <= $rowCount; $counter++){
         $Ticket = new Ticket();
         $Ticket->setTicket($result);
-        echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' ><div class='ticketList'><p>{$Ticket->getOnderwerp()}, TicketID: {$Ticket->getId()}</p>{$Ticket->checkGeopendOp()}</div></a>";
+        echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' ><div class='ticketList'><p>{$Ticket->getOnderwerp()}, TicketID: {$Ticket->getId()} {$Ticket->checkGeopendOp()}</p></div></a>";
     }
 }
 
@@ -79,4 +84,19 @@ function getMedewerkers(){
 	}
 	return $medewerkerArray;
 }
+
+function employeeAssignSelf($tempTicket){
+    if (isset($_POST['assignSelf'])){
+		$tempTicket->addMedewerkerToTicket($Medewerker->getEmailadress());
+	}
+}
+
+function employeeAssign($tempTicket){
+    if (isset($_POST['assignMedewerker'])){
+		$selectedMedewerker = filter_input(INPUT_POST, 'selectedMedewerker', FILTER_SANITIZE_STRING);
+		if (!empty($selectedMedewerker)){
+			$tempTicket->addMedewerkerToTicket($selectedMedewerker);
+		}
+	}
+}  
 ?>

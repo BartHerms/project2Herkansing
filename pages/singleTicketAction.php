@@ -13,18 +13,12 @@
     $Medewerker->setEmailadress("peter.peterson@serviceit.nl");
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
-    $Ticket->updateStatus();
-    $Ticket->setTicketGeopendOp();
 
-    if (isset($_POST['assignSelf'])){
-		$Ticket->addMedewerkerToTicket($Medewerker->getEmailadress());
-        $Ticket->setMedewerker($Medewerker->getEmailadress());
-	}
-    
-    
+    employeeAssignSelf($Ticket);
+    employeeAssign($Ticket);
+
     $Ticket->getSingleTicket();
-    $Ticket->getMedewerker()->getMedewerkerProcedure($Ticket->getMedewerker()->getEmailadress());
-    header("Location: singleTicketOverview.php");
+    header("Location: singleTicketOverview.php?TicketId={$_GET['TicketId']}");
     die();
 ?>﻿
 <!DOCTYPE HTML>

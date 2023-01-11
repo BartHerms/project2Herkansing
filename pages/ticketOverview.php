@@ -1,8 +1,13 @@
 ﻿<?php
+    include "../classes/medewerker.php";
     include '../classes/Ticket.php';
     include '../functions.php';
 
     define("SERVER_IP", "localhost");
+
+    $Medewerker = new medewerker();
+    $Medewerker->setEmailadress("sven.svensen@serviceit.nl");
+    $Medewerker->getMedewerkerProcedure($Medewerker->getEmailadress());
 ?>﻿
 <!DOCTYPE HTML>
 <html>
@@ -23,7 +28,7 @@
             </div>
             <div class='rightDiv'>
                 <?php
-                    getTicketsFromDb();
+                    getTicketsFromDb($Medewerker);
                 ?>
             </div>
         </main>

@@ -17,8 +17,9 @@
     $Ticket->updateStatus();
     $Ticket->setTicketGeopendOp();
     $Ticket->getSingleTicket();
-    $Ticket->getMedewerker()->getMedewerkerProcedure($Ticket->getMedewerker()->getEmailadress());
-    
+    if(!empty($Ticket->getMedewerker()->getEmailadress())){
+        $Ticket->getMedewerker()->getMedewerkerProcedure($Ticket->getMedewerker()->getEmailadress());
+    }
 ?>﻿
 <!DOCTYPE HTML>
 <html>
