@@ -56,8 +56,9 @@
 			$this->setMedewerker($result);
 		}
 
+		//Takes the Employee part of an Ticket and shows it's info, if there is no employee, it can be assigned to yourself
 		function showMedewerkerNaam(){
-			if($this != NULL){
+			if(!empty($this){
 				echo "{$this->getVoornaam()} {$this->getAchternaam()}";
 			}
 			else{
@@ -65,6 +66,7 @@
 			}
 		}
 
+		//Turns an array of Medewerkers into an option list for a <select> element
 		function makeMedewerkerOptionList($array){
 			if (!empty($array)){
 				foreach ($array as $tempMedewerker){
@@ -74,10 +76,10 @@
 			}
 		}
 
+		//Let's an admin assign a ticket to another employee
 		function medewerkerAssignment($ticketMedewerker, $array){
 			if($this->getAdmin() == (int)1){
 				echo "{$ticketMedewerker->getVoornaam()} {$ticketMedewerker->getAchternaam()}";
-				//Hier nog select invoegen!!!!
 				echo "<p>Medewerker toewijzen:</p>";
 				echo "<form action='singleTicketAction.php?TicketId={$_GET['TicketId']}' method='POST'><select class='employeeAssign' name='selectedMedewerker'>";
 				$this->makeMedewerkerOptionList($array);

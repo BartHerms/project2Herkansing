@@ -156,7 +156,8 @@
 			}
 			return $dienstenArray;
 		}
-    
+		
+		//redirects to an error page if something goes wrong
 		public function error($check){
 			if(!$check){
 				header("Location: error.php"); 
