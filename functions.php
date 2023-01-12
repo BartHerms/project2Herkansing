@@ -1,10 +1,10 @@
 <?php
-session_start();
+
 //get the tickets based on customer email
-function getRecentTicketsFromDb(){
-    $mail = $_SESSION['email'];
+function getRecentTicketsFromDb($emailadressKlant){
+    
     $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
-    $result = $db->query("CALL getRecentTickets('{$mail}')");
+    $result = $db->query("CALL getRecentTickets('{$emailadressKlant}')");
     $db->close();
     $rowCount = $result->num_rows;
 
