@@ -8,11 +8,11 @@
     <title>Login</title>
 </head>
 <body>
-<div>
-    <form action="loginhelper.php" method="post">
+<div id="logindiv">
+    <form id="form" action="loginhelper.php" method="post">
     <input type="text" name="email" required>
     <input type="password" name="password" required>
-    <input type="submit" name="submitlogin">
+    <input type="submit" id="submitbutton" name="submitlogin">
     </form>
 </div>
 </body>
