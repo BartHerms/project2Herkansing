@@ -58,7 +58,7 @@
 
 		//Takes the Employee part of an Ticket and shows it's info, if there is no employee, it can be assigned to yourself
 		function showMedewerkerNaam(){
-			if(!empty($this){
+			if(!empty($this)){
 				echo "{$this->getVoornaam()} {$this->getAchternaam()}";
 			}
 			else{

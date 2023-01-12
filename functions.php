@@ -39,7 +39,11 @@ function getTicketsFromDb($Medewerker){
     for ($counter = 1; $counter <= $rowCount; $counter++){
         $Ticket = new Ticket();
         $Ticket->setTicket($result);
-        echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' ><div class='ticketList'><p>{$Ticket->getOnderwerp()}, TicketID: {$Ticket->getId()} {$Ticket->checkGeopendOp()}</p></div></a>";
+        if($Ticket->isTicketToOld()){
+            echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' ><div id='redBorder' class='ticketList'><p>{$Ticket->getOnderwerp()}, TicketID: {$Ticket->getId()} {$Ticket->checkGeopendOp()}</p></div></a>";
+        }else{
+            echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' ><div class='ticketList'><p>{$Ticket->getOnderwerp()}, TicketID: {$Ticket->getId()} {$Ticket->checkGeopendOp()}</p></div></a>";
+        }
     }
 }
 

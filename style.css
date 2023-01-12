@@ -224,6 +224,10 @@ main {
     width: 100%;
 }
 
+#redBorder {
+    border-color: red;
+}
+
 /*customer overview*/
 aside p {
     font-size: 45px;

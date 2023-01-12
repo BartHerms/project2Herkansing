@@ -176,8 +176,9 @@ class Ticket{
 		public function checkGeopendOp(){
 			$tempGeopendOp = $this->getGeopendOp();
 			if(!empty($tempGeopendOp)){
-				echo "{$tempGeopendOp}";
+				return $tempGeopendOp;
 			}
+			return "nog niet geopend";
 		}
 
 		//updates a ticket geopendOp to today
@@ -189,6 +190,20 @@ class Ticket{
 				$this->error($result);
 				$db->close();
 			}
+		}
+
+		public function isTicketToOld(){
+			$tempGeopendOp = $this->getGeopendOp();
+			if(empty($tempGeopendOp)) {
+				return false;
+			}
+			$ticketDate = new DateTime($tempGeopendOp);
+			$now = new DateTime('now');
+			$ticketDate->modify('+5 day');
+			if($now < $ticketDate){
+				return false;
+			}
+			return true;
 		}
 	}
 ?>
