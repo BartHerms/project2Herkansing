@@ -1,7 +1,7 @@
 <?php
 
-include 'classes/Dienst.php';
-include 'classes/Klant.php';
+include '../classes/Dienst.php';
+include '../classes/Klant.php';
 
 class Overeenkomst{
 	private $id;
