@@ -185,8 +185,6 @@ main {
     width: 1250px;
 }
 
-
-
 .formBox {    
     margin: 0px auto 15px auto;
     padding: 15px 15px 15px 15px;
@@ -256,9 +254,18 @@ main {
     margin: 0px 0px 0px 0px;
 }
 
-/*customer overview*/
+.employeeAssign {
+    margin: 0px auto 15px auto;
+    padding: 15px 15px 15px 15px;
+    width: 100%;
+}
 
-aside p{
+#redBorder {
+    border-color: red;
+}
+
+/*customer overview*/
+aside p {
     font-size: 45px;
     margin-left: 153px;
     margin-top: 102px;

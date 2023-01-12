@@ -1,14 +1,15 @@
 ﻿<?php
+    session_start();
     include '../classes/Klant.php';
     include '../classes/Dienst.php';
     include '../function.php';
     
     define("SERVER_IP", "localhost"); 
     $Klant = new Klant();
-    $Klant->setEmailadress("test.klant@klanten.com");
+    $Klant->setEmailadress($_SESSION['email']);
     $optionArray = array();
 
-    $Klant->getKlantProcedure($Klant);
+    $Klant->getKlantProcedure();
     $optionArray = $Klant->getDienstOfKlantProcedure();
 ?>
 <!DOCTYPE HTML>

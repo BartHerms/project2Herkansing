@@ -1,8 +1,8 @@
 <?php
 session_start();
-$emailadressKlant = $_SESSION['email'];
 $Klant = new Klant();
-$Klant->getKlantProcedure($Klant, $emailadressKlant);
+$Klant->setEmailadress($_SESSION['email']);
+$Klant->getKlantProcedure();
 $Knaam = $Klant->getVoornaam();
 
 
@@ -17,6 +17,6 @@ include_once("menu/header.html");
         </div>    
         <div class="row">
             <h3>Mijn diensten</h3>
-            <?php getDienstenProcedure($emailadressKlant); ?>
+            <?php $Klant->getDienstenProcedure(); ?>
         </div>    
     </div>

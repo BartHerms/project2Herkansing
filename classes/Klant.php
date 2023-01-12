@@ -11,7 +11,6 @@
 		private $postcode;
 		private $password;
 
-
 		public function getEmailadress(){
 			return $this->emailadress;
 		}
@@ -101,15 +100,15 @@
 		
 		//a function that executes the getKlant stored procedure.
         //it fills a Klant instance with info form the database
-        function getKlantProcedure($Klant, $emailadressKlant){
+        function getKlantProcedure(){
 			define("SERVER_IP", "localhost");
             $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
-            $result = $db->query("CALL getKlant('{$emailadressKlant}')");
+            $result = $db->query("CALL getKlant('{$this->getEmailadress()}')");
             $db->close();
-            $Klant->setKlant($result);
+            $this->setKlant($result);
          }
 
-		 //a function that executes teh getDienstenOfKlantProcedur
+		 //a function that executes the getDienstenOfKlantProcedur
 		//it fills an array of Dienst instances with Diensten that the Klant has.
 		function getDienstOfKlantProcedure(){
 			$dienstenArray = array();
@@ -149,7 +148,6 @@
 					$this->pushTicket($selectedDienst, $ticketText);
 				}
 			}
-
 		}
 
 		//get the Diensten that the Klant doesn't have yet'
@@ -168,9 +166,8 @@
 			}
 			return $dienstenArray;
 		}
-    
-
-
+		
+		//redirects to an error page if something goes wrong
 		public function error($check){
 			if(!$check){
 				header("Location: error.php"); 
@@ -178,5 +175,18 @@
 			}
 		}
 
+		//get the services requested by customers
+		function getDienstenProcedure(){
+			$db = mysqli_connect("localhost", "root", "root", "project2");
+			$result = $db->query("CALL getDienstenOfKlant('{$this->getEmailadress()}')");
+			$db->close();
+			$rowCount = $result->num_rows;
+
+			for ($counter = 1; $counter <= $rowCount; $counter++){
+				$Dienst = new Dienst();
+				$Dienst->setDienst($result);
+				echo "<a href='' class='entry'><p>{$Dienst->getNaam()}</p></a>";
+			}
+		}
 	}
 ?>

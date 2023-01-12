@@ -1,11 +1,12 @@
 ﻿<?php
+    session_start();
     include '../classes/Overeenkomst.php';
     include '../functions.php';
 
     define("SERVER_IP", "localhost"); 
 
     $Overeenkomst = new Overeenkomst();
-    $Overeenkomst->getKlant()->setEmailadress('test.klant@klanten.com');
+    $Overeenkomst->getKlant()->setEmailadress($_SESSION['email']);
     $Overeenkomst->processForm();
 ?>﻿
 <!DOCTYPE HTML>

@@ -12,7 +12,7 @@
 		}
 
 		public function setEmailadress($input) {
-			$this->emailadress = $input;
+			$this->emailadres = $input;
 		}
 
 		public function getVoornaam(){
@@ -32,7 +32,7 @@
 		}
 
         public function getAdmin(){
-            return $this->$administrator;
+            return $this->administrator;
         }
 
         public function setAdmin($input){
@@ -41,7 +41,8 @@
 
         public function setMedewerker($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 4, NULL);
+			$dbData = array_pad($dbData, 4, 0);
+
             $this->setEmailadress($dbData[0]);
 			$this->setVoornaam($dbData[1]);
 			$this->setAchternaam($dbData[2]);
@@ -49,14 +50,45 @@
         } 
 		
 		//get employee data
-		public function getMedewerkerProcedure($Medewerker, $emailadressMedewerker){
-			define("SERVER_IP", "localhost");
-			$db = mysqli_connect(SERVER_IP, "root","root","project2");
-			$result = $db->query("CALL getMedewerker('{$emailadressMedewerker}')");
+		public function getMedewerkerProcedure($emailadresMedewerker){
+			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
+			$result = $db->query("CALL getMedewerker('{$emailadresMedewerker}')");
 			$db->close();
-			$Medewerker->setMedewerker($result);
+			$this->setMedewerker($result);
 		}
 
+		//Takes the Employee part of an Ticket and shows it's info, if there is no employee, it can be assigned to yourself
+		function showMedewerkerNaam(){
+			if(!empty($this)){
+				echo "{$this->getVoornaam()} {$this->getAchternaam()}";
+			}
+			else{
+				echo "<form action='singleTicketAction.php?TicketId={$_GET['TicketId']}' method='POST'><input type='submit' name='assignSelf' value='Behandelen'></form>";
+			}
+		}
+
+		//Turns an array of Medewerkers into an option list for a <select> element
+		function makeMedewerkerOptionList($array){
+			if (!empty($array)){
+				foreach ($array as $tempMedewerker){
+					$value = $tempMedewerker->getEmailadress();
+					echo "<option value='{$value}'>{$value}</option>";
+				}
+			}
+		}
+
+		//Let's an admin assign a ticket to another employee
+		function medewerkerAssignment($ticketMedewerker, $array){
+			if($this->getAdmin() == (int)1){
+				echo "{$ticketMedewerker->getVoornaam()} {$ticketMedewerker->getAchternaam()}";
+				echo "<p>Medewerker toewijzen:</p>";
+				echo "<form action='singleTicketAction.php?TicketId={$_GET['TicketId']}' method='POST'><select class='employeeAssign' name='selectedMedewerker'>";
+				$this->makeMedewerkerOptionList($array);
+				echo "<input type='submit' name='assignMedewerker' value='Toewijzen'></select></form>";
+			}else{
+				$ticketMedewerker->showMedewerkerNaam();
+			}
+		}
     }
 
 ?>

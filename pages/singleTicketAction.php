@@ -1,14 +1,26 @@
 ﻿<?php
     session_start();
-    include "../classes/medewerker.php";
+    include '../classes/medewerker.php';
     include '../classes/Ticket.php';
+    
     include '../functions.php';
 
-    define("SERVER_IP", "localhost");
+    define("SERVER_IP", "localhost"); 
+
+    $optionArray = array();
+    $optionArray = getMedewerkers();
 
     $Medewerker = new medewerker();
     $Medewerker->setEmailadress($_SESSION['email']);
-    $Medewerker->getMedewerkerProcedure($Medewerker->getEmailadress());
+    $Ticket = new Ticket();
+    $Ticket->setId($_GET['TicketId']);
+
+    employeeAssignSelf($Ticket);
+    employeeAssign($Ticket);
+
+    $Ticket->getSingleTicket();
+    header("Location: singleTicketOverview.php?TicketId={$_GET['TicketId']}");
+    die();
 ?>﻿
 <!DOCTYPE HTML>
 <html>
@@ -20,18 +32,5 @@
        <title>placeholder</title>
     </head>
     <body>
-        <?php
-            include_once 'menu/header.html';
-        ?>
-        <main>
-            <div class='leftDiv'>
-                <h1>Tickets</h1>
-            </div>
-            <div class='rightDiv'>
-                <?php
-                    getTicketsFromDb($Medewerker);
-                ?>
-            </div>
-        </main>
     </body>
 </html>
