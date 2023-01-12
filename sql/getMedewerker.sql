@@ -1,4 +1,3 @@
-
 DELIMITER &&  
 CREATE PROCEDURE getMedewerker (IN emailadressMedewerker char(255))
 BEGIN

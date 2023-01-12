@@ -2,7 +2,7 @@
 
 $emailadressMedewerker = "henk.henkerd@serviceit.nl"; //change hard codes email to email from cookie when login is ready
 $Medewerker = new Medewerker();
-$Medewerker->getMedewerkerProcedure($Medewerker, $emailadressMedewerker);
+$Medewerker->getMedewerkerProcedure($emailadressMedewerker);
 $Mnaam = $Medewerker->getVoornaam();
 
 include_once("menu/header_empl.html");

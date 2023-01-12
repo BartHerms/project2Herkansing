@@ -1,18 +1,26 @@
 ﻿<?php
+    session_start();
+    include '../classes/medewerker.php';
     include '../classes/Ticket.php';
+    
     include '../functions.php';
 
     define("SERVER_IP", "localhost"); 
 
-    $emailadressMedewerker = "peter.peterson@serviceit.nl";
+    $optionArray = array();
+    $optionArray = getMedewerkers();
 
+    $Medewerker = new medewerker();
+    $Medewerker->setEmailadress($_SESSION['email']);
+    $Medewerker->getMedewerkerProcedure($Medewerker->getEmailadress());
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
-    $Ticket->addMedewerkerToTicket($emailadressMedewerker);
     $Ticket->updateStatus();
+    $Ticket->setTicketGeopendOp();
     $Ticket->getSingleTicket();
-    $Ticket->__construct();
-    $Ticket->setMedewerker($Ticket->MedewerkerKlant, $emailadressMedewerker);
+    if(!empty($Ticket->getMedewerker()->getEmailadress())){
+        $Ticket->getMedewerker()->getMedewerkerProcedure($Ticket->getMedewerker()->getEmailadress());
+    }
 ?>﻿
 <!DOCTYPE HTML>
 <html>
@@ -38,7 +46,7 @@
                 </p>
                 <p>Behandelaar: <br>
                     <?php 
-                        showMedewerkerNaam($Ticket->getMedewerker());              
+                        $Medewerker->medewerkerAssignment($Ticket->getMedewerker(), $optionArray);            
                     ?>
                 </p>
                 <p id='bottomP'>Beoordelen: </p>
@@ -60,7 +68,7 @@
                         echo "<p>{$Ticket->getOnderwerp()}</p>";
                     ?>
                 </div>
-                <form action="ticketUpdateFormProcess.php" method="POST">
+                <form action="<?php echo "ticketUpdateFormProcess.php?TicketId={$Ticket->getId()}"; ?>" method="POST">
                     <textarea class='formBox' name="ticketText" required><?php echo $Ticket->getLogfile(); ?></textarea>
                     <input class='button' type="submit" name="submitTicket" value="Aanmaken">
                 </form>
