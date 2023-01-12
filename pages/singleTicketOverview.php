@@ -1,4 +1,5 @@
 ﻿<?php
+    session_start();
     include '../classes/medewerker.php';
     include '../classes/Ticket.php';
     
@@ -10,7 +11,7 @@
     $optionArray = getMedewerkers();
 
     $Medewerker = new medewerker();
-    $Medewerker->setEmailadress("peter.peterson@serviceit.nl");
+    $Medewerker->setEmailadress($_SESSION['email']);
     $Medewerker->getMedewerkerProcedure($Medewerker->getEmailadress());
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
@@ -67,7 +68,7 @@
                         echo "<p>{$Ticket->getOnderwerp()}</p>";
                     ?>
                 </div>
-                <form action="ticketUpdateFormProcess.php" method="POST">
+                <form action="<?php echo "ticketUpdateFormProcess.php?TicketId={$Ticket->getId()}"; ?>" method="POST">
                     <textarea class='formBox' name="ticketText" required><?php echo $Ticket->getLogfile(); ?></textarea>
                     <input class='button' type="submit" name="submitTicket" value="Aanmaken">
                 </form>

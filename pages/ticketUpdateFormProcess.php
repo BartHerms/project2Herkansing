@@ -6,13 +6,14 @@
     </head>
     <body>
         <?php
+            session_start();
             include '../classes/Ticket.php';
             include '../function.php';
 
             define("SERVER_IP", "localhost"); 
 
             $Ticket = new Ticket();
-            $Ticket->setId(3);
+            $Ticket->setId($_GET['TicketId']);
             $Ticket->getSingleTicket();
             $Ticket->processForm();
         ?>

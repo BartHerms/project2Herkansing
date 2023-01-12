@@ -1,4 +1,5 @@
 ﻿<?php
+    session_start();
     include "../classes/medewerker.php";
     include '../classes/Ticket.php';
     include '../functions.php';
@@ -6,7 +7,7 @@
     define("SERVER_IP", "localhost");
 
     $Medewerker = new medewerker();
-    $Medewerker->setEmailadress("sven.svensen@serviceit.nl");
+    $Medewerker->setEmailadress($_SESSION['email']);
     $Medewerker->getMedewerkerProcedure($Medewerker->getEmailadress());
 ?>﻿
 <!DOCTYPE HTML>

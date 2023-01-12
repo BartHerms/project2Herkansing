@@ -1,4 +1,5 @@
 ﻿<?php
+    session_start();
     include '../classes/Klant.php';
     include '../lasses/Dienst.php';
     include '../functions.php';
@@ -6,7 +7,7 @@
     define("SERVER_IP", "localhost");
 
     $Klant = new Klant();
-    $Klant->setEmailadress('test.klant@klanten.com');
+    $Klant->setEmailadress($_SESSION['email']);
     $optionArray = array();
     $optionArray = $Klant->getDienstenNotOfKlantProcedure();
 ?>﻿

@@ -1,4 +1,5 @@
 ﻿<?php
+    session_start();
     include '../classes/medewerker.php';
     include '../classes/Ticket.php';
     
@@ -10,7 +11,7 @@
     $optionArray = getMedewerkers();
 
     $Medewerker = new medewerker();
-    $Medewerker->setEmailadress("peter.peterson@serviceit.nl");
+    $Medewerker->setEmailadress($_SESSION['email']);
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
 
