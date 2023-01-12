@@ -9,13 +9,13 @@ include_once("menu/header_empl.html");
 ?>
 <h1> Goedemorgen <?php echo $Mnaam;?></h1>
     <div class="fastview ">
-            <a href="#"class="boxitem margin_employee">
+            <a href="klanten.php"class="boxitem margin_employee">
                 <p>klanten</p> 
             </a> 
-            <a href="#"class="boxitem margin_employee">
+            <a href="#"class="boxitem margin_employee"> /* Pagina mist*/
                 <p>Diensten</p> 
             </a> 
-            <a href="#"class="boxitem margin_employee">
+            <a href="ticketOverview.php"class="boxitem margin_employee">
                 <p>Tickets</p> 
             </a>     
     </div>

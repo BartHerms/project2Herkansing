@@ -1,4 +1,5 @@
 <?php
+	#[AllowDynamicProperties] //dit laat de dynamische creatie van een mederwerker in de ticket class toe in php 8.2 en hoger zie https://php.watch/versions/8.2/dynamic-properties-deprecated
     class Dienst
 	{
         private $id;
@@ -40,7 +41,7 @@
 
 		public function setDienst($queryResult){
 			$dbData = $queryResult->fetch_row();
-			$dbData = array_pad($dbData, 4, NULL);
+			$dbData = array_pad($dbData, 4, 0);
 
 			$this->setId($dbData[0]);
 			$this->setNaam($dbData[1]);

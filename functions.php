@@ -1,16 +1,21 @@
 <?php
 //get the tickets based on customer email
-function getRecentTicketsFromDb(){
+function getRecentTicketsFromDb($emailadressKlant){
+    
     $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
-    $result = $db->query("CALL getTickets()");
+    $result = $db->query("CALL getRecentTickets('{$emailadressKlant}')");
     $db->close();
     $rowCount = $result->num_rows;
 
+    if($rowCount > 0){
         for ($counter = 1; $counter <= $rowCount; $counter++){
             $Ticket = new Ticket();
             $Ticket->setTicket($result);
-            echo "<a href='' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
+            echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
         }
+    } else{
+        echo "je hebt nog geen tickets";
+    }    
 }
 
 //takes an array filled with Diensten and makes <option>'s for a <select> from them
@@ -22,7 +27,7 @@ function makeOptionList($array){
         }
     }
     else{
-        echo "<option value='null'>U heeft alle diensten all</option>";
+        echo "<option value='null'>Je beschrikt momenteel over alle diensten</option>";
     }
 }
 
