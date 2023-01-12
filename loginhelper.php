@@ -10,12 +10,10 @@ if(isset($_POST['submitlogin']))
 
     $db = mysqli_connect("localhost", "root", "", "project2");
     $result = $db->query("call getLoginValue('{$userEmail}')");
-    // call moet nog aangepast worden
     $db-> close();
     $LoginKlant = new loginKlant();
     $LoginKlant-> setLoginKlant($result);
     if (password_verify( $LoginKlant-> getPassword(), $userPassword))
-    // password verify bestaat nog niet in de loginklant class
     {   
         $_SESSION['email'] = $userEmail;
         $_SESSION['loggedIn'] = true;
