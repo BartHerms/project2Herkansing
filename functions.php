@@ -1,17 +1,22 @@
 <?php
-
+session_start();
 //get the tickets based on customer email
 function getRecentTicketsFromDb(){
+    $mail = $_SESSION['email'];
     $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
-    $result = $db->query("CALL getTickets()");
+    $result = $db->query("CALL getRecentTickets('{$mail}')");
     $db->close();
     $rowCount = $result->num_rows;
 
+    if($rowCount > 0){
         for ($counter = 1; $counter <= $rowCount; $counter++){
             $Ticket = new Ticket();
             $Ticket->setTicket($result);
             echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
         }
+    } else{
+        echo "je hebt nog geen tickets";
+    }    
 }
 
 

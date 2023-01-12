@@ -12,8 +12,8 @@ include_once("menu/header.html");
 
 <div class="fastview">
         <div class="row">
-        <h3>Laatste tickets</h3>
-        <?php getRecentTicketsFromDb(); ?>
+        <h3>Recente tickets</h3>
+        <?php getRecentTicketsFromDb($emailadressKlant); ?>
         </div>    
         <div class="row">
             <h3>Mijn diensten</h3>
