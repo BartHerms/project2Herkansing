@@ -4,15 +4,15 @@
 
     define("SERVER_IP", "localhost"); 
 
-    //$emailadressMedewerker = "peter.peterson@serviceit.nl";
+    $emailadressMedewerker = "peter.peterson@serviceit.nl";
 
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
     $Ticket->addMedewerkerToTicket($emailadressMedewerker);
     $Ticket->updateStatus();
     $Ticket->getSingleTicket();
-    //$Ticket->__construct();
-    //$Ticket->setMedewerker($Ticket->Medewerker, $emailadressMedewerker);
+    $Ticket->__construct();
+    $Ticket->setMedewerker($Ticket->MedewerkerKlant, $emailadressMedewerker);
 ?>﻿
 <!DOCTYPE HTML>
 <html>

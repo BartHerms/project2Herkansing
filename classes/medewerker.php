@@ -1,5 +1,5 @@
 <?php
-
+	#[AllowDynamicProperties] //dit laat de dynamische creatie van een mederwerker in de ticket class toe in php 8.2 en hoger
     class Medewerker
 	{
         private $emailadres;

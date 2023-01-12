@@ -49,7 +49,7 @@ function makeOptionList($array){
         }
     }
     else{
-        echo "<option value='null'>U heeft alle diensten all</option>";
+        echo "<option value='null'>Je beschrikt momenteel over alle diensten</option>";
     }
 }
 function getTicketsFromDb(){
