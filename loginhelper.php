@@ -16,6 +16,10 @@ if(isset($_POST['submitlogin']))
     {   
         $_SESSION['email'] = $userEmail;
         $_SESSION['loggedIn'] = true;
+        
+        //if useremail contains service it
+        //then $_session isklant = false
+        //otherwise = true
         header("location:home.php");
     }
     else
