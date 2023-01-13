@@ -182,10 +182,15 @@
 			$db->close();
 			$rowCount = $result->num_rows;
 
-			for ($counter = 1; $counter <= $rowCount; $counter++){
-				$Dienst = new Dienst();
-				$Dienst->setDienst($result);
-				echo "<a href='' class='entry'><p>{$Dienst->getNaam()}</p></a>";
+			if($rowCount > 0){
+				for ($counter = 1; $counter <= $rowCount; $counter++){
+					$Dienst = new Dienst();
+					$Dienst->setDienst($result);
+					echo "<a href='' class='entry'><p>{$Dienst->getNaam()}</p></a>";
+				}
+			} else{
+				echo "Je hebt geen diensten";
+
 			}
 		}
 	}

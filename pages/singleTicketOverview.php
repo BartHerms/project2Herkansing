@@ -1,6 +1,6 @@
 ﻿<?php
     session_start();
-    include '../classes/medewerker.php';
+    include '../classes/Medewerker.php';
     include '../classes/Ticket.php';
     
     include '../functions.php';
@@ -10,9 +10,9 @@
     $optionArray = array();
     $optionArray = getMedewerkers();
 
-    $Medewerker = new medewerker();
-    $Medewerker->setEmailadress($_SESSION['email']);
-    $Medewerker->getMedewerkerProcedure($Medewerker->getEmailadress());
+    $Medewerkerst = new Medewerker();
+    $Medewerkerst->setEmailadress($_SESSION['email']);
+    $Medewerkerst->getMedewerkerProcedure($Medewerkerst->getEmailadress());
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
     $Ticket->updateStatus();
@@ -46,7 +46,7 @@
                 </p>
                 <p>Behandelaar: <br>
                     <?php 
-                        $Medewerker->medewerkerAssignment($Ticket->getMedewerker(), $optionArray);            
+                        $Medewerkerst->medewerkerAssignment($Ticket->getMedewerker(), $optionArray);            
                     ?>
                 </p>
                 <p id='bottomP'>Beoordelen: </p>

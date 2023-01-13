@@ -1,14 +1,14 @@
 ﻿<?php
     session_start();
-    include "../classes/medewerker.php";
+    include "../classes/Medewerker.php";
     include '../classes/Ticket.php';
     include '../functions.php';
 
     define("SERVER_IP", "localhost");
 
-    $Medewerker = new medewerker();
-    $Medewerker->setEmailadress($_SESSION['email']);
-    $Medewerker->getMedewerkerProcedure($Medewerker->getEmailadress());
+    $Medewerkerto = new Medewerker();
+    $Medewerkerto->setEmailadress($_SESSION['email']);
+    $Medewerkerto->getMedewerkerProcedure($Medewerkerto->getEmailadress());
 ?>﻿
 <!DOCTYPE HTML>
 <html>
@@ -29,7 +29,7 @@
             </div>
             <div class='rightDiv'>
                 <?php
-                    getTicketsFromDb($Medewerker);
+                    getTicketsFromDb($Medewerkerto);
                 ?>
             </div>
         </main>

@@ -20,10 +20,12 @@ include '../functions.php';
 <body>
  
     <?php
-     $isKlant = 1;
-        if($isKlant){ 
+
+    
+  
+        if($_SESSION['isKlant'] == 3){ 
             include_once("klant_view.php");
-        } else if (!$isKlant){
+        } else if ($_SESSION['isKlant'] == 2){
             include_once("emplyee_view.php");
         } else{
             Print("404 pagina niet gevonden");

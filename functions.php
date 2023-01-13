@@ -33,7 +33,7 @@ function makeOptionList($array){
 
 //This function checks if the user is an admin, if so it shows all the tickets, otherwise it shows the tickets assigned to the user.
 function getTicketsFromDb($Medewerker){
-    $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
+    $db = mysqli_connect(SERVER_IP, "root", "root", "Project2");
     if($Medewerker->getAdmin() == (int)1){
         $result = $db->query("CALL getTickets()");
     }else{
