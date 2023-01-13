@@ -16,7 +16,13 @@ $Klant->getKlantProcedure();
     <title>Document</title>
 </head>
 <body>
-<?php include_once("../menu/header_empl.html"); ?>
+<?php 
+        if($_SESSION['isKlant'] == 3){
+            include_once("menu/header.html");
+        } else{
+            include_once("menu/header_empl.html");
+        }
+    ?>
     <div class="container">
         <div class="item">
             <h1>Profiel</h1>

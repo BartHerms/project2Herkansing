@@ -20,9 +20,13 @@
        <title>placeholder</title>
     </head>
     <body>
-        <?php
-            include_once 'menu/header.html';
-        ?>
+    <?php 
+        if($_SESSION['isKlant'] == 3){
+            include_once("../menu/header.html");
+        } else{
+            include_once("menu/header_empl.html");
+        }
+    ?>
         <main>
             <div class='leftDiv'>
                 <h1>Tickets</h1>
