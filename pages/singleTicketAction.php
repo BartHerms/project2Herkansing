@@ -1,6 +1,6 @@
 ﻿<?php
     session_start();
-    include '../classes/medewerker.php';
+    include '../classes/Medewerker.php';
     include '../classes/Ticket.php';
     
     include '../functions.php';
@@ -10,8 +10,8 @@
     $optionArray = array();
     $optionArray = getMedewerkers();
 
-    $Medewerker = new medewerker();
-    $Medewerker->setEmailadress($_SESSION['email']);
+    $MedewerkerTicket = new Medewerker();
+    $MedewerkerTicket->setEmailadress($_SESSION['email']);
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
 

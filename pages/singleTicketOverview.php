@@ -10,9 +10,9 @@
     $optionArray = array();
     $optionArray = getMedewerkers();
 
-    $Medewerkerst = new Medewerker();
-    $Medewerkerst->setEmailadress($_SESSION['email']);
-    $Medewerkerst->getMedewerkerProcedure($Medewerkerst->getEmailadress());
+    $Medewerkerto = new Medewerker();
+    $Medewerkerto->setEmailadress($_SESSION['email']);
+    $Medewerkerto->getMedewerkerProcedure($Medewerkerto->getEmailadress());
     $Ticket = new Ticket();
     $Ticket->setId($_GET['TicketId']);
     $Ticket->updateStatus();
@@ -50,7 +50,7 @@
                 </p>
                 <p>Behandelaar: <br>
                     <?php 
-                        $Medewerkerst->medewerkerAssignment($Ticket->getMedewerker(), $optionArray);            
+                        $Medewerkerto->medewerkerAssignment($Ticket->getMedewerker(), $optionArray);            
                     ?>
                 </p>
                 <p id='bottomP'>Beoordelen: </p>
