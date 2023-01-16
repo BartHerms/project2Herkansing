@@ -28,7 +28,7 @@ $Klant->getKlantProcedure();
             <h1>Profiel</h1>
             <div class="profilephoto">
                 <img src="images/profilepicture.jpg" alt="test">
-                <a href="#">Tickets bekijken</a>
+                <a href="ticketOverview.php">Tickets bekijken</a>
                 <a href="#">Diensten bekijken</a>
             </div>
         </div>
