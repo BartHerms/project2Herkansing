@@ -72,7 +72,7 @@
                         echo "<p>{$Ticket->getOnderwerp()}</p>";
                     ?>
                 </div>
-                <form action="<?php echo "ticketUpdateFormProcess.php?TicketId={$Ticket->getId()}"; ?>" method="POST">
+                <form action="<?php echo "singleTicketAction.php?TicketId={$Ticket->getId()}"; ?>" method="POST">
                     <textarea class='formBox' name="ticketText" required><?php echo $Ticket->getLogfile(); ?></textarea>
                     <input class='button' type="submit" name="submitTicket" value="Aanmaken">
                 </form>

@@ -123,7 +123,7 @@ class Ticket{
 		//gets and verifies data from form and calls pushTicket
 		public function processForm(){
 			if (isset($_POST['submitTicket'])){
-				$ticketText = filter_input(INPUT_POST, 'ticketText', FILTER_SANITIZE_STRING);;
+				$ticketText = filter_input(INPUT_POST, 'ticketText', FILTER_SANITIZE_STRING);
 				if (!empty($ticketText)){
 					$ticketText = "{$ticketText} \n ================================================================ \n";
 					$this->pushTicket($ticketText);

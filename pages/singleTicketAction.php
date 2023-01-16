@@ -19,6 +19,7 @@
     employeeAssign($Ticket);
 
     $Ticket->getSingleTicket();
+    $Ticket->processForm();
     header("Location: singleTicketOverview.php?TicketId={$_GET['TicketId']}");
     die();
 ?>﻿
