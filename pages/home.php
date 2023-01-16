@@ -5,7 +5,7 @@ include '../classes/Medewerker.php';
 include '../classes/ticket.php';
 include '../classes/dienst.php';
 include '../functions.php';
-
+define("SERVER_IP", "localhost");
 
 ?>
 <!DOCTYPE html>
