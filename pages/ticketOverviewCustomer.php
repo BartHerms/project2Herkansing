@@ -28,13 +28,15 @@
         }
     ?>
         <main>
-            <div class='leftDiv'>
+            <div class='leftDiv wide'>
                 <h1>Tickets</h1>
+                <a class="reqTick" href="ticketPage.php">Ticket aanmaken</a>
             </div>
-            <div class='rightDiv'>
+            <div class='rightDiv customers'>
                 <?php
                     getKlantTicketsFromDb($Klant->getEmailadress());
                 ?>
+                
             </div>
         </main>
     </body>
