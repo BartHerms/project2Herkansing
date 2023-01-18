@@ -11,14 +11,14 @@ function getRecentTicketsFromDb($emailadressKlant){
         for ($counter = 1; $counter <= $rowCount; $counter++){
             $Ticket = new Ticket();
             $Ticket->setTicket($result);
-            echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
+            echo "<a href='stocustomer.php?TicketId={$Ticket->getId()}' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
         }
     } else{
         echo "je hebt nog geen tickets";
     }    
 }
 
-//same as get recent tickets but with a higher klimit for ticket overvieuw
+//same as get recent tickets but with a higher limit for ticket overvieuw
 function getKlantTicketsFromDb($emailadressKlant){
     
     $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
@@ -30,7 +30,7 @@ function getKlantTicketsFromDb($emailadressKlant){
         for ($counter = 1; $counter <= $rowCount; $counter++){
             $Ticket = new Ticket();
             $Ticket->setTicket($result);
-            echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
+            echo "<a href='stocustomer.php?TicketId={$Ticket->getId()}' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
         }
     } else{
         echo "<p class='noTicket'>Je hebt nog geen tickets</p>";
