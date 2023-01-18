@@ -29,7 +29,6 @@ if(isset($_POST['submitlogin']))
          if(in_array(substr($userEmail, strrpos($userEmail, '@') + 1), $acceptedDomains))
         {
             $_SESSION['isKlant'] = 2;
-            $_SESSION['memail'] =  $userEmail;
             header("location:pages/home.php");
         } else{
             $_SESSION['isKlant'] = 3;

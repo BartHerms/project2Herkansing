@@ -43,7 +43,7 @@
                 </p>
                 <p>Behandelaar: <br>
                     <?php 
-                    $b = $Ticket->getMedewerker()->getVoornaam();
+                    $b = $Ticket->getMedewerker()->getEmailadress();
                     if($b !== NULL){
                         print $b;
                     } else{
