@@ -13,7 +13,7 @@ include_once("menu/header.html");
 <div class="fastview">
         <div class="row">
         <h3>Recente tickets</h3>
-        <?php getRecentTicketsFromDb($emailadressKlant); ?>
+        <?php getRecentTicketsFromDb($Klant->getEmailadress()); ?>
         </div>    
         <div class="row">
             <h3>Mijn diensten</h3>

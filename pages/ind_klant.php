@@ -4,6 +4,7 @@ include '../classes/Klant.php';
 $Klant = new Klant();
 $Klant->setEmailadress($_GET['email']);
 $Klant->getKlantProcedure();
+$knaam = $Klant->getVoornaam();
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ $Klant->getKlantProcedure();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../style.css" type="text/css" rel="stylesheet">
-    <title>Document</title>
+    <title>overizicht: <?php print $knaam;?></title>
 </head>
 <body>
 <?php 
@@ -23,13 +24,13 @@ $Klant->getKlantProcedure();
             include_once("menu/header_empl.html");
         }
     ?>
-    <div class="container">
-        <div class="item">
+    <main>
+        <div class="leftDiv klant">
             <h1>Profiel</h1>
             <div class="profilephoto">
                 <img src="images/profilepicture.jpg" alt="test">
-                <a href="ticketOverview.php">Tickets bekijken</a>
-                <a href="#">Diensten bekijken</a>
+                <a class="quicklink"href="ticketOverview.php">Tickets bekijken</a>
+                <a class="quicklink"href="#">Diensten bekijken</a>
             </div>
         </div>
         <div class="item">
@@ -56,7 +57,7 @@ $Klant->getKlantProcedure();
                 </form>
             </div>
         </div>
-    </div>
+    </main>
     
 </body>
 </html>

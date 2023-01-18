@@ -22,12 +22,15 @@
     ?>
 
 
-    <div class="customers">
-    <aside><p>Klanten</p></aside>
-        <div class="crow">
-        <?php  getCustomerList();?>
-        </div>
-    </div>
-    
+<main>    
+    <div class='leftDiv'>
+                <h1>klanten</h1>
+            </div>
+            <div class='rightDiv customers'>
+                <?php
+                   getCustomerList();
+                ?>
+            </div>
+</main>  
 </body>
 </html>

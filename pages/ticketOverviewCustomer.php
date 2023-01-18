@@ -1,14 +1,14 @@
-﻿<?php
+<?php
     session_start();
-    include "../classes/Medewerker.php";
+    include "../classes/Klant.php";
     include '../classes/Ticket.php';
     include '../functions.php';
 
-    define("SERVER_IP", "localhost");
+    $Klant = new Klant();
+    $Klant->setEmailadress($_SESSION['email']);
+    $Klant->getKlantProcedure();
 
-    $Medewerkerto = new Medewerker();
-    $Medewerkerto->setEmailadress($_SESSION['email']);
-    $Medewerkerto->getMedewerkerProcedure($Medewerkerto->getEmailadress());
+    
 ?>﻿
 <!DOCTYPE HTML>
 <html>
@@ -17,12 +17,12 @@
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link href="../style.css" type="text/css" rel="stylesheet">
-       <title>ticket overzicht</title>
+       <title>Ticket overzicht</title>
     </head>
     <body>
     <?php 
         if($_SESSION['isKlant'] == 3){
-            include_once("../menu/header.html");
+            include_once("menu/header.html");
         } else{
             include_once("menu/header_empl.html");
         }
@@ -33,7 +33,7 @@
             </div>
             <div class='rightDiv'>
                 <?php
-                    getTicketsFromDb($Medewerkerto);
+                    getKlantTicketsFromDb($Klant->getEmailadress());
                 ?>
             </div>
         </main>

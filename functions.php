@@ -18,6 +18,25 @@ function getRecentTicketsFromDb($emailadressKlant){
     }    
 }
 
+//same as get recent tickets but with a higher klimit for ticket overvieuw
+function getKlantTicketsFromDb($emailadressKlant){
+    
+    $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
+    $result = $db->query("CALL getKlantenTickets('{$emailadressKlant}')");
+    $db->close();
+    $rowCount = $result->num_rows;
+
+    if($rowCount > 0){
+        for ($counter = 1; $counter <= $rowCount; $counter++){
+            $Ticket = new Ticket();
+            $Ticket->setTicket($result);
+            echo "<a href='singleTicketOverview.php?TicketId={$Ticket->getId()}' class='entry'><p>{$Ticket->getOnderwerp()}</p></a>";  
+        }
+    } else{
+        echo "<p class='noTicket'>Je hebt nog geen tickets</p>";
+    }    
+}
+
 //takes an array filled with Diensten and makes <option>'s for a <select> from them
 function makeOptionList($array){
     if (!empty($array)){

@@ -170,6 +170,9 @@ main {
     width: 1250px;
 }
 
+.rightDiv .noTicket{
+    Margin-top: 65px;
+}
 .rightDiv * {
     font-size: 30px;
 }
@@ -227,6 +230,7 @@ main {
     padding: 15px 15px 15px 15px;
     border-style: solid;
     border-width: 1px;
+    margin-top: 55px;
 }
 
 .ticketList:hover{
@@ -237,6 +241,7 @@ main {
 .rightDiv a {
     text-decoration: none;
     color: black;
+    margin-top: 55px;
 }
 
 .icons {
@@ -264,16 +269,8 @@ main {
     border-color: red;
 }
 
-/*customer overview*/
-aside p {
-    font-size: 45px;
-    margin-left: 153px;
-    margin-top: 102px;
-}
-
-.crow{
-    float: right;
-    margin-right: 300px;
+.customers{
+margin-left: 750px;
 }
 
 /*profile*/
@@ -287,6 +284,9 @@ aside p {
     width: 600px;
     display: flex;
     flex-direction: row;
+}
+.klant{
+    margin-left: 50px;
 }
 
 /*profilephoto block*/
@@ -314,14 +314,23 @@ aside p {
 .profileinformation {
     display: flex;
     flex-direction: column;
+    margin-right: 350px;
+    margin-top: 55px;
 }
+
 
 form {
     margin-top: 10px;
 }
+.quicklink{
+    font-size: 25px;
+}
+.item{
+    margin-right: 50px;
+}
 
-input[type=text], input[type=email], input[type=int] {
-    width: 100%;
+.item iteminput[type=text], input[type=email], input[type=int] {
+    width: 450px;
     padding: 12px 20px;
     margin: 8px 0 8px 0;
     border: 1px solid #ccc;
@@ -330,7 +339,7 @@ input[type=text], input[type=email], input[type=int] {
     box-sizing: border-box;  
 }
 
-input[type=submit] {
+.item input[type=submit] {
     width: 100%;
     background-color: #FDA509;
     color: white;
