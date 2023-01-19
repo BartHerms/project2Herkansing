@@ -53,7 +53,6 @@ $knaam = $Klant->getVoornaam();
                     <input type="email" name="email" value="<?php echo $Klant->getEmailadress(); ?>">
 
                     <input type="submit" name="edit" value="Profiel wijzigen">
-                    <input type="submit" name="remove" value="Profiel verwijderen">
                 </form>
             </div>
         </div>
