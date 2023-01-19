@@ -1,3 +1,7 @@
+<?php
+include_once("functions/dbconnect.php");
+include_once("functions/uploadimage.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
