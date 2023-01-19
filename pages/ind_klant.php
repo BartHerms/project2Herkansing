@@ -1,5 +1,7 @@
 <?php
+session_start();
 include '../classes/Klant.php';
+define("SERVER_IP", "localhost");
 
 $Klant = new Klant();
 $Klant->setEmailadress($_GET['email']);

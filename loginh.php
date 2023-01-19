@@ -6,10 +6,6 @@ if(isset($_POST['submitlogin']))
 {
     $userEmail = $_POST['email'];
     $userPassword = $_POST['password'];
-   // $isMedewerker = strpos($userEmail, "serviceit.nl");
-    //print($isMedewerker);
-  
-
 
     $db = mysqli_connect("localhost", "root", "root", "Project2");
     $result = $db->query("call getLoginValue('{$userEmail}')");
@@ -17,7 +13,6 @@ if(isset($_POST['submitlogin']))
     $db-> close();
     $LoginKlant = new loginKlant();
     $LoginKlant-> setLoginKlant($result);
-
 
     if (password_verify($userPassword, $LoginKlant->getPassword()))
     {   

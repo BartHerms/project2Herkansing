@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '../classes/Klant.php';
     include '../functions.php';
 
