@@ -2,7 +2,7 @@
     session_start();
     include '../classes/Klant.php';
     include '../classes/Dienst.php';
-    include '../function.php';
+    include '../functions.php';
             
     define("SERVER_IP", "localhost"); 
     $Klant = new Klant();
@@ -24,7 +24,14 @@
 	        include_once 'menu/header.html';
         ?>
         <main class='thanksMessage'>
-            <h1>Bedankt voor uw ticket</h1>
+        <?php
+            $selectedDienst = filter_input(INPUT_POST, 'selectedDienst', FILTER_SANITIZE_STRING);
+            if (!empty($selectedDienst)){
+                echo "<h1>Bedankt voor uw ticket</h1>";
+            }else{
+                echo "<h1>U heeft nog geen producten bij ons</h1>";
+            }
+        ?>
         </main>
     </body>
 </html>

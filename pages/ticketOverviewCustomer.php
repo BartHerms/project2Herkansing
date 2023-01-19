@@ -3,6 +3,7 @@
     include "../classes/Klant.php";
     include '../classes/Ticket.php';
     include '../functions.php';
+    define("SERVER_IP", "localhost");
 
     $Klant = new Klant();
     $Klant->setEmailadress($_SESSION['email']);

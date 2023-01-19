@@ -1,6 +1,6 @@
 <?php
 
-echo password_hash("een wachtwoord", PASSWORD_DEFAULT);
+echo password_hash("w4chtw00rd", PASSWORD_DEFAULT);
 
 
 ?>

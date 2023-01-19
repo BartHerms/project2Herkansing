@@ -101,7 +101,6 @@
 		//a function that executes the getKlant stored procedure.
         //it fills a Klant instance with info form the database
         function getKlantProcedure(){
-			define("SERVER_IP", "localhost");
             $db = mysqli_connect(SERVER_IP, "root", "root", "project2");
             $result = $db->query("CALL getKlant('{$this->getEmailadress()}')");
             $db->close();
@@ -112,7 +111,6 @@
 		//it fills an array of Dienst instances with Diensten that the Klant has.
 		function getDienstOfKlantProcedure(){
 			$dienstenArray = array();
-			define("SERVER_IP", "localhost");
 			$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 			$result = $db->query("CALL getDienstenOfKlant('{$this->getEmailadress()}')");
 			$db->close();

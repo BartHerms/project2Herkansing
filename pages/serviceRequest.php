@@ -1,7 +1,7 @@
 ﻿<?php
     session_start();
     include '../classes/Klant.php';
-    include '../lasses/Dienst.php';
+    include '../classes/Dienst.php';
     include '../functions.php';
 
     define("SERVER_IP", "localhost");
@@ -36,7 +36,9 @@
                             makeOptionList($optionArray);
                         ?>
                     </select>
-                    <textarea class='formBox' name="requestComment" placeholder="Stel hier uw vraag..." required></textarea>
+                    <div class="textareaDiv">
+                        <textarea name="requestComment" placeholder="Stel hier uw vraag..." required></textarea>
+                    </div>
                     <input class='button' type="submit" name="submitRequest" value="Aanvragen">
                 </form>
             </div>

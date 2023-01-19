@@ -1,5 +1,4 @@
 <?php
-session_start();
 $Klant = new Klant();
 $Klant->setEmailadress($_SESSION['email']);
 $Klant->getKlantProcedure();

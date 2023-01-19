@@ -38,6 +38,19 @@ function getKlantTicketsFromDb($emailadressKlant){
 }
 
 //takes an array filled with Diensten and makes <option>'s for a <select> from them
+function makeOptionListTicket($array){
+    if (!empty($array)){
+        foreach ($array as $DienstOfKlant){
+            $value = $DienstOfKlant->getNaam();
+            echo "<option value='{$value}'>{$value}</option>";
+        }
+    }
+    else{
+        echo "U heeft geen overeenkomsten.";
+    }
+}
+
+//takes an array filled with Diensten and makes <option>'s for a <select> from them
 function makeOptionList($array){
     if (!empty($array)){
         foreach ($array as $DienstOfKlant){
@@ -46,7 +59,7 @@ function makeOptionList($array){
         }
     }
     else{
-        echo "<option value='null'>Je beschrikt momenteel over alle diensten</option>";
+        echo "U heeft alle diensten al.";
     }
 }
 

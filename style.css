@@ -1,5 +1,3 @@
-
-
 *{
     margin: 0;
     font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-light", 
@@ -185,7 +183,17 @@ main {
 
 .rightDiv textarea {
     height: 450px;
-    width: 1250px;
+    width: 100%;
+    border-width: 0px;
+    resize: none;
+}
+
+.textareaDiv {
+    width: 1218px;
+    border-width: 1px;
+    border-style: solid;
+    margin: 0px auto 15px auto;
+    padding: 15px 15px 15px 15px;
 }
 
 .formBox {    

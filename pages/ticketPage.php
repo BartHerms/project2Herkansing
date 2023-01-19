@@ -34,10 +34,12 @@
                 <form action="ticketFormProcess.php" method="POST">
                     <select class='formBox' name="selectedDienst">
                         <?php
-                            makeOptionList($optionArray);
+                            makeOptionListTicket($optionArray);
                         ?>
                     </select>
-                    <textarea class='formBox' name="ticketText" placeholder="Stel hier uw vraag..." required></textarea>
+                    <div class="textareaDiv">
+                        <textarea name="ticketText" placeholder="Stel hier uw vraag..." required></textarea>
+                    </div>
                     <input class='button' type="submit" name="submitTicket" value="Aanmaken">
                 </form>
             </div>
