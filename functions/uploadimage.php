@@ -1,14 +1,11 @@
 <?php
-$filename = $_FILES["upload"]["name"];
-$filetype = $_FILES["upload"]["type"];
-
 if(isset($_POST["submit"])){
     //check if there is a file uploaded
     if(!empty($_FILES["upload"])){
-        $target_direction = "../images/";
-        $target_file = $target_direction . basename($filename);
+        $target_direction = "upload/";
+        $target_file = $target_direction . basename($_FILES["upload"]["name"]);
         $file = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $checkfilenamelength = strlen(basename($filename));
+        $checkfilenamelength = strlen(basename($_FILES["upload"]["name"]));
         
 
         //check if file already exists
@@ -23,11 +20,11 @@ if(isset($_POST["submit"])){
 
         //check the file name length
         if($checkfilenamelength > 50){
-            echo "Sorry bestandsnaam is groter dan 50 tekens";
+             echo "Sorry bestandsnaam is groter dan 50 tekens";
         }else{
             if($file == "png" || $file == "jpeg" || $file == "jpg"){
                 if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
-                    echo "Het bestand " . htmlspecialchars(basename($filename)) . " is succesvol geupload";
+                    echo "Het bestand " . htmlspecialchars(basename($_FILES["upload"]["name"])) . " is succesvol geupload";
                 }
             }
         }

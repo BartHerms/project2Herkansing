@@ -16,7 +16,7 @@ include_once("functions/uploadimage.php");
         <div class="uploadfile">
             <form action="" method="post" enctype="multipart/form-data">
                 <label for="upload">Upload nieuwe profielfoto</label>
-                <input type="file" name="upload">
+                <input type="file" name="upload" id="upload">
                 <input type="submit" name="submit" value="Profielfoto opslaan">
             </form>
         </div>
