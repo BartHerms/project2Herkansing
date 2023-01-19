@@ -109,3 +109,6 @@ input[type=submit]:hover {
 
   /* CSS foto wijzigen */
 
+.uploadfile {
+    margin-top: 50%;
+}
