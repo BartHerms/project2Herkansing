@@ -95,7 +95,7 @@ class Overeenkomst{
 		$dienstenArray = $this->getKlant()->getDienstenNotOfKlantProcedure();
 		foreach ($dienstenArray as $TempDienst){
 			if ($selectedDienst == $TempDienst->getNaam()){
-				$db = mysqli_connect(SERVER_IP, "root", null, "project2");
+				$db = mysqli_connect(SERVER_IP, "root", "root", "project2");
 				$this->error($db);
 				$result = $db->query("CALL makeNewOvereenkomst('{$this->getKlant()->getEmailadress()}', '{$TempDienst->getId()}', '{$requestComment}')");
 				$this->error($result);
