@@ -1,4 +1,6 @@
 <?php
+session_start();
+$email = $_SESSION['email'];
 include 'dbconnect.php';
 if(isset($_POST["submit"])){
     //check if there is a file uploaded
@@ -28,10 +30,10 @@ if(isset($_POST["submit"])){
                     echo "Het bestand " . htmlspecialchars(basename($_FILES["upload"]["name"])) . " is succesvol geupload";
                     $sql = "UPDATE klant SET profielfoto = ? WHERE emailadress = ?";
                         $stmt = mysqli_prepare($conn, $sql);
-                        $directory = "./uploads/" . $_FILES["upload"]["name"];
+                        $directory = "./upload/" . $_FILES["upload"]["name"];
                    
                     if($stmt = mysqli_prepare($conn, $sql)) {
-                        mysqli_stmt_bind_param($stmt, 's', $directory);
+                        mysqli_stmt_bind_param($stmt, 'ss', $directory, $email);
             
                         if(mysqli_stmt_execute($stmt)) {
                             echo "Query succesvol uitgevoerd!";
