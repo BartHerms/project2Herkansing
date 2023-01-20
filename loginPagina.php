@@ -10,15 +10,19 @@
 <body>
 <div>
     <?php
-    if ($_GET ['melding'] == 'fout') {
-        echo "Uw wachtwoord of email is onjuist";
-    } 
+    session_start();
     ?>
     
     <form id="form" action="loginh.php" method="post">
     <input type="text" id="text" name="email" placeholder="E-mail" required>
     <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
     <input type="submit" id="submitbutton" name="submitlogin">
+        <?php
+            if(isset($_SESSION['error'])){
+                $error = $_SESSION["error"];
+                echo "<span>$error</span>";
+            }
+        ?>
     </form>
 
     
@@ -26,3 +30,6 @@
 </div>
 </body>
 </html>
+<?php
+    unset($_SESSION["error"]);
+?>

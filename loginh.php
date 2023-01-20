@@ -2,6 +2,7 @@
 <?php include 'loginKlant.php' ?>
 
 <?php
+$error ="verkeerd email en/of wachtwoord";
 if(isset($_POST['submitlogin']))
 {
     $userEmail = $_POST['email'];
@@ -32,7 +33,8 @@ if(isset($_POST['submitlogin']))
     }
     else
     {
-        header("location:loginPagina.php?melding=fout");
+        $_SESSION['error'] = $error;
+        header("location:loginPagina.php");
     } 
 
 
