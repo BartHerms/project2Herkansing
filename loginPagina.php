@@ -9,7 +9,7 @@
 </head>
 <body>
 <div>
-    <form id="form" action="loginhelper.php" method="post">
+    <form id="form" action="loginh.php" method="post">
     <input type="text" id="text" name="email" placeholder="E-mail" required>
     <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
     <input type="submit" id="submitbutton" name="submitlogin">
