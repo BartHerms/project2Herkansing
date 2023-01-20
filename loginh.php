@@ -29,15 +29,10 @@ if(isset($_POST['submitlogin']))
             $_SESSION['isKlant'] = 3;
             header("location:pages/home.php");
         }  
-      
-        //if useremail contains service it
-        //then $_session isklant = false
-        //otherwise = true
-        
     }
     else
     {
-        header("location:loginPagina.php");
+        header("location:loginPagina.php?melding=fout");
     } 
 
 

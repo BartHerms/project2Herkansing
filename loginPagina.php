@@ -9,6 +9,11 @@
 </head>
 <body>
 <div>
+    <?php
+    if ($_GET ['melding'] == 'fout') {
+        echo "Uw wachtwoord of email is onjuist";
+    } 
+    ?>
     <form id="form" action="loginh.php" method="post">
     <input type="text" id="text" name="email" placeholder="E-mail" required>
     <input type="password" id="password" name="password" placeholder="Wachtwoord" required>

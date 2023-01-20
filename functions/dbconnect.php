@@ -1,7 +1,7 @@
 <?php
-$connection = mysqli_connect("localhost","root","","project2");
+$conn = mysqli_connect("localhost","root","root","project2");
 
-if(!$connection){
+if(!$conn){
     DIE("Kan geen verbinding maken met database omdat: " . mysqli_error($connectie));
 }
 ?>
