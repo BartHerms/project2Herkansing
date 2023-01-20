@@ -34,7 +34,7 @@ if(isset($_POST['submitlogin']))
     else
     {
         $_SESSION['error'] = $error;
-        header("location:loginPagina.php");
+        header("location:index.php");
     } 
 
 
