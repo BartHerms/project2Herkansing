@@ -12,17 +12,24 @@
     <?php
     if ($_GET ['melding'] == 'fout') {
         echo "Uw wachtwoord of email is onjuist";
-    } 
-    ?>
-    
-    <form id="form" action="loginh.php" method="post">
-    <input type="text" id="text" name="email" placeholder="E-mail" required>
-    <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
-    <input type="submit" id="submitbutton" name="submitlogin">
-    </form>
+        echo "<form id='form' action='loginh.php' method='post'>";
+        echo "<input type='text' id='text' name='email' placeholder='E-mail' required>";
+        echo "<input type='password' id='password' name='password' placeholder='Wachtwoord' required>";
+        echo "<input type='submit' id='submitbutton' name='submitlogin'>";
+        echo "</form>";
+        
 
-    
-    
+    } 
+    else
+    {
+        echo "<form id='form' action='loginh.php' method='post'>";
+        echo "<input type='text' id='text' name='email' placeholder='E-mail' required>";
+        echo "<input type='password' id='password' name='password' placeholder='Wachtwoord' required>";
+        echo "<input type='submit' id='submitbutton' name='submitlogin'>";
+        echo "</form>";
+    }
+    ?>
+
 </div>
 </body>
 </html>
