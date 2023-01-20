@@ -1,5 +1,6 @@
 <?php
-$sql = "SELECT emailadress, voornaam, achternaam, adres, bedrijf, telefoonnummer, postcode, profielfoto FROM klant";
+session_start();
+$sql = "SELECT emailadress, voornaam, achternaam, adres, bedrijf, telefoonnummer, postcode, profielfoto FROM klant WHERE emailadress = '" . $_SESSION['email'] . "'";
 
 if($statement = mysqli_prepare($conn, $sql)) {
     if(mysqli_stmt_execute($statement)) {
