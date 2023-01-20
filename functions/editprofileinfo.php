@@ -9,14 +9,14 @@ if(isset($_POST["submit"])){
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 
 
-        if($statement = mysqli_prepare($connection, $sql)) {
+        if($statement = mysqli_prepare($conn, $sql)) {
             mysqli_stmt_bind_param($statement, 'ssiss', $adress, $postcode, $telephonenumber, $email, $email);
 
             if(mysqli_stmt_execute($statement)) {
                 echo "Query succesvol uitgevoerd!";
             } else {
                 echo "Error tijdens uitvoeren van query";
-                die (mysqli_error($connection));
+                die (mysqli_error($conn));
             }
         }
     }else{
