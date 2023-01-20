@@ -1,6 +1,6 @@
 <?php
 
-echo password_hash("hoord niet", PASSWORD_DEFAULT);
+echo password_hash("simpel te zijn", PASSWORD_DEFAULT);
 
 
 ?>

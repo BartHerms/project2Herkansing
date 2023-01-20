@@ -7,7 +7,7 @@
 
     $Overeenkomst = new Overeenkomst();
     $Overeenkomst->getKlant()->setEmailadress($_SESSION['email']);
-    $Overeenkomst->processForm();
+    
 ?>﻿
 <!DOCTYPE HTML>
 <html>
@@ -18,6 +18,15 @@
     <body>
         <main>
             <h1>Bedankt</h1>
+            <?php
+            $selectedDienst = filter_input(INPUT_POST, 'selectedDienst', FILTER_SANITIZE_STRING);
+            if (!empty($selectedDienst)){
+                echo "<h1>Bedankt voor uw ticket</h1>";
+                $Overeenkomst->processForm();
+            }else{
+                echo "<h1>U heeft geen dienst geselecteerd</h1>";
+            }
+        ?>
         </main>
     </body>
 </html>
