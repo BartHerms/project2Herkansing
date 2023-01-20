@@ -5,7 +5,7 @@ include 'dbconnect.php';
 if(isset($_POST["submit"])){
     //check if there is a file uploaded
     if(!empty($_FILES["upload"])){
-        $target_direction = "upload/";
+        $target_direction = "../upload/";
         $target_file = $target_direction . basename($_FILES["upload"]["name"]);
         $file = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         $checkfilenamelength = strlen(basename($_FILES["upload"]["name"]));
@@ -37,6 +37,7 @@ if(isset($_POST["submit"])){
             
                         if(mysqli_stmt_execute($stmt)) {
                             echo "Query succesvol uitgevoerd!";
+                            header("location:../pages/home.php");
                         } else {
                             echo "Error tijdens uitvoeren van query";
                             die (mysqli_error($conn));

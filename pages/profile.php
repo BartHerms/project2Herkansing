@@ -40,6 +40,7 @@ include_once("../functions/editprofileinfo.php");
                     <input type="email" name="email" value="<?php echo $email; ?>">
 
                     <input type="submit" name="submit" value="Profiel wijzigen">
+                    <input type="submit" name="logout" value="uitloggen">
                 </form>
             </div>
         </div>
