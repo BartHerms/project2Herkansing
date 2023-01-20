@@ -208,7 +208,7 @@ main {
 .rightDiv textarea {
     height: 450px;
     width: 100%;
-    border-width: 0px;
+    border-width: 1px;
     resize: none;
 }
 

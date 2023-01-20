@@ -1,7 +1,7 @@
 <?php
-include_once("functions/dbconnect.php");
-include_once("functions/getprofileinfo.php");
-include_once("functions/editprofileinfo.php");
+include_once("../functions/dbconnect.php");
+include_once("../functions/getprofileinfo.php");
+include_once("../functions/editprofileinfo.php");
 
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ include_once("functions/editprofileinfo.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet/style.css">
+    <link rel="stylesheet" href="../stylesheet/style.css">
     <title>Profiel</title>
 </head>
 <body>

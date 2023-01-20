@@ -16,7 +16,7 @@
     <!-- include_once 'header' -->
     Je bent nu uitgelogd, terug naar het loginscherm?
     <ul>
-        <li><a href="loginPagina.php">ticketsysteem login</a></li>
+        <li><a href="index.php">ticketsysteem login</a></li>
     </ul>
     <!-- include_once 'footer" -->
 </body>
